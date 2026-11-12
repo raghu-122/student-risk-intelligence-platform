@@ -6,6 +6,21 @@
 [![Python](https://img.shields.io/badge/python-3.13-blue)](backend/)
 [![React](https://img.shields.io/badge/react-18-blue)](frontend/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.162-green)](backend/)
+[![Vercel](https://img.shields.io/badge/Vercel-Production%20Live-brightgreen)](https://student-risk-intelligence-platform.vercel.app/)
+[![Render](https://img.shields.io/badge/Render-API%20Live-brightgreen)](https://student-risk-intelligence-api-raghu.onrender.com/health)
+
+---
+
+### 🗂️ Repository Directory & Navigation
+
+| Component | Path | Description | Tech Stack | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| 📖 **Project README** | [`README.md`](./README.md) | Full architectural overview, quick start, API specs & documentation | Markdown | ✅ Complete |
+| 💻 **Frontend** | [`frontend/`](./frontend) | Interactive student risk dashboard, profiles & intervention UI | React 18, Vite, TypeScript, Tailwind | 🟢 [Live on Vercel](https://student-risk-intelligence-platform.vercel.app/) |
+| ⚙️ **Backend** | [`backend/`](./backend) | High-performance RESTful API, risk engine & authentication | FastAPI, SQLAlchemy, Pydantic | 🟢 [Live on Render](https://student-risk-intelligence-api-raghu.onrender.com/api/docs) |
+| 📊 **Data & Engine** | [`data/`](./data) | 5,000 students dataset, risk baselines & automated seeder | CSV, JSON, SQLAlchemy | ✅ 5,000 records seeded |
+| 📑 **Documentation** | [`docs/`](./docs) & [`documentation/`](./documentation) | Architecture audits, validation reports & schema specifications | Markdown | ✅ Verified |
+| 🧪 **Test Suite** | [`backend/tests/`](./backend/tests) | 42 automated tests covering auth, risk, workflow & API | Pytest, TestClient | ✅ 42/42 Passing |
 
 ---
 
@@ -222,6 +237,8 @@ Full interactive docs: `/api/docs`
    - `SECRET_KEY` — a strong random secret
    - `CORS_ORIGINS` — `["https://student-risk-intelligence-platform.vercel.app"]`
    - `ENVIRONMENT` — `production`
+
+Keep the Render service root at the repository root: startup seeding reads its CSV files from `data/generated/csv`. The `render.yaml` commands install the backend requirements and launch the app from `backend/`. On an empty or partially populated database, the API seeds the tracked core CSV datasets; it will fail startup with an explicit error if those required files are unavailable. The large attendance and LMS activity CSVs are gitignored, so provide those separately if those detailed records must be available in production.
 
 ### Frontend (Vercel)
 
