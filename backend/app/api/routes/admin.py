@@ -49,3 +49,37 @@ def system_stats(db: Session = Depends(get_db), _=Depends(require_roles(*ADMIN_R
         "audit_logs": db.query(func.count(AuditLog.log_id)).scalar(),
     }
 
+
+@router.post("/seed-database")
+def trigger_seed_database(
+    include_large: bool = True,
+    db: Session = Depends(get_db),
+    _=Depends(require_roles(*ADMIN_ROLES)),
+):
+    """Admin endpoint to populate database with starter/synthetic records."""
+    from app.db.seeder import seed_database
+    from app.db.database import engine
+    counts = seed_database(engine=engine, include_large_tables=include_large)
+    return {"status": "success", "counts": counts}
+
+
+@router.get("/seed-status")
+def seed_status(db: Session = Depends(get_db), _=Depends(require_roles(*ADMIN_ROLES))):
+    """Return record counts across all core tables."""
+    from sqlalchemy import text
+    tables = [
+        "students", "courses", "enrollments", "assessments",
+        "assessment_results", "attendance_events", "lms_activities",
+        "support_cases", "risk_assessments", "risk_factors",
+        "interventions", "outcomes", "data_quality_issues", "users",
+    ]
+    counts = {}
+    for tbl in tables:
+        try:
+            cnt = db.execute(text(f"SELECT COUNT(*) FROM {tbl}")).scalar()
+            counts[tbl] = cnt or 0
+        except Exception:
+            counts[tbl] = 0
+    return {"counts": counts}
+
+

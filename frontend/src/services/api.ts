@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+const DEFAULT_API_URL = import.meta.env.PROD
+  ? 'https://student-risk-intelligence-api-raghu.onrender.com'
+  : 'http://localhost:8000';
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_API_URL || DEFAULT_API_URL,
   headers: { 'Content-Type': 'application/json' },
 });
 

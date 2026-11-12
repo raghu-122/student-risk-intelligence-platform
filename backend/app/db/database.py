@@ -7,16 +7,22 @@ class Base(DeclarativeBase):
     pass
 
 
-_is_sqlite = settings.DATABASE_URL.startswith("sqlite")
+db_url = settings.DATABASE_URL
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql+psycopg2://", 1)
+elif db_url.startswith("postgresql://") and not any(d in db_url for d in ["+psycopg", "+psycopg2", "+asyncpg"]):
+    db_url = db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+
+_is_sqlite = db_url.startswith("sqlite")
 
 if _is_sqlite:
     engine = create_engine(
-        settings.DATABASE_URL,
+        db_url,
         connect_args={"check_same_thread": False},
     )
 else:
     engine = create_engine(
-        settings.DATABASE_URL,
+        db_url,
         pool_pre_ping=True,
         pool_recycle=300,
     )

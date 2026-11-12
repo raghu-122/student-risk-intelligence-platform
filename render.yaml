@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: student-risk-intelligence-platform
+    name: student-risk-intelligence-api-raghu
     env: python
     region: oregon
     plan: free
@@ -15,7 +15,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: CORS_ORIGINS
-        value: '["https://student-risk-intelligence-platform.vercel.app","http://localhost:5173"]'
+        value: '["https://student-risk-intelligence-platform.vercel.app","http://localhost:5173","http://localhost:3000"]'
       - key: ALGORITHM
         value: HS256
       - key: ACCESS_TOKEN_EXPIRE_MINUTES

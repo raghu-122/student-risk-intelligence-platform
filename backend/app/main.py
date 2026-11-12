@@ -16,8 +16,8 @@ from app.api.routes import (
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """ASGI lifespan: create tables and seed default users on startup.
-    Skips user seeding in test environments to keep startup fast.
+    """ASGI lifespan: create tables, seed default users, and populate seed data if empty.
+    Skips seeding in test environments to keep test suite fast.
     """
     import app.db.database as _db
     create_tables()
@@ -25,6 +25,13 @@ async def lifespan(app: FastAPI):
         db = _db.SessionLocal()
         try:
             seed_default_users(db)
+            from app.models.student import Student
+            if db.query(Student).count() == 0:
+                from app.db.seeder import seed_database
+                seed_database(engine=_db.engine)
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).warning(f"Startup data check/seed notice: {e}")
         finally:
             db.close()
     yield  # app runs here
