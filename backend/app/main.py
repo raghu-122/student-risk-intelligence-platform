@@ -1,27 +1,46 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 
 from app.core.config import settings
-from app.db.database import SessionLocal
 from app.db.init_db import create_tables, seed_default_users
 
 from app.api.routes import (
     auth, dashboard, students, courses, enrollments,
     attendance, assessments, lms, risk, support_cases,
     interventions, outcomes, data_quality, reports, admin,
+    analytics, health,
 )
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """ASGI lifespan: create tables and seed default users on startup.
+    Skips user seeding in test environments to keep startup fast.
+    """
+    import app.db.database as _db
+    create_tables()
+    if settings.ENVIRONMENT != "test":
+        db = _db.SessionLocal()
+        try:
+            seed_default_users(db)
+        finally:
+            db.close()
+    yield  # app runs here
+
 
 app = FastAPI(
     title="Student Risk Intelligence Platform API",
     description=(
-        "AI-powered Student Risk Intelligence & Intervention Management System. "
-        "Three-tier architecture: React frontend → FastAPI backend → PostgreSQL."
+        "Student Risk Intelligence & Intervention Management System. "
+        "Three-tier architecture: React frontend → FastAPI backend → PostgreSQL/SQLite."
     ),
     version="1.0.0",
     docs_url="/api/docs",
     redoc_url="/api/redoc",
     openapi_url="/api/openapi.json",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -31,17 +50,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-def startup_event() -> None:
-    """Create DB tables and seed default users on startup."""
-    create_tables()
-    db = SessionLocal()
-    try:
-        seed_default_users(db)
-    finally:
-        db.close()
 
 
 @app.get("/health", tags=["Health"])
@@ -72,4 +80,6 @@ app.include_router(outcomes.router, prefix=PREFIX)
 app.include_router(data_quality.router, prefix=PREFIX)
 app.include_router(reports.router, prefix=PREFIX)
 app.include_router(admin.router, prefix=PREFIX)
+app.include_router(analytics.router, prefix=PREFIX)
+app.include_router(health.router, prefix=PREFIX)
 

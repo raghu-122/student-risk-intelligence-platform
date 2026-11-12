@@ -13,9 +13,10 @@ for path in (str(ROOT), str(BACKEND_ROOT)):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-os.environ["DATABASE_URL"] = "sqlite+aiosqlite:///./test.db"
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test.db")
+# Set env vars BEFORE any app imports so pydantic-settings picks them up
+os.environ["DATABASE_URL"] = "sqlite:///./test_sqlite.db"
 os.environ["SECRET_KEY"] = "test-secret-key-for-testing-purposes-32chars"
+os.environ["ENVIRONMENT"] = "test"  # triggers low-cost bcrypt rounds
 
 # Override database for tests
 import app.db.database as _db_module

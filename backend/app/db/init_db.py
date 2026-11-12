@@ -1,13 +1,13 @@
 """Database initialization: create tables and seed default users."""
 from sqlalchemy.orm import Session
-from app.db.database import engine, Base
 from app.models import *  # noqa: F401,F403  — registers all ORM models with Base
 from app.core.security import hash_password
 
 
 def create_tables() -> None:
     """Create all database tables if they don't exist."""
-    Base.metadata.create_all(bind=engine)
+    import app.db.database as _db
+    _db.Base.metadata.create_all(bind=_db.engine)
 
 
 def seed_default_users(db: Session) -> None:

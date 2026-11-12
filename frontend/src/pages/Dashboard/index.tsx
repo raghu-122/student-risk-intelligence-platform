@@ -54,12 +54,12 @@ export default function Dashboard() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard label="Total Students" value={stats?.total_students ?? 0}
           icon={<Users size={22} />} color="indigo" />
-        <StatCard label="At Risk Students" value={stats?.at_risk_students ?? 0}
-          sub={`${stats?.critical_students ?? 0} critical`}
+        <StatCard label="At Risk Students" value={stats?.students_at_risk ?? stats?.at_risk_students ?? 0}
+          sub={`${stats?.high_risk_students ?? stats?.critical_students ?? 0} high risk`}
           icon={<AlertTriangle size={22} />} color="red" />
-        <StatCard label="Open Interventions" value={stats?.open_interventions ?? 0}
+        <StatCard label="Open Interventions" value={stats?.active_interventions ?? stats?.open_interventions ?? 0}
           icon={<Zap size={22} />} color="orange" />
-        <StatCard label="Outcomes Tracked" value={stats?.outcomes_tracked ?? 0}
+        <StatCard label="Students Improving" value={stats?.students_improving ?? stats?.outcomes_tracked ?? 0}
           icon={<TrendingUp size={22} />} color="green" />
       </div>
 
