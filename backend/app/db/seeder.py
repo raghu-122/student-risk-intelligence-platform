@@ -128,13 +128,17 @@ def _bulk_insert(conn, table_name: str, rows: List[Dict[str, Any]], columns: Lis
 
 def seed_database(engine: Optional[Engine] = None, include_large_tables: bool = True) -> Dict[str, int]:
     """Seed database with master, transactional, risk, and outcome records."""
+    from sqlalchemy.orm import sessionmaker
     eng = engine or default_engine
     logger.info("Starting database seeding...")
-    create_tables()
+    create_tables(bind=eng)
 
-    db = SessionLocal()
-    seed_default_users(db)
-    db.close()
+    Session = sessionmaker(bind=eng)
+    db = Session()
+    try:
+        seed_default_users(db)
+    finally:
+        db.close()
 
     counts: Dict[str, int] = {}
 
@@ -375,6 +379,8 @@ def seed_database(engine: Optional[Engine] = None, include_large_tables: bool = 
             att_rows = _read_csv("attendance_events.csv")
             if not att_rows:
                 att_rows = _read_json("attendance_events.json")
+                if len(att_rows) > 20000:
+                    att_rows = att_rows[:20000]
             if att_rows:
                 att_data = [{
                     "attendance_id": r["attendance_id"], "enrollment_id": r["enrollment_id"],
@@ -392,6 +398,8 @@ def seed_database(engine: Optional[Engine] = None, include_large_tables: bool = 
             lms_rows = _read_csv("lms_activities.csv")
             if not lms_rows:
                 lms_rows = _read_json("lms_activities.json")
+                if len(lms_rows) > 20000:
+                    lms_rows = lms_rows[:20000]
             if lms_rows:
                 lms_data = [{
                     "activity_id": r["activity_id"], "enrollment_id": r["enrollment_id"],

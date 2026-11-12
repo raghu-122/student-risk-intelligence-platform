@@ -4,10 +4,10 @@ from app.models import *  # noqa: F401,F403  — registers all ORM models with B
 from app.core.security import hash_password
 
 
-def create_tables() -> None:
+def create_tables(bind=None) -> None:
     """Create all database tables if they don't exist."""
     import app.db.database as _db
-    _db.Base.metadata.create_all(bind=_db.engine)
+    _db.Base.metadata.create_all(bind=bind or _db.engine)
 
 
 def seed_default_users(db: Session) -> None:
