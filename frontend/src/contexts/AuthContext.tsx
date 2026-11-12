@@ -4,7 +4,7 @@ import { authApi } from '../services/api';
 interface User {
   user_id: string;
   username: string;
-  email: string;
+  email?: string;
   role: string;
   full_name?: string;
 }
@@ -29,8 +29,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const storedToken = localStorage.getItem('access_token');
     if (storedToken) {
       authApi.me()
-        .then((res) => { setUser(res.data); setToken(storedToken); })
-        .catch(() => { localStorage.removeItem('access_token'); setToken(null); })
+        .then((res) => {
+          setUser(res.data);
+          setToken(storedToken);
+        })
+        .catch(() => {
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('user');
+          setUser(null);
+          setToken(null);
+        })
         .finally(() => setIsLoading(false));
     } else {
       setIsLoading(false);
@@ -39,14 +47,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (username: string, password: string) => {
     const res = await authApi.login(username, password);
-    const { access_token, user: userData } = res.data;
-    localStorage.setItem('access_token', access_token);
-    setToken(access_token);
+    const data = res.data;
+    if (!data?.access_token || !data?.user_id || !data?.username || !data?.role) {
+      throw new Error('The server returned an incomplete login response.');
+    }
+
+    // Match the FastAPI TokenResponse fields returned by POST /api/auth/login.
+    const userData: User = {
+      user_id: data.user_id,
+      username: data.username,
+      role: data.role,
+    };
+    localStorage.setItem('access_token', data.access_token);
+    localStorage.setItem('user', JSON.stringify(userData));
+    setToken(data.access_token);
     setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
     setToken(null);
     setUser(null);
   };
@@ -63,4 +83,3 @@ export function useAuth() {
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
   return ctx;
 }
-
