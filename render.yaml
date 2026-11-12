@@ -15,9 +15,8 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: CORS_ORIGINS
-        value: '["https://student-risk-intelligence-platform.vercel.app"]'
+        value: '["https://student-risk-intelligence-platform.vercel.app","http://localhost:5173"]'
       - key: ALGORITHM
         value: HS256
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
-        value: "30"
-
+        value: "480"
