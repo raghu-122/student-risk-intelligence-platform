@@ -1,0 +1,51 @@
+course_id,course_name,course_code,department,credits,semester,instructor_id
+CRS-000001,Mathematics Cultural II,MAT101,Mathematics,3,2026-S1,STF-000008
+CRS-000002,Physics Capital III,PHY102,Physics,2,2026-S1,STF-000009
+CRS-000003,Chemistry Onto I,CHE103,Chemistry,4,2026-S1,STF-000003
+CRS-000004,Biology Record II,BIO104,Biology,2,2026-S1,STF-000008
+CRS-000005,Engineering Between III,ENG105,Engineering,4,2026-S1,STF-000007
+CRS-000006,Business Administration Particular I,BUS106,Business Administration,2,2026-S1,STF-000008
+CRS-000007,Economics Wife II,ECO107,Economics,4,2026-S1,STF-000005
+CRS-000008,Psychology Business III,PSY108,Psychology,2,2026-S1,STF-000009
+CRS-000009,Sociology Call I,SOC109,Sociology,3,2026-S1,STF-000004
+CRS-000010,Computer Science Such II,COM110,Computer Science,2,2026-S1,STF-000007
+CRS-000011,Mathematics Party III,MAT111,Mathematics,2,2026-S1,STF-000008
+CRS-000012,Physics Worker I,PHY112,Physics,4,2026-S1,STF-000001
+CRS-000013,Chemistry Throw II,CHE113,Chemistry,3,2026-S1,STF-000010
+CRS-000014,Biology Security III,BIO114,Biology,2,2026-S1,STF-000007
+CRS-000015,Engineering Your I,ENG115,Engineering,3,2026-S1,STF-000001
+CRS-000016,Business Administration According II,BUS116,Business Administration,4,2026-S1,STF-000006
+CRS-000017,Economics Build III,ECO117,Economics,4,2026-S1,STF-000003
+CRS-000018,Psychology Treatment I,PSY118,Psychology,4,2026-S1,STF-000001
+CRS-000019,Sociology Blue II,SOC119,Sociology,4,2026-S1,STF-000006
+CRS-000020,Computer Science White III,COM120,Computer Science,3,2026-S1,STF-000004
+CRS-000021,Mathematics Notice I,MAT121,Mathematics,3,2026-S1,STF-000006
+CRS-000022,Physics According II,PHY122,Physics,2,2026-S1,STF-000008
+CRS-000023,Chemistry Television III,CHE123,Chemistry,4,2026-S1,STF-000008
+CRS-000024,Biology Single I,BIO124,Biology,2,2026-S1,STF-000005
+CRS-000025,Engineering Market II,ENG125,Engineering,4,2026-S1,STF-000006
+CRS-000026,Business Administration Involve III,BUS126,Business Administration,3,2026-S1,STF-000005
+CRS-000027,Economics Back I,ECO127,Economics,2,2026-S1,STF-000010
+CRS-000028,Psychology Set II,PSY128,Psychology,2,2026-S1,STF-000001
+CRS-000029,Sociology System III,SOC129,Sociology,3,2026-S1,STF-000009
+CRS-000030,Computer Science Peace I,COM130,Computer Science,4,2026-S1,STF-000003
+CRS-000031,Mathematics Cut II,MAT131,Mathematics,3,2026-S1,STF-000004
+CRS-000032,Physics Father III,PHY132,Physics,2,2026-S1,STF-000001
+CRS-000033,Chemistry Term I,CHE133,Chemistry,2,2026-S1,STF-000010
+CRS-000034,Biology Raise II,BIO134,Biology,3,2026-S1,STF-000008
+CRS-000035,Engineering Politics III,ENG135,Engineering,3,2026-S1,STF-000008
+CRS-000036,Business Administration Sister I,BUS136,Business Administration,2,2026-S1,STF-000009
+CRS-000037,Economics Event II,ECO137,Economics,2,2026-S1,STF-000005
+CRS-000038,Psychology Process III,PSY138,Psychology,3,2026-S1,STF-000004
+CRS-000039,Sociology Money I,SOC139,Sociology,3,2026-S1,STF-000004
+CRS-000040,Computer Science Generation II,COM140,Computer Science,4,2026-S1,STF-000001
+CRS-000041,Mathematics Site III,MAT141,Mathematics,2,2026-S1,STF-000007
+CRS-000042,Physics Family I,PHY142,Physics,4,2026-S1,STF-000006
+CRS-000043,Chemistry Red II,CHE143,Chemistry,3,2026-S1,STF-000005
+CRS-000044,Biology Teach III,BIO144,Biology,3,2026-S1,STF-000005
+CRS-000045,Engineering Any I,ENG145,Engineering,2,2026-S1,STF-000005
+CRS-000046,Business Administration Production II,BUS146,Business Administration,2,2026-S1,STF-000007
+CRS-000047,Economics Seven III,ECO147,Economics,2,2026-S1,STF-000008
+CRS-000048,Psychology Vote I,PSY148,Psychology,2,2026-S1,STF-000001
+CRS-000049,Sociology Top II,SOC149,Sociology,3,2026-S1,STF-000006
+CRS-000050,Computer Science Cultural III,COM150,Computer Science,4,2026-S1,STF-000005

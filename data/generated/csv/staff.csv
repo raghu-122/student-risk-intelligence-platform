@@ -1,0 +1,11 @@
+staff_id,first_name,last_name,email,role,department,is_active
+STF-000001,Erin,Riley,staff1@yottaflex.edu,ACADEMIC_ADMINISTRATOR,Mathematics,True
+STF-000002,Melissa,Williams,staff2@yottaflex.edu,SUPPORT_STAFF,Physics,True
+STF-000003,Madison,Hall,staff3@yottaflex.edu,INSTRUCTOR,Chemistry,True
+STF-000004,Aaron,Petersen,staff4@yottaflex.edu,ACADEMIC_ADMINISTRATOR,Biology,True
+STF-000005,David,Gonzalez,staff5@yottaflex.edu,SUPPORT_STAFF,Engineering,True
+STF-000006,Kyle,Miles,staff6@yottaflex.edu,INSTRUCTOR,Business Administration,True
+STF-000007,Diane,Rodriguez,staff7@yottaflex.edu,ACADEMIC_ADMINISTRATOR,Economics,True
+STF-000008,James,Hernandez,staff8@yottaflex.edu,SUPPORT_STAFF,Psychology,True
+STF-000009,Darrell,Garza,staff9@yottaflex.edu,INSTRUCTOR,Sociology,True
+STF-000010,Adam,Wilson,staff10@yottaflex.edu,ACADEMIC_ADMINISTRATOR,Computer Science,True

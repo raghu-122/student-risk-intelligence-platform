@@ -1,0 +1,41 @@
+{
+  "generator_version": "1.0.0",
+  "seed": 20261022,
+  "scale": "starter",
+  "generation_timestamp": "2026-11-12T08:30:54.784963",
+  "academic_year": "2026",
+  "academic_start": "2026-01-15",
+  "academic_end": "2026-12-15",
+  "risk_cutoff_date": "2026-07-01",
+  "entity_counts": {
+    "students": 500,
+    "courses": 50,
+    "enrollments": 2000,
+    "assessments": 218,
+    "attendance_events": 182970,
+    "assessment_results": 8359,
+    "lms_activities": 269364,
+    "support_cases": 78,
+    "interventions": 15,
+    "risk_assessments": 1926,
+    "outcomes": 643,
+    "ground_truth": 1648,
+    "data_quality_issues": 5
+  },
+  "file_checksums": {
+    "assessments.csv": "4ff5a17a1b8a8962e63119af0682c3e253ec6093b6e0e17c708074fbb3301510",
+    "assessment_results.csv": "f7a1129539a7e6a6fa3d89035796f177d9e9471d64bf4c58aaa904b66c68f606",
+    "attendance_events.csv": "1c45f902371bf9f50c0105713ed4b68bf790e5dfd1d8f8283348d39bcaedc412",
+    "courses.csv": "829c0a3aff8e240861cb8f29c39c1da385f3943d032bf90c13a5578f0c3df318",
+    "data_quality_issues.csv": "e4184a686bcc07e0d91386b538edd194ac73964092e28d434fe028323c36c28f",
+    "enrollments.csv": "7ec3262f5651b58aabe3cea472cbe856fc1d3003c81ea9bb66cb3f6fe3625903",
+    "interventions.csv": "1f1ab68a5c60a2d5b305197a4e425392ab0cf1f1643587fc6199d1fe48beea46",
+    "lms_activities.csv": "d442c83da0a291e1f3bfcec54375d16675879ea53babed17d3b1a98c1985bb70",
+    "outcomes.csv": "6fd9853ac3bca4f32654ea403c02037c826abe24421d7abb3e95ce8914979b2f",
+    "risk_assessments.csv": "9d5c7d52a64e63d329ee984cf70c21caa801b1d6b1ddf46468d4f0eb887ab984",
+    "staff.csv": "03caa86dcbf8066e4c83a40ceab1b5122fdad34a8e97f0dacdb37fefa5bfd534",
+    "students.csv": "8c3a17ff5a189746a2151d04cf540f6322e7b340ac07d65abb3c1b67ca389aad",
+    "support_cases.csv": "3378acfbd82890bf2ee7319a6d1155897150241854d8fe7fc938f017bc4f45ab",
+    "users.csv": "07c4c217ca244ed6daf222d3cb08b97e3aa16778faf838a55ec05b87d79f1a2c"
+  }
+}

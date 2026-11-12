@@ -1,0 +1,5 @@
+user_id,username,email,hashed_password,role,staff_id
+USR-000001,admin,admin@yottaflex.edu,$2b$12$placeholder_admin,PLATFORM_ADMINISTRATOR,STF-000001
+USR-000002,instructor1,instructor1@yottaflex.edu,$2b$12$placeholder_demo,INSTRUCTOR,STF-000002
+USR-000003,advisor1,advisor1@yottaflex.edu,$2b$12$placeholder_demo,ACADEMIC_ADMINISTRATOR,STF-000003
+USR-000004,support1,support1@yottaflex.edu,$2b$12$placeholder_demo,SUPPORT_STAFF,STF-000004

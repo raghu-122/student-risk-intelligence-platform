@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-11-12T08:30:54.783989",
+  "seed": 20261022,
+  "scale": "starter",
+  "row_counts": {
+    "students": 500,
+    "courses": 50,
+    "enrollments": 2000,
+    "assessments": 218,
+    "attendance_events": 182970,
+    "assessment_results": 8359,
+    "lms_activities": 269364,
+    "support_cases": 78,
+    "interventions": 15,
+    "risk_assessments": 1926,
+    "outcomes": 643,
+    "ground_truth": 1648,
+    "data_quality_issues": 5
+  },
+  "checks": [
+    {
+      "check": "student_pk_unique",
+      "result": "PASS",
+      "count": 500
+    },
+    {
+      "check": "course_pk_unique",
+      "result": "PASS",
+      "count": 50
+    },
+    {
+      "check": "enrollment_pk_unique",
+      "result": "PASS",
+      "count": 2000
+    },
+    {
+      "check": "no_duplicate_enrollments",
+      "result": "PASS",
+      "unique_pairs": 2000
+    },
+    {
+      "check": "risk_cutoff_temporal_integrity",
+      "result": "PASS",
+      "note": "All production risk scores use data up to 2026-07-01"
+    },
+    {
+      "check": "injected_anomalies",
+      "result": "PASS",
+      "count": 5
+    },
+    {
+      "check": "ground_truth_no_input_features",
+      "result": "PASS",
+      "note": "GT file contains labels only, no model input features"
+    },
+    {
+      "check": "attendance_denominator_correctness",
+      "result": "PASS",
+      "note": "Approved absences excluded from denominator in all production records"
+    },
+    {
+      "check": "null_marks_not_zero",
+      "result": "PASS",
+      "note": "NULL marks_obtained excluded from averages in production risk engine"
+    }
+  ],
+  "total_checks": 9,
+  "passed": 9,
+  "failed": 0,
+  "warnings": 0,
+  "validation_status": "PASS"
+}

@@ -1,0 +1,501 @@
+student_id,first_name,last_name,email,enrollment_date,academic_year,department,program,current_status
+STU-2026-000001,Bryan,Richmond,brendawells1@student.yottaflex.edu,2026-01-15,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000002,Anna,Palmer,stephensexton2@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000003,Christina,Butler,cody263@student.yottaflex.edu,2026-01-18,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000004,Kimberly,Martinez,simmonsjennifer4@student.yottaflex.edu,2026-01-18,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000005,Karen,Melton,nbradshaw5@student.yottaflex.edu,2026-01-17,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000006,Adam,Jones,cody836@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000007,Connie,Stevenson,ashleytucker7@student.yottaflex.edu,2026-01-21,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000008,Brittany,Ritter,diazkelsey8@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000009,Nicole,Webster,chandlerbarry9@student.yottaflex.edu,2026-01-23,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000010,Joanna,Ortega,kevinblack10@student.yottaflex.edu,2026-01-15,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000011,Megan,Wilson,vincenttaylor11@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000012,Jessica,Hampton,bonnie0012@student.yottaflex.edu,2026-01-22,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000013,Andrew,Daniel,bpalmer13@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000014,Nicole,Grant,haileystewart14@student.yottaflex.edu,2026-01-16,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000015,Melissa,Stewart,qramirez15@student.yottaflex.edu,2026-01-16,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000016,Lisa,Kelly,jhood16@student.yottaflex.edu,2026-01-15,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000017,Steven,Carter,gregory8217@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000018,Krystal,Carey,deborahsmith18@student.yottaflex.edu,2026-01-16,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000019,Emily,Ryan,rholt19@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000020,Kara,Gould,marymartinez20@student.yottaflex.edu,2026-01-17,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000021,Dylan,Olson,jparks21@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000022,Nathan,Lopez,franklinwayne22@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000023,Catherine,Gonzalez,lindsay5123@student.yottaflex.edu,2026-01-18,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000024,Amanda,Brown,jennifer6924@student.yottaflex.edu,2026-01-18,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000025,James,Powell,hernandeztracy25@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000026,John,Pope,garciajames26@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000027,Jacob,Yang,richardcoleman27@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000028,Brent,Valdez,catherine4028@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000029,David,Mitchell,eblack29@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000030,Michael,Nguyen,juliawoods30@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000031,Jennifer,Price,amykelley31@student.yottaflex.edu,2026-01-24,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000032,William,Duncan,zwang32@student.yottaflex.edu,2026-01-15,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000033,Charles,Lambert,pinedamary33@student.yottaflex.edu,2026-01-18,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000034,Jerry,Mullen,xwilliams34@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000035,Lori,Stone,francis5435@student.yottaflex.edu,2026-01-22,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000036,Andrea,Nelson,tammy0036@student.yottaflex.edu,2026-01-19,2026,Business Administration,BBA,ACTIVE
+STU-2026-000037,Diane,Mckee,david5537@student.yottaflex.edu,2026-01-21,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000038,Henry,Hayes,nicolepatterson38@student.yottaflex.edu,2026-01-16,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000039,Anthony,Sutton,paul8339@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000040,Timothy,Barker,chapmannicholas40@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000041,Timothy,Hudson,matthewgonzalez41@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000042,Karen,Smith,david9742@student.yottaflex.edu,2026-01-19,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000043,Juan,Hamilton,david5843@student.yottaflex.edu,2026-01-15,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000044,Danny,Warren,tadams44@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Mathematics,WITHDRAWN
+STU-2026-000045,Michael,Ramirez,duanewolf45@student.yottaflex.edu,2026-01-16,2026,Psychology,B.Sc Psychology,WITHDRAWN
+STU-2026-000046,Brittany,Grant,kenneth9846@student.yottaflex.edu,2026-01-19,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000047,Michael,Burgess,bhartman47@student.yottaflex.edu,2026-01-17,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000048,George,Gomez,billy7448@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000049,Timothy,Garcia,cookmichael49@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000050,Michael,Hopkins,heatheralvarado50@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000051,Joshua,Clark,johnsoncatherine51@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000052,Clarence,Rogers,willie3652@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA,ACTIVE
+STU-2026-000053,David,Smith,teresayu53@student.yottaflex.edu,2026-01-21,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000054,Adam,Alvarado,vhenson54@student.yottaflex.edu,2026-01-16,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000055,Michael,Jackson,stewartmathew55@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000056,Cheryl,Lynch,justinmcpherson56@student.yottaflex.edu,2026-01-16,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000057,Nicholas,Scott,kweaver57@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000058,Aaron,Villarreal,boyeremily58@student.yottaflex.edu,2026-01-23,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000059,Rebecca,Tate,caseyacosta59@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000060,Thomas,Collins,davidenglish60@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000061,Jose,Rosales,andrew3561@student.yottaflex.edu,2026-01-15,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000062,Douglas,Chavez,briannanixon62@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000063,Derek,White,vflores63@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000064,Brian,Williams,hernandezjay64@student.yottaflex.edu,2026-01-20,2026,Business Administration,BBA,ACTIVE
+STU-2026-000065,Brandon,Miller,emilydunlap65@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000066,Christopher,Moore,sarahvalencia66@student.yottaflex.edu,2026-01-17,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000067,Phillip,Young,nbaker67@student.yottaflex.edu,2026-01-22,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000068,Keith,Smith,annataylor68@student.yottaflex.edu,2026-01-21,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000069,Melissa,Chavez,rpaul69@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000070,Matthew,Hunt,courtneycampbell70@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000071,Allison,May,rosejorge71@student.yottaflex.edu,2026-01-22,2026,Business Administration,BBA,ACTIVE
+STU-2026-000072,Crystal,Taylor,oblair72@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000073,Linda,Chang,pennyfreeman73@student.yottaflex.edu,2026-01-17,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000074,Richard,Cooper,vmclean74@student.yottaflex.edu,2026-01-21,2026,Business Administration,BBA,ACTIVE
+STU-2026-000075,Anna,Perez,michelledavis75@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000076,Christopher,Terry,robertsmith76@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000077,Joseph,Riley,william8377@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000078,Carrie,Bradley,danielthomas78@student.yottaflex.edu,2026-01-20,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000079,Richard,Price,joshua2379@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000080,Jessica,Jackson,bmoore80@student.yottaflex.edu,2026-01-18,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000081,Emma,Obrien,rachel8381@student.yottaflex.edu,2026-01-17,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000082,Katherine,Dougherty,pwright82@student.yottaflex.edu,2026-01-19,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000083,Brandi,Carpenter,alejandrosampson83@student.yottaflex.edu,2026-01-18,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000084,Kathy,Walker,ghamilton84@student.yottaflex.edu,2026-01-17,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000085,Roger,Walker,dmyers85@student.yottaflex.edu,2026-01-15,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000086,Melissa,Day,daltonbradley86@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000087,Rachael,Hayes,chad3887@student.yottaflex.edu,2026-01-24,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000088,Amber,Warren,michael9588@student.yottaflex.edu,2026-01-17,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000089,Kimberly,Foley,oliviascott89@student.yottaflex.edu,2026-01-23,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000090,Ricky,White,itaylor90@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000091,Debra,Cohen,shellyjohnston91@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000092,Sarah,Mack,tracey2192@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000093,Daniel,Delacruz,ashley5193@student.yottaflex.edu,2026-01-24,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000094,Lisa,Hanson,evanrodriguez94@student.yottaflex.edu,2026-01-24,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000095,Alejandro,Aguilar,valerie8195@student.yottaflex.edu,2026-01-23,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000096,Jeff,Harris,jason4396@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Software Engineering,INACTIVE
+STU-2026-000097,Danielle,Cochran,kathleen1997@student.yottaflex.edu,2026-01-24,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000098,Christopher,Andrews,smallkenneth98@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000099,Rebecca,Livingston,melissaray99@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Mechanical,INACTIVE
+STU-2026-000100,Michele,Johnson,christopher90100@student.yottaflex.edu,2026-01-24,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000101,Timothy,Christensen,jennifer00101@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000102,Taylor,Jones,heidi49102@student.yottaflex.edu,2026-01-21,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000103,Rhonda,Bennett,colejessica103@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000104,Miranda,Young,kirsten60104@student.yottaflex.edu,2026-01-24,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000105,James,Wright,oevans105@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000106,Austin,Carter,grimeslindsey106@student.yottaflex.edu,2026-01-15,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000107,Jeffrey,Young,sgallegos107@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000108,Natalie,Allen,barronbobby108@student.yottaflex.edu,2026-01-22,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000109,Miranda,White,kimberly93109@student.yottaflex.edu,2026-01-21,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000110,Dean,Francis,kaylaweber110@student.yottaflex.edu,2026-01-17,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000111,Richard,Vincent,lmartin111@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000112,Matthew,Gonzalez,hicksphillip112@student.yottaflex.edu,2026-01-23,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000113,Andrew,Herrera,brian72113@student.yottaflex.edu,2026-01-15,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000114,Christopher,Houston,mitchellsheila114@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000115,Melissa,Howell,edgar90115@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000116,Cynthia,Peterson,aguirrevictoria116@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000117,Steven,Brown,mistysmith117@student.yottaflex.edu,2026-01-15,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000118,Arthur,Edwards,rmoore118@student.yottaflex.edu,2026-01-24,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000119,Jerry,Ramirez,beverlyadams119@student.yottaflex.edu,2026-01-19,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000120,Marie,Jackson,kylethomas120@student.yottaflex.edu,2026-01-17,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000121,Jennifer,Thompson,alexanderrowland121@student.yottaflex.edu,2026-01-19,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000122,Michelle,Brooks,johnsonnicole122@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000123,Martha,Hartman,jamiesmith123@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000124,Samantha,Robinson,lisa85124@student.yottaflex.edu,2026-01-24,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000125,Thomas,Shields,jacob99125@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000126,Yvonne,Bishop,janet21126@student.yottaflex.edu,2026-01-22,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000127,Dana,Moore,greenalexander127@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000128,Melissa,Tucker,chasedominguez128@student.yottaflex.edu,2026-01-17,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000129,Victoria,Bradley,pgrimes129@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000130,Ashley,Wolfe,npreston130@student.yottaflex.edu,2026-01-18,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000131,Randy,Sanchez,william72131@student.yottaflex.edu,2026-01-21,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000132,Jessica,Stevens,desireejuarez132@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000133,April,Jordan,blove133@student.yottaflex.edu,2026-01-24,2026,Biology,B.Sc Microbiology,INACTIVE
+STU-2026-000134,Derrick,Jackson,scottmays134@student.yottaflex.edu,2026-01-22,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000135,Kayla,Bray,kellerpatrick135@student.yottaflex.edu,2026-01-18,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000136,Michelle,Rivas,efrazier136@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000137,Adrian,Powell,dale82137@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000138,Benjamin,Horton,dennischristina138@student.yottaflex.edu,2026-01-15,2026,Business Administration,BBA,ACTIVE
+STU-2026-000139,Jonathan,Wheeler,alexandraaustin139@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000140,Donna,Hodges,brittany62140@student.yottaflex.edu,2026-01-19,2026,Business Administration,BBA,ACTIVE
+STU-2026-000141,Dustin,Figueroa,roger19141@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Physics,INACTIVE
+STU-2026-000142,James,Kelly,epotter142@student.yottaflex.edu,2026-01-16,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000143,Brittany,Quinn,robert36143@student.yottaflex.edu,2026-01-15,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000144,Caitlin,Burns,barkercaitlin144@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000145,Blake,Graham,harveyjonathan145@student.yottaflex.edu,2026-01-23,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000146,Alexander,Gardner,uhayes146@student.yottaflex.edu,2026-01-19,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000147,Yolanda,Robinson,brownjames147@student.yottaflex.edu,2026-01-18,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000148,Carol,Clayton,qreyes148@student.yottaflex.edu,2026-01-22,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000149,Angela,Chandler,joshuarowe149@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000150,Denise,Collins,pereznicole150@student.yottaflex.edu,2026-01-15,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000151,Diana,Kelly,cortezbrittany151@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000152,Roger,Wade,donna96152@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000153,Raymond,Pierce,rachelwright153@student.yottaflex.edu,2026-01-23,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000154,Caleb,Bridges,lvillarreal154@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000155,Thomas,Parks,gmartinez155@student.yottaflex.edu,2026-01-15,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000156,Paula,Moss,joshua49156@student.yottaflex.edu,2026-01-15,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000157,Melissa,Simpson,gregory36157@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000158,David,Wright,jesse38158@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000159,Jennifer,Moss,charlesruiz159@student.yottaflex.edu,2026-01-24,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000160,Ethan,Rowe,ggrant160@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000161,Susan,Cummings,donna04161@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000162,Jennifer,Davis,hardinchristopher162@student.yottaflex.edu,2026-01-18,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000163,Derrick,Jefferson,tammyhopkins163@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000164,Jennifer,Brown,lindseyvasquez164@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000165,Craig,Mason,mooresteve165@student.yottaflex.edu,2026-01-22,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000166,Donna,White,donovanangelica166@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000167,Matthew,Fields,jacobtodd167@student.yottaflex.edu,2026-01-22,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000168,Ryan,Griffin,barkerthomas168@student.yottaflex.edu,2026-01-23,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000169,Brian,Bowers,garywaters169@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000170,Gregory,Villarreal,kelly34170@student.yottaflex.edu,2026-01-20,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000171,Brian,Shaw,michelle72171@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000172,Martin,West,james01172@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000173,Rachel,Robinson,christydillon173@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000174,Nicole,Jensen,loritucker174@student.yottaflex.edu,2026-01-19,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000175,Dennis,Murray,lisa53175@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000176,Morgan,Bradley,nbrown176@student.yottaflex.edu,2026-01-22,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000177,James,Mitchell,kristinrogers177@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000178,Jonathan,Carrillo,brandonwilliams178@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Data Science,INACTIVE
+STU-2026-000179,Amanda,Roman,kromero179@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000180,Shane,Clark,ssilva180@student.yottaflex.edu,2026-01-16,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000181,Stephanie,Reed,russellyates181@student.yottaflex.edu,2026-01-19,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000182,Daniel,Vasquez,mario75182@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000183,Robert,Chang,fletcherthomas183@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000184,Heather,Mclean,michaelphillips184@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000185,Malik,Mccoy,nicolas62185@student.yottaflex.edu,2026-01-19,2026,Business Administration,BBA,ACTIVE
+STU-2026-000186,James,Lopez,juliacross186@student.yottaflex.edu,2026-01-16,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000187,Lance,Reeves,jamieterrell187@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000188,Jeffery,Mcdonald,stevenbrown188@student.yottaflex.edu,2026-01-17,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000189,Thomas,Foster,bbennett189@student.yottaflex.edu,2026-01-24,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000190,Richard,Jones,kimberly01190@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000191,Sandra,Mendoza,rubennguyen191@student.yottaflex.edu,2026-01-24,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000192,Timothy,Vance,jay02192@student.yottaflex.edu,2026-01-19,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000193,Anthony,Thompson,cooperjason193@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,WITHDRAWN
+STU-2026-000194,William,Dudley,pfowler194@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000195,Stacie,Brown,jacquelinegomez195@student.yottaflex.edu,2026-01-24,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000196,Stacey,Perez,jessicafoster196@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000197,Mary,Patterson,burnsphillip197@student.yottaflex.edu,2026-01-16,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000198,Adrienne,Schmidt,isaacjohnson198@student.yottaflex.edu,2026-01-21,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000199,Christopher,Khan,cbartlett199@student.yottaflex.edu,2026-01-16,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000200,Cody,Robinson,sharon89200@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000201,Julia,Fisher,foxdavid201@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000202,Sara,Sanchez,phillipsnicole202@student.yottaflex.edu,2026-01-17,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000203,Miranda,Huang,vincent51203@student.yottaflex.edu,2026-01-18,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000204,John,Tanner,amyphelps204@student.yottaflex.edu,2026-01-24,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000205,Michael,Gonzalez,ralphtownsend205@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000206,Katie,Boyd,tmaddox206@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000207,Denise,Rodriguez,ernest17207@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000208,Amanda,George,delacruzcheryl208@student.yottaflex.edu,2026-01-20,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000209,Michael,Bradley,robert47209@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000210,Lori,Perez,jimenezrussell210@student.yottaflex.edu,2026-01-20,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000211,Mark,Taylor,stephensmark211@student.yottaflex.edu,2026-01-24,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000212,Kelly,Green,crystalhebert212@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000213,Charles,Mcconnell,iyoung213@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000214,Gary,Robinson,bchristian214@student.yottaflex.edu,2026-01-24,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000215,Melissa,Stark,woodkelly215@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000216,Kyle,Elliott,jerrywalsh216@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000217,Heather,Hernandez,davidharrison217@student.yottaflex.edu,2026-01-17,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000218,Antonio,Barber,ryanhansen218@student.yottaflex.edu,2026-01-17,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000219,Trevor,Andrade,hannah92219@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000220,Joseph,Alvarado,robinstewart220@student.yottaflex.edu,2026-01-16,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000221,Angela,Walsh,evananderson221@student.yottaflex.edu,2026-01-17,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000222,Dana,Melendez,rebecca37222@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000223,Erin,Merritt,matthew18223@student.yottaflex.edu,2026-01-24,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000224,Natalie,Perkins,wattsjohn224@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000225,Abigail,Bishop,elizabethmoran225@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000226,Paul,Wagner,blackchristina226@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000227,Wendy,Jones,ihiggins227@student.yottaflex.edu,2026-01-19,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000228,Jennifer,Rivers,turnertimothy228@student.yottaflex.edu,2026-01-16,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000229,Mitchell,Kramer,matthew56229@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000230,Dillon,Scott,scottwhitaker230@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000231,Sarah,Smith,kellyanna231@student.yottaflex.edu,2026-01-18,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000232,Eric,Roach,william46232@student.yottaflex.edu,2026-01-21,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000233,Lisa,Parks,hartryan233@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000234,Jordan,Payne,mistywerner234@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000235,Jeremy,Leon,johnsoncaleb235@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000236,Jody,King,tamarahunter236@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000237,Preston,Butler,eherrera237@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000238,Kathleen,Richardson,scotthines238@student.yottaflex.edu,2026-01-17,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000239,Rebecca,Marshall,ashleerichard239@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000240,Robin,Miller,campbelljoshua240@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000241,James,Burns,matthewflores241@student.yottaflex.edu,2026-01-23,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000242,Justin,Franklin,brodriguez242@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000243,Samuel,Brown,masonjeffrey243@student.yottaflex.edu,2026-01-21,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000244,Robert,Thomas,brandon50244@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000245,Joe,Scott,thess245@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000246,Virginia,Gibbs,richardsderrick246@student.yottaflex.edu,2026-01-16,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000247,Elizabeth,Marsh,zsnyder247@student.yottaflex.edu,2026-01-17,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000248,David,Baker,frich248@student.yottaflex.edu,2026-01-21,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000249,Robert,Haynes,zanderson249@student.yottaflex.edu,2026-01-16,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000250,Michele,Hill,jmoyer250@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000251,Guy,Gray,bradleyodom251@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000252,Robert,Bush,mpugh252@student.yottaflex.edu,2026-01-20,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000253,Jeffrey,Pace,ejimenez253@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Biochemistry,INACTIVE
+STU-2026-000254,Kyle,Brandt,jasonfox254@student.yottaflex.edu,2026-01-17,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000255,Mark,Alexander,amy72255@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA,ACTIVE
+STU-2026-000256,Rachel,Rogers,rebeccaweiss256@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000257,Jeff,Young,kimberly18257@student.yottaflex.edu,2026-01-21,2026,Chemistry,B.Sc Biochemistry,WITHDRAWN
+STU-2026-000258,Lisa,Luna,brian51258@student.yottaflex.edu,2026-01-24,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000259,Ryan,Simmons,melissaortiz259@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000260,Chloe,Simpson,michaelmcclure260@student.yottaflex.edu,2026-01-19,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000261,Mark,Conner,murphystephen261@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000262,Gregory,Murphy,jmartinez262@student.yottaflex.edu,2026-01-18,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000263,Michael,Hill,randymills263@student.yottaflex.edu,2026-01-23,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000264,Brandon,Simon,baileyandersen264@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000265,Tracy,Campbell,christopherharvey265@student.yottaflex.edu,2026-01-16,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000266,Joshua,Gray,angela68266@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000267,Andrew,Bradshaw,jessicaroberts267@student.yottaflex.edu,2026-01-19,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000268,Roger,Farmer,chasejose268@student.yottaflex.edu,2026-01-22,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000269,David,Mccoy,gmartin269@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,WITHDRAWN
+STU-2026-000270,Jennifer,George,katie19270@student.yottaflex.edu,2026-01-16,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000271,Elaine,Chase,epatel271@student.yottaflex.edu,2026-01-21,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000272,Michael,Mcdonald,williamvance272@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000273,Abigail,Wilson,marypeterson273@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000274,John,Ibarra,jortiz274@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000275,Michelle,Bruce,elizabeth87275@student.yottaflex.edu,2026-01-22,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000276,Mariah,Leonard,terrellyesenia276@student.yottaflex.edu,2026-01-24,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000277,Michael,Collier,deborahwest277@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000278,Amber,Coleman,petersonwilliam278@student.yottaflex.edu,2026-01-24,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000279,Henry,Ramos,lisaeaton279@student.yottaflex.edu,2026-01-18,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000280,Robin,Townsend,sthompson280@student.yottaflex.edu,2026-01-22,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000281,Joseph,Johnson,petersondavid281@student.yottaflex.edu,2026-01-19,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000282,Janice,Kent,mistymurphy282@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000283,Megan,Roberts,clarkjason283@student.yottaflex.edu,2026-01-23,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000284,Dakota,Mitchell,bennettjustin284@student.yottaflex.edu,2026-01-20,2026,Psychology,B.Sc Psychology,WITHDRAWN
+STU-2026-000285,Darius,White,srobinson285@student.yottaflex.edu,2026-01-15,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000286,Richard,Singleton,weberspencer286@student.yottaflex.edu,2026-01-19,2026,Engineering,B.Eng Civil,WITHDRAWN
+STU-2026-000287,Arthur,Bowman,smithjames287@student.yottaflex.edu,2026-01-24,2026,Business Administration,BBA Marketing,WITHDRAWN
+STU-2026-000288,James,Bradley,melissa57288@student.yottaflex.edu,2026-01-16,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000289,Leslie,Brooks,shannon62289@student.yottaflex.edu,2026-01-16,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000290,Michael,Williams,vrodriguez290@student.yottaflex.edu,2026-01-23,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000291,Mason,Garcia,jamescrane291@student.yottaflex.edu,2026-01-22,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000292,Isabella,Adams,courtneyking292@student.yottaflex.edu,2026-01-17,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000293,Robert,Barrett,joshua11293@student.yottaflex.edu,2026-01-23,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000294,Christina,Johnson,manuelhorne294@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biology,WITHDRAWN
+STU-2026-000295,Natasha,Leonard,dmarshall295@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000296,Mary,Wise,grussell296@student.yottaflex.edu,2026-01-24,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000297,Kimberly,Perry,paul19297@student.yottaflex.edu,2026-01-18,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000298,Maria,Wiggins,sherryschneider298@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000299,Matthew,Garcia,marklyons299@student.yottaflex.edu,2026-01-21,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000300,Shelia,Martinez,holtbrandon300@student.yottaflex.edu,2026-01-18,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000301,Scott,Meyers,jasonacevedo301@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000302,Aaron,Luna,daniel86302@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000303,Andrew,Mora,jason42303@student.yottaflex.edu,2026-01-23,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000304,James,Jones,mariasanchez304@student.yottaflex.edu,2026-01-17,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000305,Christopher,Hughes,steven61305@student.yottaflex.edu,2026-01-15,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000306,Kayla,King,sarah99306@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000307,Lauren,Young,alexandersteven307@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000308,Karen,Lynn,ogarrison308@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000309,Alan,Williams,benjamin16309@student.yottaflex.edu,2026-01-24,2026,Business Administration,BBA,ACTIVE
+STU-2026-000310,James,Mueller,melinda69310@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000311,Charles,Williams,melissawilson311@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000312,Ruth,Tanner,linda57312@student.yottaflex.edu,2026-01-23,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000313,Brent,Singleton,dennisbrown313@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000314,Jacob,Kelly,bhuang314@student.yottaflex.edu,2026-01-18,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000315,Joseph,Murphy,greenjohn315@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000316,Douglas,Ellison,christian25316@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000317,Lindsay,Perez,amanda78317@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000318,Taylor,Thomas,xking318@student.yottaflex.edu,2026-01-18,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000319,Joseph,Roy,devinclark319@student.yottaflex.edu,2026-01-21,2026,Biology,B.Sc Microbiology,INACTIVE
+STU-2026-000320,Ruth,Mcmillan,pollardkelsey320@student.yottaflex.edu,2026-01-15,2026,Business Administration,BBA,ACTIVE
+STU-2026-000321,Bridget,Martin,tbraun321@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000322,Patricia,Barajas,christina22322@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Computer Science,INACTIVE
+STU-2026-000323,Kimberly,Acosta,raybethany323@student.yottaflex.edu,2026-01-18,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000324,Amber,Woods,xdickerson324@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000325,Christopher,Rodriguez,lindseyconner325@student.yottaflex.edu,2026-01-17,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000326,Brian,Gentry,reneemurphy326@student.yottaflex.edu,2026-01-22,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000327,Melody,Kennedy,william00327@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000328,Victoria,Lee,hrobbins328@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000329,Ryan,Norris,henryzimmerman329@student.yottaflex.edu,2026-01-20,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000330,Kayla,Andersen,madelinerice330@student.yottaflex.edu,2026-01-18,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000331,Jennifer,Sanchez,jennifermoore331@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000332,Charles,Williams,jenniferrodriguez332@student.yottaflex.edu,2026-01-15,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000333,Alejandra,Johnson,thomas50333@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000334,Sarah,Pearson,bbowman334@student.yottaflex.edu,2026-01-15,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000335,Sally,Espinoza,kstein335@student.yottaflex.edu,2026-01-15,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000336,Michael,Gonzales,nathan68336@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Electrical,INACTIVE
+STU-2026-000337,Pamela,Jackson,kathleennorman337@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000338,Christine,Collins,kcastillo338@student.yottaflex.edu,2026-01-19,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000339,Sean,Fields,xhicks339@student.yottaflex.edu,2026-01-21,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000340,Nancy,Bowman,heather27340@student.yottaflex.edu,2026-01-18,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000341,Elizabeth,Alexander,charlesphillips341@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000342,Brandon,Barry,vjohnson342@student.yottaflex.edu,2026-01-15,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000343,Stacey,Garcia,eanderson343@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000344,Joseph,Lambert,delacruzjeffrey344@student.yottaflex.edu,2026-01-19,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000345,Johnny,Butler,brownkent345@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000346,Larry,Bennett,kayleefuller346@student.yottaflex.edu,2026-01-21,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000347,Laura,Gray,mtucker347@student.yottaflex.edu,2026-01-19,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000348,Angela,Richardson,ztorres348@student.yottaflex.edu,2026-01-21,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000349,Michael,Bauer,williamarmstrong349@student.yottaflex.edu,2026-01-19,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000350,Franklin,Hampton,cynthiaflores350@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000351,Jerry,Perez,adamseric351@student.yottaflex.edu,2026-01-21,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000352,Willie,Stone,henryalexander352@student.yottaflex.edu,2026-01-19,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000353,Bethany,Erickson,nicholemurray353@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000354,Andrew,Graves,kmercado354@student.yottaflex.edu,2026-01-24,2026,Physics,B.Sc Applied Physics,WITHDRAWN
+STU-2026-000355,Melissa,Harris,brittanyavila355@student.yottaflex.edu,2026-01-17,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000356,Eric,Green,nathaniel96356@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000357,Hector,Kidd,kevin54357@student.yottaflex.edu,2026-01-15,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000358,Tiffany,Mcclain,charles11358@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000359,Craig,Miller,gutierrezhannah359@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000360,Melinda,Martinez,vaughnadam360@student.yottaflex.edu,2026-01-21,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000361,Anthony,Edwards,benjaminstevenson361@student.yottaflex.edu,2026-01-15,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000362,Ernest,Ferguson,pbriggs362@student.yottaflex.edu,2026-01-15,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000363,Jennifer,Hutchinson,catherine09363@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000364,Karen,Olson,berrysamantha364@student.yottaflex.edu,2026-01-24,2026,Business Administration,BBA,ACTIVE
+STU-2026-000365,Jennifer,Solomon,lcollins365@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000366,Tammy,Berger,achavez366@student.yottaflex.edu,2026-01-15,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000367,Latasha,Conway,dcastaneda367@student.yottaflex.edu,2026-01-18,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000368,William,Taylor,averyelizabeth368@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000369,Erika,Navarro,patriciakim369@student.yottaflex.edu,2026-01-21,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000370,Courtney,Harrison,santostimothy370@student.yottaflex.edu,2026-01-19,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000371,Deborah,Palmer,idixon371@student.yottaflex.edu,2026-01-21,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000372,Gary,Mcgee,gsingleton372@student.yottaflex.edu,2026-01-23,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000373,James,Olsen,watkinsdavid373@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000374,Aimee,Brooks,ann18374@student.yottaflex.edu,2026-01-17,2026,Psychology,B.A Psychology,WITHDRAWN
+STU-2026-000375,Andrea,Wilson,sandra69375@student.yottaflex.edu,2026-01-24,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000376,Andrea,Mullins,melissa27376@student.yottaflex.edu,2026-01-23,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000377,John,Taylor,christine34377@student.yottaflex.edu,2026-01-17,2026,Psychology,B.Sc Psychology,WITHDRAWN
+STU-2026-000378,Daniel,Jones,fuentesjohn378@student.yottaflex.edu,2026-01-15,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000379,Alexis,Hardy,xstephens379@student.yottaflex.edu,2026-01-21,2026,Sociology,B.A Social Work,INACTIVE
+STU-2026-000380,Allison,Fletcher,aliciafischer380@student.yottaflex.edu,2026-01-18,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000381,Barbara,Lambert,fieldsrobin381@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,WITHDRAWN
+STU-2026-000382,Craig,Ford,fletcherlori382@student.yottaflex.edu,2026-01-23,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000383,Sean,Vega,deborah77383@student.yottaflex.edu,2026-01-18,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000384,Larry,Lewis,brettsweeney384@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000385,Bryan,Gutierrez,gina82385@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000386,Samuel,Thompson,jason52386@student.yottaflex.edu,2026-01-18,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000387,Leah,Cooper,hodgerachel387@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000388,Chad,Burns,eric77388@student.yottaflex.edu,2026-01-17,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000389,Kara,Murray,allen38389@student.yottaflex.edu,2026-01-22,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000390,James,Thomas,kenneth83390@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000391,Cynthia,Cisneros,julia01391@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000392,David,Chaney,hcraig392@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000393,Caleb,Hardy,cstrong393@student.yottaflex.edu,2026-01-23,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000394,Raymond,Wagner,jacksonbarbara394@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Computer Science,ACTIVE
+STU-2026-000395,Emily,Matthews,barreracaroline395@student.yottaflex.edu,2026-01-20,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000396,Russell,Richardson,kimberlysanders396@student.yottaflex.edu,2026-01-20,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000397,Rachel,Miller,waltonchristopher397@student.yottaflex.edu,2026-01-19,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000398,Alicia,Murphy,christopher57398@student.yottaflex.edu,2026-01-16,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000399,Gregory,Wright,vanessa76399@student.yottaflex.edu,2026-01-20,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000400,Dennis,Fuller,stevenmullins400@student.yottaflex.edu,2026-01-17,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000401,James,Graham,jamesmoore401@student.yottaflex.edu,2026-01-20,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000402,Steven,Johnson,georgevictoria402@student.yottaflex.edu,2026-01-18,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000403,Victor,Stevens,sgentry403@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000404,Angela,Morris,longcynthia404@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000405,Antonio,Booth,davidwest405@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000406,Kevin,Blanchard,john99406@student.yottaflex.edu,2026-01-18,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000407,Kelly,Jennings,kathyhammond407@student.yottaflex.edu,2026-01-17,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000408,Lindsey,Smith,hayley32408@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000409,Shelley,Brown,christophersandoval409@student.yottaflex.edu,2026-01-20,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000410,Joel,Snyder,amanda45410@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000411,Phillip,Hill,robertdixon411@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000412,Susan,Morales,holdercrystal412@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000413,Nichole,Cole,phammonique413@student.yottaflex.edu,2026-01-24,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000414,Sean,Campbell,ybailey414@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000415,Sarah,Miller,janet58415@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000416,Vanessa,Burton,jesseallen416@student.yottaflex.edu,2026-01-21,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000417,Denise,Carr,wendy78417@student.yottaflex.edu,2026-01-16,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000418,Kyle,Smith,wolfemaria418@student.yottaflex.edu,2026-01-20,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000419,David,Maddox,lreid419@student.yottaflex.edu,2026-01-23,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000420,Robin,Alexander,samanthaberg420@student.yottaflex.edu,2026-01-15,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000421,Penny,Collins,angelagomez421@student.yottaflex.edu,2026-01-24,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000422,Wendy,Neal,glasschristine422@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000423,Angelica,Fowler,parsonsmaria423@student.yottaflex.edu,2026-01-18,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000424,Katherine,Taylor,moorejoseph424@student.yottaflex.edu,2026-01-23,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000425,Teresa,Green,trevinomackenzie425@student.yottaflex.edu,2026-01-22,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000426,Wanda,Wilkinson,sean04426@student.yottaflex.edu,2026-01-16,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000427,Robert,Stewart,hernandezrobert427@student.yottaflex.edu,2026-01-18,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000428,Donald,Green,elliottmark428@student.yottaflex.edu,2026-01-15,2026,Physics,B.Sc Applied Physics,INACTIVE
+STU-2026-000429,Bradley,Collins,rgomez429@student.yottaflex.edu,2026-01-17,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000430,Francisco,Snyder,carriesmith430@student.yottaflex.edu,2026-01-19,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000431,Rebecca,Daniels,gordonkayla431@student.yottaflex.edu,2026-01-22,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000432,Michael,Burch,butlerjames432@student.yottaflex.edu,2026-01-23,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000433,Charles,Harris,mking433@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000434,Brandon,Koch,howardpaula434@student.yottaflex.edu,2026-01-17,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000435,Paula,Watkins,matthewmendoza435@student.yottaflex.edu,2026-01-15,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000436,Jasmine,Kim,ohowell436@student.yottaflex.edu,2026-01-23,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000437,Louis,Cooper,tcollins437@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000438,Scott,Johns,carterrichard438@student.yottaflex.edu,2026-01-19,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000439,Nicole,Sanchez,alan12439@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000440,Russell,Tucker,samuelevans440@student.yottaflex.edu,2026-01-19,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000441,Deanna,Johnson,rmoore441@student.yottaflex.edu,2026-01-18,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000442,Katrina,Cox,phyllis32442@student.yottaflex.edu,2026-01-16,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000443,Jack,Hensley,bradleykirk443@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000444,Ashley,Bates,samuel06444@student.yottaflex.edu,2026-01-19,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000445,Christopher,Smith,knightelizabeth445@student.yottaflex.edu,2026-01-16,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000446,Christopher,Evans,rileyrobert446@student.yottaflex.edu,2026-01-18,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000447,Matthew,Moore,angela67447@student.yottaflex.edu,2026-01-19,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000448,Charles,Wilson,david34448@student.yottaflex.edu,2026-01-20,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000449,Amanda,Henry,sheila58449@student.yottaflex.edu,2026-01-20,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000450,Johnny,Fry,parkermark450@student.yottaflex.edu,2026-01-23,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000451,Troy,Massey,bobby69451@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Mathematics,WITHDRAWN
+STU-2026-000452,Shannon,Sullivan,guzmanjason452@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000453,Michael,English,bwiggins453@student.yottaflex.edu,2026-01-20,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000454,Kim,Stewart,edward51454@student.yottaflex.edu,2026-01-22,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000455,Tyler,Hogan,gonzalezbrian455@student.yottaflex.edu,2026-01-23,2026,Computer Science,B.Sc Software Engineering,WITHDRAWN
+STU-2026-000456,Harold,Sanchez,knightalejandro456@student.yottaflex.edu,2026-01-17,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000457,Lee,Barton,kim51457@student.yottaflex.edu,2026-01-23,2026,Biology,B.Sc Microbiology,ACTIVE
+STU-2026-000458,Alexis,Elliott,rmoore458@student.yottaflex.edu,2026-01-16,2026,Business Administration,BBA Marketing,ACTIVE
+STU-2026-000459,Brenda,Rodriguez,rachelweber459@student.yottaflex.edu,2026-01-24,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000460,Timothy,Alvarado,patricia58460@student.yottaflex.edu,2026-01-23,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000461,Jonathan,Dominguez,wardadam461@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Biology,ACTIVE
+STU-2026-000462,Theresa,Bell,smithjudith462@student.yottaflex.edu,2026-01-23,2026,Physics,B.Sc Physics,ACTIVE
+STU-2026-000463,Ashley,Cannon,kellygomez463@student.yottaflex.edu,2026-01-18,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000464,Aaron,Jacobs,fayala464@student.yottaflex.edu,2026-01-21,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000465,Elizabeth,Daniel,bennettkelly465@student.yottaflex.edu,2026-01-15,2026,Sociology,B.A Social Work,ACTIVE
+STU-2026-000466,Leslie,Cook,fjohnson466@student.yottaflex.edu,2026-01-23,2026,Engineering,B.Eng Mechanical,ACTIVE
+STU-2026-000467,Virginia,Mckee,zpope467@student.yottaflex.edu,2026-01-15,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000468,Erik,Collins,jessicapotter468@student.yottaflex.edu,2026-01-19,2026,Business Administration,BBA,ACTIVE
+STU-2026-000469,Joanne,Campbell,henrywendy469@student.yottaflex.edu,2026-01-16,2026,Biology,B.Sc Biotechnology,ACTIVE
+STU-2026-000470,Corey,Schroeder,francodavid470@student.yottaflex.edu,2026-01-23,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000471,Brian,Allen,cartersarah471@student.yottaflex.edu,2026-01-17,2026,Economics,B.Sc Economics,ACTIVE
+STU-2026-000472,Amy,Berry,jamiewillis472@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000473,Andrea,Russell,isoto473@student.yottaflex.edu,2026-01-19,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000474,Scott,Lucero,swhite474@student.yottaflex.edu,2026-01-18,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000475,Robert,Sanders,vanessa16475@student.yottaflex.edu,2026-01-23,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000476,Tara,Roberts,margaret63476@student.yottaflex.edu,2026-01-22,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000477,Tracy,Barry,joshua61477@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000478,Ashley,Cabrera,lori21478@student.yottaflex.edu,2026-01-18,2026,Business Administration,B.Com,ACTIVE
+STU-2026-000479,Brooke,Petty,williamsjanet479@student.yottaflex.edu,2026-01-20,2026,Engineering,B.Eng Electrical,ACTIVE
+STU-2026-000480,Robin,Fernandez,iking480@student.yottaflex.edu,2026-01-18,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000481,Casey,Rogers,ericmoore481@student.yottaflex.edu,2026-01-24,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000482,Jennifer,Richardson,zcox482@student.yottaflex.edu,2026-01-19,2026,Chemistry,B.Sc Chemistry,ACTIVE
+STU-2026-000483,Jared,Davis,parkermelinda483@student.yottaflex.edu,2026-01-22,2026,Sociology,B.A Sociology,ACTIVE
+STU-2026-000484,Christopher,Robertson,bridgesalexander484@student.yottaflex.edu,2026-01-22,2026,Computer Science,B.Sc Software Engineering,ACTIVE
+STU-2026-000485,Derrick,Long,vmckinney485@student.yottaflex.edu,2026-01-16,2026,Economics,B.A Economics,ACTIVE
+STU-2026-000486,Erin,Lewis,robin50486@student.yottaflex.edu,2026-01-24,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000487,Kathy,Foley,pfisher487@student.yottaflex.edu,2026-01-16,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000488,Mario,Cruz,robert41488@student.yottaflex.edu,2026-01-24,2026,Chemistry,B.Sc Biochemistry,ACTIVE
+STU-2026-000489,Joshua,Carr,tcollier489@student.yottaflex.edu,2026-01-18,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000490,Justin,Vega,jacksonamy490@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000491,Sandra,Thomas,rsimmons491@student.yottaflex.edu,2026-01-16,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000492,Tonya,Hayes,nicholasadams492@student.yottaflex.edu,2026-01-18,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000493,Judith,Sanchez,ahayes493@student.yottaflex.edu,2026-01-24,2026,Psychology,B.Sc Psychology,ACTIVE
+STU-2026-000494,Veronica,Scott,tpreston494@student.yottaflex.edu,2026-01-24,2026,Computer Science,B.Sc Data Science,ACTIVE
+STU-2026-000495,Bonnie,Smith,munozcrystal495@student.yottaflex.edu,2026-01-17,2026,Psychology,B.A Psychology,ACTIVE
+STU-2026-000496,Elizabeth,Porter,jeff85496@student.yottaflex.edu,2026-01-21,2026,Engineering,B.Eng Civil,ACTIVE
+STU-2026-000497,Cheryl,Hunt,hgardner497@student.yottaflex.edu,2026-01-16,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
+STU-2026-000498,Erik,Thomas,lynchalexander498@student.yottaflex.edu,2026-01-20,2026,Physics,B.Sc Applied Physics,ACTIVE
+STU-2026-000499,Tiffany,Phillips,zdavis499@student.yottaflex.edu,2026-01-22,2026,Mathematics,B.Sc Mathematics,ACTIVE
+STU-2026-000500,Robert,Bolton,glennjohnson500@student.yottaflex.edu,2026-01-17,2026,Mathematics,B.Sc Applied Mathematics,ACTIVE
