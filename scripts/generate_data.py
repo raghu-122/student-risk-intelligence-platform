@@ -31,14 +31,11 @@ from faker import Faker
 # ── paths ────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-CSV_DIR  = DATA_DIR / "generated" / "csv"
+CSV_DIR = DATA_DIR / "generated" / "csv"
 JSON_DIR = DATA_DIR / "generated" / "json"
-GT_DIR   = DATA_DIR / "ground_truth"
-MAN_DIR  = DATA_DIR / "manifests"
-VAL_DIR  = DATA_DIR / "validation"
-
-for d in (CSV_DIR, JSON_DIR, GT_DIR, MAN_DIR, VAL_DIR):
-    d.mkdir(parents=True, exist_ok=True)
+GT_DIR = DATA_DIR / "ground_truth"
+MAN_DIR = DATA_DIR / "manifests"
+VAL_DIR = DATA_DIR / "validation"
 
 # ── constants ────────────────────────────────────────────────────────────────
 ACADEMIC_START = date(2026, 1, 15)
@@ -70,6 +67,38 @@ LMS_TYPES = ["LOGIN", "VIDEO_WATCH", "RESOURCE_VIEW", "ASSIGNMENT_SUBMISSION",
              "QUIZ_ATTEMPT", "DISCUSSION", "COURSE_ACCESS"]
 CASE_TYPES = ["ACADEMIC", "ATTENDANCE", "WELFARE", "BEHAVIORAL", "FINANCIAL"]
 STAFF_ROLES = ["INSTRUCTOR", "ACADEMIC_ADMINISTRATOR", "SUPPORT_STAFF"]
+
+SQL_EXPORTS = [
+    ("staff", "staff.csv", ("staff_id", "first_name", "last_name", "email", "role", "department", "is_active")),
+    ("students", "students.csv", ("student_id", "first_name", "last_name", "email", "enrollment_date", "academic_year", "department", "program", "current_status")),
+    ("courses", "courses.csv", ("course_id", "course_name", "course_code", "department", "credits", "semester", "instructor_id")),
+    ("enrollments", "enrollments.csv", ("enrollment_id", "student_id", "course_id", "enrollment_date", "effective_from", "effective_to", "enrollment_status", "final_grade")),
+    ("assessments", "assessments.csv", ("assessment_id", "course_id", "assessment_name", "assessment_type", "maximum_marks", "weightage", "assessment_date")),
+    ("attendance_events", "attendance_events.csv", ("attendance_id", "enrollment_id", "attendance_date", "attendance_status", "session_number", "issue_type")),
+    ("assessment_results", "assessment_results.csv", ("result_id", "assessment_id", "enrollment_id", "marks_obtained", "percentage", "submission_status", "evaluated_at")),
+    ("lms_activities", "lms_activities.csv", ("activity_id", "enrollment_id", "activity_type", "activity_timestamp", "duration_minutes", "resource_id", "activity_metadata")),
+    ("support_cases", "support_cases.csv", ("case_id", "student_id", "enrollment_id", "case_type", "description", "priority", "assigned_staff_id", "case_status", "opened_at", "closed_at", "resolution_notes")),
+    ("risk_assessments", "risk_assessments.csv", ("risk_id", "student_id", "enrollment_id", "cutoff_date", "risk_score", "risk_category", "factor_scores", "factor_weights", "reasons", "data_completeness", "model_version", "is_anomaly")),
+    ("interventions", "interventions.csv", ("intervention_id", "student_id", "enrollment_id", "case_id", "risk_assessment_id", "intervention_type", "trigger_date", "assigned_staff_id", "start_date", "due_date", "completion_date", "intervention_status", "expected_outcome", "actual_outcome")),
+    ("outcomes", "outcomes.csv", ("outcome_id", "student_id", "enrollment_id", "intervention_id", "evaluation_period_start", "evaluation_period_end", "baseline_risk_score", "future_risk_score", "academic_performance_change", "attendance_change", "engagement_change", "outcome_label", "evaluation_date")),
+    ("ground_truth", "ground_truth.csv", ("gt_id", "student_id", "risk_id", "expected_risk_category", "expected_outcome_label", "expected_anomaly_detected", "evaluation_reference", "notes")),
+    ("data_quality_issues", "data_quality_issues.csv", ("issue_id", "issue_type", "affected_entity", "affected_record_id", "expected_behavior", "observed_behavior", "ground_truth_label", "detection_status", "explanation", "severity", "is_injected_anomaly")),
+]
+SQL_BOOLEAN_COLUMNS = {"is_active", "is_anomaly", "expected_anomaly_detected", "is_injected_anomaly"}
+SQL_NUMERIC_COLUMNS = {
+    "credits", "maximum_marks", "weightage", "session_number", "marks_obtained",
+    "percentage", "duration_minutes", "risk_score", "data_completeness",
+    "final_grade", "baseline_risk_score", "future_risk_score",
+    "academic_performance_change", "attendance_change", "engagement_change",
+}
+SQL_DATE_COLUMNS = {
+    "enrollment_date", "effective_from", "effective_to", "assessment_date",
+    "attendance_date", "evaluated_at", "cutoff_date", "trigger_date", "start_date",
+    "due_date", "completion_date", "evaluation_period_start", "evaluation_period_end",
+    "evaluation_date",
+}
+SQL_DATETIME_COLUMNS = {"activity_timestamp", "opened_at", "closed_at"}
+SQL_JSON_COLUMNS = {"factor_scores", "factor_weights", "reasons", "activity_metadata"}
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -122,7 +151,21 @@ def session_dates_weekly(course_start, course_end, sessions_per_week=2):
 
 
 # ── main generator ───────────────────────────────────────────────────────────
-def generate(scale: str, seed: int):
+def generate(scale: str, seed: int, output_dir: Path | None = None):
+    global DATA_DIR, CSV_DIR, JSON_DIR, GT_DIR, MAN_DIR, VAL_DIR
+
+    DATA_DIR = Path(output_dir).resolve() if output_dir else ROOT / "data"
+    CSV_DIR = DATA_DIR / "generated" / "csv"
+    JSON_DIR = DATA_DIR / "generated" / "json"
+    GT_DIR = DATA_DIR / "ground_truth"
+    MAN_DIR = DATA_DIR / "manifests"
+    VAL_DIR = DATA_DIR / "validation"
+    for directory in (CSV_DIR, JSON_DIR, GT_DIR, MAN_DIR, VAL_DIR):
+        directory.mkdir(parents=True, exist_ok=True)
+    for stale_user_export in (CSV_DIR / "users.csv", JSON_DIR / "users.json"):
+        if stale_user_export.exists():
+            stale_user_export.unlink()
+
     rng = np.random.default_rng(seed)
     random.seed(seed)
     fake = Faker()
@@ -141,7 +184,7 @@ def generate(scale: str, seed: int):
     for i in range(1, N_STAFF + 1):
         dept = DEPARTMENTS[i % len(DEPARTMENTS)]
         staff_rows.append({
-            "staff_id": stf_id(i),
+            "staff_id": stf_id(i + 4),
             "first_name": fake.first_name(),
             "last_name": fake.last_name(),
             "email": f"staff{i}@yottaflex.edu",
@@ -150,17 +193,6 @@ def generate(scale: str, seed: int):
             "is_active": True,
         })
     _write_csv(staff_rows, CSV_DIR / "staff.csv")
-
-    # ── 2. Users ────────────────────────────────────────────────────────────
-    print("  Generating users...")
-    # Pre-seeded defaults + staff accounts
-    user_rows = [
-        {"user_id": usr_id(1), "username": "admin",        "email": "admin@yottaflex.edu",       "hashed_password": "$2b$12$placeholder_admin",   "role": "PLATFORM_ADMINISTRATOR", "staff_id": stf_id(1)},
-        {"user_id": usr_id(2), "username": "instructor1",  "email": "instructor1@yottaflex.edu", "hashed_password": "$2b$12$placeholder_demo",    "role": "INSTRUCTOR",              "staff_id": stf_id(2)},
-        {"user_id": usr_id(3), "username": "advisor1",     "email": "advisor1@yottaflex.edu",    "hashed_password": "$2b$12$placeholder_demo",    "role": "ACADEMIC_ADMINISTRATOR",  "staff_id": stf_id(3)},
-        {"user_id": usr_id(4), "username": "support1",     "email": "support1@yottaflex.edu",    "hashed_password": "$2b$12$placeholder_demo",    "role": "SUPPORT_STAFF",           "staff_id": stf_id(4)},
-    ]
-    _write_csv(user_rows, CSV_DIR / "users.csv")
 
     # ── 3. Students ─────────────────────────────────────────────────────────
     print("  Generating students...")
@@ -175,14 +207,10 @@ def generate(scale: str, seed: int):
         prog = PROGRAMS[dept][int(rng.integers(0, len(PROGRAMS[dept])))]
         enroll_offset = int(rng.integers(0, 10))
         enroll_dt = ACADEMIC_START + timedelta(days=enroll_offset)
-        # 3% withdrawn, 2% inactive, rest active
-        r = rng.random()
-        if r < 0.03:
-            status = "WITHDRAWN"
-        elif r < 0.05:
-            status = "INACTIVE"
-        else:
-            status = "ACTIVE"
+        status = str(rng.choice(
+            ["ACTIVE", "INACTIVE", "TRANSFERRED", "GRADUATED", "WITHDRAWN"],
+            p=[0.90, 0.02, 0.03, 0.02, 0.03],
+        ))
         # Unique email
         base = f"{fake.user_name()}{i}"
         email = f"{base}@student.yottaflex.edu"
@@ -202,6 +230,8 @@ def generate(scale: str, seed: int):
             "current_status": status,
         })
         student_profiles[sid] = profiles[i - 1]
+    if not any(s["current_status"] == "WITHDRAWN" for s in student_rows):
+        student_rows[-1]["current_status"] = "WITHDRAWN"
     _write_csv(student_rows, CSV_DIR / "students.csv")
 
     # ── 4. Courses ──────────────────────────────────────────────────────────
@@ -225,7 +255,7 @@ def generate(scale: str, seed: int):
             "department": dept,
             "credits": int(rng.choice([2, 3, 4])),
             "semester": "2026-S1",
-            "instructor_id": stf_id(instructor_idx),
+            "instructor_id": stf_id(instructor_idx + 4),
         })
         course_dept_map[cid] = dept
     _write_csv(course_rows, CSV_DIR / "courses.csv")
@@ -234,12 +264,46 @@ def generate(scale: str, seed: int):
     print("  Generating enrollments...")
     active_students = [s["student_id"] for s in student_rows if s["current_status"] == "ACTIVE"]
     all_course_ids  = [c["course_id"] for c in course_rows]
+    student_statuses = {s["student_id"]: s["current_status"] for s in student_rows}
+    student_enrollment_dates = {
+        s["student_id"]: date.fromisoformat(s["enrollment_date"]) for s in student_rows
+    }
+    lifecycle_anomaly_student = next(
+        s["student_id"] for s in student_rows if s["current_status"] == "WITHDRAWN"
+    )
     enrollment_rows = []
     enrollment_set  = set()
     enr_map = {}  # enrollment_id -> {student_id, course_id, profile}
+    enrollment_candidates = [
+        s["student_id"] for s in student_rows
+        if s["student_id"] != lifecycle_anomaly_student
+    ]
+
+    lifecycle_course_id = all_course_ids[0]
+    lifecycle_enrollment_id = enr_id(lifecycle_anomaly_student, lifecycle_course_id)
+    lifecycle_effective_from = student_enrollment_dates[lifecycle_anomaly_student]
+    enrollment_rows.append({
+        "enrollment_id": lifecycle_enrollment_id,
+        "student_id": lifecycle_anomaly_student,
+        "course_id": lifecycle_course_id,
+        "enrollment_date": lifecycle_effective_from.isoformat(),
+        "effective_from": lifecycle_effective_from.isoformat(),
+        "effective_to": "",
+        "enrollment_status": "ACTIVE",
+        "final_grade": "",
+    })
+    enrollment_set.add((lifecycle_anomaly_student, lifecycle_course_id))
+    enr_map[lifecycle_enrollment_id] = {
+        "student_id": lifecycle_anomaly_student,
+        "course_id": lifecycle_course_id,
+        "profile": student_profiles[lifecycle_anomaly_student],
+        "status": "ACTIVE",
+        "eff_from": lifecycle_effective_from,
+        "eff_to": None,
+    }
 
     while len(enrollment_rows) < N_ENROLLMENTS:
-        sid = active_students[int(rng.integers(0, len(active_students)))]
+        sid = enrollment_candidates[int(rng.integers(0, len(enrollment_candidates)))]
         cid = all_course_ids[int(rng.integers(0, len(all_course_ids)))]
         key = (sid, cid)
         if key in enrollment_set:
@@ -247,18 +311,34 @@ def generate(scale: str, seed: int):
         enrollment_set.add(key)
         eid = enr_id(sid, cid)
         enr_offset = int(rng.integers(0, 5))
-        eff_from = ACADEMIC_START + timedelta(days=enr_offset)
-        # small pct dropped/withdrawn
-        r = rng.random()
-        if r < 0.03:
+        eff_from = max(
+            ACADEMIC_START + timedelta(days=enr_offset),
+            student_enrollment_dates[sid],
+        )
+        student_status = student_statuses[sid]
+        if student_status == "TRANSFERRED":
+            enr_status = "TRANSFERRED"
+            eff_to = ACADEMIC_START + timedelta(days=int(rng.integers(45, 150)))
+        elif student_status == "GRADUATED":
+            enr_status = "COMPLETED"
+            eff_to = ACADEMIC_END
+        elif student_status == "INACTIVE":
             enr_status = "DROPPED"
             eff_to = CUTOFF - timedelta(days=int(rng.integers(10, 60)))
-        elif r < 0.04:
+        elif student_status == "WITHDRAWN":
             enr_status = "WITHDRAWN"
             eff_to = CUTOFF - timedelta(days=int(rng.integers(5, 30)))
         else:
-            enr_status = "ACTIVE"
-            eff_to = None
+            r = rng.random()
+            if r < 0.03:
+                enr_status = "DROPPED"
+                eff_to = CUTOFF - timedelta(days=int(rng.integers(10, 60)))
+            elif r < 0.04:
+                enr_status = "WITHDRAWN"
+                eff_to = CUTOFF - timedelta(days=int(rng.integers(5, 30)))
+            else:
+                enr_status = "ACTIVE"
+                eff_to = None
         enrollment_rows.append({
             "enrollment_id": eid,
             "student_id": sid,
@@ -287,6 +367,10 @@ def generate(scale: str, seed: int):
         types = rng.choice(ASSESSMENT_TYPES, size=n_asm)
         days_range = (ACADEMIC_END - ACADEMIC_START).days
         dates_offset = sorted(rng.integers(10, days_range, size=n_asm))
+        cutoff_offset = (CUTOFF - ACADEMIC_START).days
+        dates_offset[0] = int(rng.integers(10, cutoff_offset))
+        dates_offset[-1] = int(rng.integers(cutoff_offset + 1, days_range))
+        dates_offset.sort()
         course_assessments[cid] = []
         for j in range(n_asm):
             adate = ACADEMIC_START + timedelta(days=int(dates_offset[j]))
@@ -308,10 +392,11 @@ def generate(scale: str, seed: int):
     # ── 7. Attendance ───────────────────────────────────────────────────────
     print("  Generating attendance events...")
     attendance_rows = []
-    for eid in active_enr_ids:
+    for eid in enr_map:
         m = enr_map[eid]
         profile = m["profile"]
-        sessions = session_dates_weekly(ACADEMIC_START, ACADEMIC_END)
+        end_date = min(m["eff_to"] or ACADEMIC_END, ACADEMIC_END)
+        sessions = session_dates_weekly(m["eff_from"], end_date)
         # Base attendance probability by profile
         base_prob = {"high": 0.95, "average": 0.82, "low": 0.65,
                      "declining": 0.75, "improving": 0.72}.get(profile, 0.82)
@@ -347,8 +432,15 @@ def generate(scale: str, seed: int):
     print("  Generating assessment results...")
     result_rows = []
     enrollment_to_course = {eid: m["course_id"] for eid, m in enr_map.items()}
-    for eid in active_enr_ids:
-        m = enr_map[eid]
+    missing_data_enrollment = next(
+        eid for eid in active_enr_ids if student_statuses[enr_map[eid]["student_id"]] == "ACTIVE"
+    )
+    missing_data_assessment = next(
+        row["assessment_id"]
+        for row in course_assessments[enr_map[missing_data_enrollment]["course_id"]]
+        if date.fromisoformat(row["assessment_date"]) <= CUTOFF
+    )
+    for eid, m in enr_map.items():
         cid = m["course_id"]
         profile = m["profile"]
         base_score = {"high": 85, "average": 68, "low": 42,
@@ -357,6 +449,15 @@ def generate(scale: str, seed: int):
             aid = asm["assessment_id"]
             rid = res_id(aid, eid)
             adate = date.fromisoformat(asm["assessment_date"])
+            if adate < m["eff_from"] or (m["eff_to"] and adate > m["eff_to"]):
+                continue
+            if eid == missing_data_enrollment and aid == missing_data_assessment:
+                result_rows.append({
+                    "result_id": rid, "assessment_id": aid, "enrollment_id": eid,
+                    "marks_obtained": "", "percentage": "",
+                    "submission_status": "MISSING", "evaluated_at": "",
+                })
+                continue
             # 8% missing submission
             if rng.random() < 0.08:
                 result_rows.append({
@@ -389,16 +490,18 @@ def generate(scale: str, seed: int):
     print("  Generating LMS activity...")
     lms_rows = []
     lms_counter = 1
-    for eid in active_enr_ids:
-        profile = enr_map[eid]["profile"]
+    for eid, m in enr_map.items():
+        profile = m["profile"]
         # Activities per week by profile
         acts_per_week = {"high": 5, "average": 3, "low": 1,
                           "declining": 3, "improving": 2}.get(profile, 3)
-        total_weeks = (ACADEMIC_END - ACADEMIC_START).days // 7
+        end_date = min(m["eff_to"] or ACADEMIC_END, ACADEMIC_END)
+        duration_days = max(1, (end_date - m["eff_from"]).days + 1)
+        total_weeks = max(1, duration_days // 7)
         n_acts = int(rng.poisson(acts_per_week * total_weeks))
         for _ in range(max(0, n_acts)):
-            offset_days = int(rng.integers(0, (ACADEMIC_END - ACADEMIC_START).days))
-            ts = datetime(ACADEMIC_START.year, ACADEMIC_START.month, ACADEMIC_START.day) + timedelta(
+            offset_days = int(rng.integers(0, duration_days))
+            ts = datetime(m["eff_from"].year, m["eff_from"].month, m["eff_from"].day) + timedelta(
                 days=offset_days, hours=int(rng.integers(8, 22)), minutes=int(rng.integers(0, 59))
             )
             atype = LMS_TYPES[int(rng.integers(0, len(LMS_TYPES)))]
@@ -442,7 +545,7 @@ def generate(scale: str, seed: int):
                 "case_type": ctype,
                 "description": fake.sentence(nb_words=12),
                 "priority": priority,
-                "assigned_staff_id": stf_id(staff_idx),
+                "assigned_staff_id": stf_id(staff_idx + 4),
                 "case_status": status,
                 "opened_at": opened.isoformat(),
                 "closed_at": (opened + timedelta(days=int(rng.integers(5, 30)))).isoformat() if status in ("RESOLVED","CLOSED") else "",
@@ -453,83 +556,120 @@ def generate(scale: str, seed: int):
 
     # ── 11. Risk Scores (baseline, cutoff=2026-07-01) ──────────────────────
     print("  Computing risk scores (pre-cutoff data only)...")
-    # Simplified rule-based risk for data generation (not using DB engine)
     risk_rows = []
     risk_counter = 1
-    # Build attendance rate and academic avg per enrollment using pre-cutoff data
     att_df = pd.DataFrame(attendance_rows)
     att_df["attendance_date"] = pd.to_datetime(att_df["attendance_date"])
-    res_df = pd.DataFrame(result_rows)
     asm_df = pd.DataFrame(assessment_rows)
     asm_df["assessment_date"] = pd.to_datetime(asm_df["assessment_date"])
 
     cutoff_dt = pd.Timestamp(CUTOFF)
+    risk_weights = {
+        "attendance": 0.30,
+        "academic_performance": 0.30,
+        "performance_trend": 0.15,
+        "lms_engagement": 0.15,
+        "historical_support": 0.10,
+    }
 
-    # Attendance rate per enrollment (pre-cutoff, correct denominator)
     att_pre = att_df[att_df["attendance_date"] <= cutoff_dt].copy()
-    att_rate = {}
-    for eid, grp in att_pre.groupby("enrollment_id"):
-        total = len(grp)
-        approved = (grp["attendance_status"] == "APPROVED_ABSENCE").sum()
-        effective = total - approved
-        attended = grp["attendance_status"].isin(["PRESENT", "LATE"]).sum()
-        att_rate[eid] = attended / effective if effective > 0 else None
-
-    # Academic avg per enrollment (pre-cutoff, only graded)
     asm_pre_ids = set(asm_df[asm_df["assessment_date"] <= cutoff_dt]["assessment_id"])
-    res_graded = res_df[(res_df["assessment_id"].isin(asm_pre_ids)) & (res_df["percentage"] != "")].copy()
-    res_graded["percentage"] = pd.to_numeric(res_graded["percentage"])
-    acad_avg = res_graded.groupby("enrollment_id")["percentage"].mean().to_dict()
+    asm_by_id = {a["assessment_id"]: a for a in assessment_rows}
+    graded_by_enrollment = {}
+    graded_all_by_enrollment = {}
+    for result in result_rows:
+        assessment = asm_by_id[result["assessment_id"]]
+        if result["marks_obtained"] != "" and result["percentage"] != "":
+            graded_record = (
+                date.fromisoformat(assessment["assessment_date"]),
+                float(result["percentage"]),
+                float(assessment["weightage"]),
+            )
+            graded_all_by_enrollment.setdefault(result["enrollment_id"], []).append(graded_record)
+            if assessment["assessment_id"] in asm_pre_ids:
+                graded_by_enrollment.setdefault(result["enrollment_id"], []).append(graded_record)
 
-    # LMS activity count pre-cutoff
     lms_df = pd.DataFrame(lms_rows) if lms_rows else pd.DataFrame(columns=["enrollment_id","activity_timestamp"])
     if not lms_df.empty:
         lms_df["activity_timestamp"] = pd.to_datetime(lms_df["activity_timestamp"])
-        lms_pre = lms_df[lms_df["activity_timestamp"] <= cutoff_dt]
+        lms_pre = lms_df[lms_df["activity_timestamp"] < cutoff_dt + pd.Timedelta(days=1)]
         lms_count = lms_pre.groupby("enrollment_id").size().to_dict()
     else:
         lms_count = {}
 
-    # Support history per student
-    case_df = pd.DataFrame(case_rows) if case_rows else pd.DataFrame(columns=["student_id"])
-    supp_count = case_df.groupby("student_id").size().to_dict() if not case_df.empty else {}
+    cases_by_student = {}
+    for case in case_rows:
+        if datetime.fromisoformat(case["opened_at"]).date() <= CUTOFF:
+            cases_by_student.setdefault(case["student_id"], []).append(case)
 
     for eid in active_enr_ids:
         m = enr_map[eid]
         sid = m["student_id"]
 
-        arate = att_rate.get(eid)
-        aacad = acad_avg.get(eid)
-        alms  = lms_count.get(eid, 0)
-        asupp = supp_count.get(sid, 0)
+        events = att_pre[att_pre["enrollment_id"] == eid]
+        approved = int((events["attendance_status"] == "APPROVED_ABSENCE").sum())
+        effective = len(events) - approved
+        attended = int(events["attendance_status"].isin(["PRESENT", "LATE"]).sum())
+        attendance_available = len(events) >= 3 and effective > 0
+        f_att = round((1 - attended / effective) * 100, 2) if attendance_available else None
 
-        # Factor scores (0-100, higher = more at risk)
-        f_att  = round((1 - arate) * 100, 2) if arate is not None else None
-        f_acad = round((1 - aacad / 100) * 100, 2) if aacad is not None else None
-        total_weeks = max(1, (CUTOFF - ACADEMIC_START).days / 7)
-        expected_acts = total_weeks * 2
-        lms_rate = min(1.0, alms / expected_acts)
-        f_lms  = round((1 - lms_rate) * 100, 2)
-        f_supp = round(min(100, asupp * 20), 2)
-        f_trend = None  # simplified: skip trend for data gen
+        graded = sorted(graded_by_enrollment.get(eid, []))
+        total_weight = sum(item[2] for item in graded)
+        if graded:
+            average = (
+                sum(score * weight for _, score, weight in graded) / total_weight
+                if total_weight
+                else sum(score for _, score, _ in graded) / len(graded)
+            )
+            f_acad = round((1 - average / 100) * 100, 2)
+        else:
+            f_acad = None
 
-        # Completeness
-        available = sum(1 for x in [f_att, f_acad, f_lms, f_supp] if x is not None)
-        completeness = available / 4
+        f_trend = None
+        if len(graded) >= 2:
+            midpoint = len(graded) // 2
+            first_average = sum(score for _, score, _ in graded[:midpoint]) / midpoint
+            second_average = sum(score for _, score, _ in graded[midpoint:]) / (len(graded) - midpoint)
+            trend = second_average - first_average
+            f_trend = round(max(0.0, min(100.0, (-trend + 20) / 40 * 100)), 2)
 
-        if completeness < 0.3:
+        days = max(1, (CUTOFF - m["eff_from"]).days) if m["eff_from"] <= CUTOFF else 90
+        expected_acts = max(1, days / 7) * 2
+        engagement_rate = min(1.0, lms_count.get(eid, 0) / expected_acts)
+        f_lms = round(max(0.0, min(100.0, (1 - engagement_rate) * 100)), 2)
+
+        cases = cases_by_student.get(sid, [])
+        open_cases = sum(1 for case in cases if case["case_status"] not in ("RESOLVED", "CLOSED"))
+        critical_cases = sum(1 for case in cases if case["priority"] == "CRITICAL")
+        f_supp = round(min(100.0, len(cases) * 15 + open_cases * 10 + critical_cases * 20), 2)
+
+        factor_scores = {
+            "attendance": f_att,
+            "academic_performance": f_acad,
+            "performance_trend": f_trend,
+            "lms_engagement": f_lms,
+            "historical_support": f_supp,
+        }
+        available_factors = [
+            key for key, available in (
+                ("attendance", attendance_available),
+                ("academic_performance", bool(graded)),
+                ("performance_trend", len(graded) >= 2),
+                ("lms_engagement", True),
+                ("historical_support", True),
+            ) if available
+        ]
+        completeness = round(len(available_factors) / len(risk_weights), 2)
+        total_weight = sum(risk_weights[key] for key in available_factors)
+        if completeness < 0.30 or not total_weight:
             risk_score = None
             risk_cat = "INSUFFICIENT_DATA"
         else:
-            weights = {"att": 0.30, "acad": 0.30, "lms": 0.15, "supp": 0.10}
-            wsum = 0; wscore = 0
-            for k, v, w in [("att", f_att, 0.30), ("acad", f_acad, 0.30), ("lms", f_lms, 0.15), ("supp", f_supp, 0.10)]:
-                if v is not None:
-                    wscore += v * w; wsum += w
-            risk_score = round(wscore / wsum * (wsum / 0.85), 2) if wsum > 0 else None
-            if risk_score is None:
-                risk_cat = "INSUFFICIENT_DATA"
-            elif risk_score <= 24:
+            weighted_score = sum(
+                factor_scores[key] * risk_weights[key] for key in available_factors
+            ) / total_weight
+            risk_score = round(min(100.0, weighted_score + (1 - completeness) * 8), 2)
+            if risk_score <= 24:
                 risk_cat = "LOW"
             elif risk_score <= 49:
                 risk_cat = "MEDIUM"
@@ -547,14 +687,15 @@ def generate(scale: str, seed: int):
             "cutoff_date": CUTOFF.isoformat(),
             "risk_score": risk_score if risk_score is not None else "",
             "risk_category": risk_cat,
-            "factor_scores": json.dumps({"attendance": f_att, "academic_performance": f_acad,
-                                          "performance_trend": f_trend, "lms_engagement": f_lms,
-                                          "historical_support": f_supp}),
-            "factor_weights": json.dumps({"attendance": 0.30, "academic_performance": 0.30,
-                                           "performance_trend": 0.15, "lms_engagement": 0.15,
-                                           "historical_support": 0.10}),
-            "reasons": json.dumps([f"Attendance risk: {f_att}", f"Academic risk: {f_acad}",
-                                    f"LMS engagement risk: {f_lms}"]),
+            "factor_scores": json.dumps(factor_scores),
+            "factor_weights": json.dumps(risk_weights),
+            "reasons": json.dumps([
+                f"Attendance: {attended}/{effective} sessions attended; {approved} approved absences excluded",
+                f"Academic: {len(graded)} graded assessment(s), risk factor {f_acad}",
+                f"Performance trend risk factor: {f_trend}",
+                f"LMS engagement risk factor: {f_lms}",
+                f"Support history: {len(cases)} case(s), {open_cases} open, {critical_cases} critical",
+            ]),
             "data_completeness": round(completeness, 2),
             "model_version": "v1.0",
             "is_anomaly": False,
@@ -590,7 +731,7 @@ def generate(scale: str, seed: int):
             "risk_assessment_id": risk_id_val,
             "intervention_type": itype,
             "trigger_date": trigger.isoformat(),
-            "assigned_staff_id": stf_id(staff_idx),
+            "assigned_staff_id": stf_id(staff_idx + 4),
             "start_date": start.isoformat(),
             "due_date": due.isoformat(),
             "completion_date": comp_date,
@@ -601,64 +742,115 @@ def generate(scale: str, seed: int):
         int_counter += 1
     _write_csv(int_rows, CSV_DIR / "interventions.csv")
     print(f"    {len(int_rows)} interventions")
+    normal_risk_by_enrollment = {risk["enrollment_id"]: risk for risk in risk_rows}
 
     # ── 13. Future outcomes ─────────────────────────────────────────────────
     print("  Generating outcomes...")
     out_rows = []
     out_counter = 1
-    # Build post-cutoff stats
-    att_post = att_df[att_df["attendance_date"] > cutoff_dt].copy() if not att_df.empty else pd.DataFrame()
-    if not att_post.empty:
-        att_post_rate = {}
-        for eid2, grp in att_post.groupby("enrollment_id"):
-            approved2 = (grp["attendance_status"] == "APPROVED_ABSENCE").sum()
-            effective2 = len(grp) - approved2
-            attended2 = grp["attendance_status"].isin(["PRESENT","LATE"]).sum()
-            att_post_rate[eid2] = attended2 / effective2 if effective2 > 0 else None
-    else:
-        att_post_rate = {}
+    attendance_by_enrollment = {}
+    for event in attendance_rows:
+        attendance_by_enrollment.setdefault(event["enrollment_id"], []).append(event)
+    lms_by_enrollment = {}
+    for activity in lms_rows:
+        lms_by_enrollment.setdefault(activity["enrollment_id"], []).append(
+            datetime.fromisoformat(activity["activity_timestamp"])
+        )
+    intervention_by_enrollment = {
+        row["enrollment_id"]: row["intervention_id"]
+        for row in int_rows if row["enrollment_id"]
+    }
 
-    asm_post_ids = set(asm_df[asm_df["assessment_date"] > cutoff_dt]["assessment_id"])
-    res_post = res_df[(res_df["assessment_id"].isin(asm_post_ids)) & (res_df["percentage"] != "")].copy() if not res_df.empty else pd.DataFrame()
-    if not res_post.empty:
-        res_post["percentage"] = pd.to_numeric(res_post["percentage"])
-        acad_post_avg = res_post.groupby("enrollment_id")["percentage"].mean().to_dict()
-    else:
-        acad_post_avg = {}
+    def attendance_rates(start_date, end_date):
+        rates = {}
+        for enrollment_id, records in attendance_by_enrollment.items():
+            events = [
+                event for event in records
+                if date.fromisoformat(event["attendance_date"]) <= end_date
+                and (start_date is None or date.fromisoformat(event["attendance_date"]) >= start_date)
+            ]
+            approved_count = sum(event["attendance_status"] == "APPROVED_ABSENCE" for event in events)
+            effective_count = len(events) - approved_count
+            if len(events) >= 2 and effective_count:
+                attended_count = sum(
+                    event["attendance_status"] in ("PRESENT", "LATE") for event in events
+                )
+                rates[enrollment_id] = attended_count / effective_count
+        return rates
+
+    def academic_averages(start_date, end_date):
+        averages = {}
+        for enrollment_id, records in graded_all_by_enrollment.items():
+            scores = [
+                score for assessment_date, score, _ in records
+                if assessment_date <= end_date
+                and (start_date is None or assessment_date >= start_date)
+            ]
+            if scores:
+                averages[enrollment_id] = sum(scores) / len(scores)
+        return averages
+
+    def engagement_rates(start_date, end_date):
+        rates = {enrollment_id: 0.0 for enrollment_id in enr_map}
+        days = max(1, (end_date - start_date).days) if start_date else 180
+        weeks = max(1, days / 7)
+        for enrollment_id, timestamps in lms_by_enrollment.items():
+            count = sum(
+                timestamp.date() <= end_date
+                and (start_date is None or timestamp.date() >= start_date)
+                for timestamp in timestamps
+            )
+            rates[enrollment_id] = count / weeks
+        return rates
+
+    baseline_attendance = attendance_rates(None, CUTOFF)
+    future_attendance = attendance_rates(EVAL_START, EVAL_END)
+    baseline_academic = academic_averages(None, CUTOFF)
+    future_academic = academic_averages(EVAL_START, EVAL_END)
+    baseline_engagement = engagement_rates(None, CUTOFF)
+    future_engagement = engagement_rates(EVAL_START, EVAL_END)
 
     # Sample 30% of active enrollments for outcomes
     sample_enrs = rng.choice(active_enr_ids, size=min(len(active_enr_ids), len(active_enr_ids)//3 + 1), replace=False)
     for eid2 in sample_enrs:
         m = enr_map[eid2]
         sid = m["student_id"]
-        risk_match = next((r for r in risk_rows if r["enrollment_id"] == eid2), None)
+        risk_match = normal_risk_by_enrollment.get(eid2)
         base_risk = float(risk_match["risk_score"]) if risk_match and risk_match["risk_score"] != "" else None
-        base_att = att_rate.get(eid2)
-        base_acad = acad_avg.get(eid2)
-        fut_att = att_post_rate.get(eid2)
-        fut_acad = acad_post_avg.get(eid2)
+        base_att = baseline_attendance.get(eid2)
+        base_acad = baseline_academic.get(eid2)
+        base_lms = baseline_engagement.get(eid2)
+        fut_att = future_attendance.get(eid2)
+        fut_acad = future_academic.get(eid2)
+        fut_lms = future_engagement.get(eid2)
         att_chg = round((fut_att - base_att) * 100, 2) if (fut_att is not None and base_att is not None) else None
         acad_chg = round(fut_acad - base_acad, 2) if (fut_acad is not None and base_acad is not None) else None
-        changes = [c for c in [att_chg, acad_chg] if c is not None]
+        lms_chg = round((fut_lms - base_lms) * 10, 2) if (fut_lms is not None and base_lms is not None) else None
+        changes = [c for c in (att_chg, acad_chg, lms_chg) if c is not None]
         if not changes:
             label = "INSUFFICIENT_DATA"
         else:
             avg_chg = sum(changes) / len(changes)
-            if avg_chg > 5:    label = "IMPROVED"
-            elif avg_chg < -5: label = "DECLINED"
-            else:               label = "STABLE"
+            improved = sum(change > 5 for change in changes)
+            declined = sum(change < -5 for change in changes)
+            if improved >= 2 or avg_chg > 5:
+                label = "IMPROVED"
+            elif declined >= 2 or avg_chg < -5:
+                label = "DECLINED"
+            else:
+                label = "STABLE"
         out_rows.append({
             "outcome_id": out_id(out_counter),
             "student_id": sid,
             "enrollment_id": eid2,
-            "intervention_id": "",
+            "intervention_id": intervention_by_enrollment.get(eid2, ""),
             "evaluation_period_start": EVAL_START.isoformat(),
             "evaluation_period_end": EVAL_END.isoformat(),
             "baseline_risk_score": base_risk if base_risk is not None else "",
             "future_risk_score": "",
             "academic_performance_change": acad_chg if acad_chg is not None else "",
             "attendance_change": att_chg if att_chg is not None else "",
-            "engagement_change": "",
+            "engagement_change": lms_chg if lms_chg is not None else "",
             "outcome_label": label,
             "evaluation_date": EVAL_END.isoformat(),
         })
@@ -666,218 +858,226 @@ def generate(scale: str, seed: int):
     _write_csv(out_rows, CSV_DIR / "outcomes.csv")
     print(f"    {len(out_rows)} outcomes")
 
-    # ── 14. Ground Truth ────────────────────────────────────────────────────
-    print("  Generating ground truth...")
+    # ── 14. Ground Truth and injected anomalies ────────────────────────────
+    print("  Generating ground truth and injecting labelled anomalies...")
     gt_rows = []
     gt_counter = 1
-    for r in risk_rows[:min(len(risk_rows), 1000)]:
+    for risk in risk_rows[:min(len(risk_rows), 1000)]:
         gt_rows.append({
-            "gt_id": gt_id(gt_counter),
-            "student_id": r["student_id"],
-            "risk_id": r["risk_id"],
-            "expected_risk_category": r["risk_category"],
-            "expected_outcome_label": "",   # separate from risk — no leakage
-            "expected_anomaly_detected": False,
+            "gt_id": gt_id(gt_counter), "student_id": risk["student_id"],
+            "risk_id": risk["risk_id"], "expected_risk_category": risk["risk_category"],
+            "expected_outcome_label": "", "expected_anomaly_detected": False,
             "evaluation_reference": f"Generated by generate_data.py seed={seed}",
             "notes": "Normal production record",
         })
         gt_counter += 1
-    # GT for outcome labels
-    for o in out_rows:
+    for outcome in out_rows:
         gt_rows.append({
-            "gt_id": gt_id(gt_counter),
-            "student_id": o["student_id"],
-            "risk_id": "",
-            "expected_risk_category": "",
-            "expected_outcome_label": o["outcome_label"],
+            "gt_id": gt_id(gt_counter), "student_id": outcome["student_id"],
+            "risk_id": "", "expected_risk_category": "",
+            "expected_outcome_label": outcome["outcome_label"],
             "expected_anomaly_detected": False,
-            "evaluation_reference": f"Outcome {o['outcome_id']}",
+            "evaluation_reference": f"Outcome {outcome['outcome_id']}",
             "notes": "Future outcome label — not used as model input",
         })
         gt_counter += 1
-    # GT for the 5 injected anomalies
-    for atype in ["TEMPORAL_LEAKAGE", "WRONG_DENOMINATOR", "LIFECYCLE_INCONSISTENCY",
-                   "INTERVENTION_PRECEDES_TRIGGER", "MISSING_DATA_AS_FAILURE"]:
+
+    risk_by_enrollment = normal_risk_by_enrollment
+    assessment_dates = {
+        assessment["assessment_id"]: date.fromisoformat(assessment["assessment_date"])
+        for assessment in assessment_rows
+    }
+    future_result_enrollments = {
+        result["enrollment_id"] for result in result_rows
+        if assessment_dates[result["assessment_id"]] > date(2026, 6, 1)
+    }
+    temporal_base = next(
+        risk for risk in risk_rows if risk["enrollment_id"] in future_result_enrollments
+    )
+    temporal_anomaly = dict(temporal_base)
+    temporal_anomaly.update({
+        "risk_id": "RISK-2026-ANOM-000001",
+        "is_anomaly": True,
+        "model_version": "v0.9-BUGGY",
+        "assessment_timestamp": datetime(2026, 6, 15, 10, 0).isoformat(),
+        "cutoff_date": "2026-06-01",
+        "reasons": json.dumps(["Used assessment data dated after the risk cutoff"]),
+    })
+    risk_rows.append(temporal_anomaly)
+
+    wrong_denominator_base = None
+    for enrollment_id, records in attendance_by_enrollment.items():
+        risk = normal_risk_by_enrollment.get(enrollment_id)
+        if not risk:
+            continue
+        eligible_records = [
+            event for event in records
+            if date.fromisoformat(event["attendance_date"]) <= CUTOFF
+        ]
+        if (
+            any(event["attendance_status"] == "APPROVED_ABSENCE" for event in eligible_records)
+            and any(event["attendance_status"] in ("PRESENT", "LATE") for event in eligible_records)
+        ):
+            wrong_denominator_base = risk
+            break
+    if wrong_denominator_base is None:
+        raise RuntimeError("Unable to create the approved-absence denominator anomaly")
+    wrong_enrollment_id = wrong_denominator_base["enrollment_id"]
+    wrong_events = [
+        event for event in attendance_by_enrollment[wrong_enrollment_id]
+        if date.fromisoformat(event["attendance_date"]) <= CUTOFF
+    ]
+    wrong_total = len(wrong_events)
+    wrong_approved = sum(event["attendance_status"] == "APPROVED_ABSENCE" for event in wrong_events)
+    wrong_attended = sum(event["attendance_status"] in ("PRESENT", "LATE") for event in wrong_events)
+    wrong_denominator_anomaly = dict(wrong_denominator_base)
+    wrong_scores = json.loads(wrong_denominator_anomaly["factor_scores"])
+    wrong_scores["attendance"] = round((1 - wrong_attended / wrong_total) * 100, 2)
+    wrong_denominator_anomaly.update({
+        "risk_id": "RISK-2026-ANOM-000002",
+        "is_anomaly": True,
+        "model_version": "v0.9-BUGGY",
+        "factor_scores": json.dumps(wrong_scores),
+        "reasons": json.dumps(["Attendance denominator incorrectly included approved absences"]),
+    })
+    risk_rows.append(wrong_denominator_anomaly)
+
+    lifecycle_anomaly = {
+        "anomaly_type": "LIFECYCLE_INCONSISTENCY",
+        "student_id": lifecycle_anomaly_student,
+        "enrollment_id": lifecycle_enrollment_id,
+        "enrollment_status": "ACTIVE",
+        "student_status": "WITHDRAWN",
+    }
+
+    intervention_risk = risk_by_enrollment[lifecycle_enrollment_id]
+    intervention_anomaly = {
+        "intervention_id": "INT-2026-ANOM-000001",
+        "student_id": lifecycle_anomaly_student,
+        "enrollment_id": lifecycle_enrollment_id,
+        "case_id": "",
+        "risk_assessment_id": intervention_risk["risk_id"],
+        "intervention_type": "ADVISOR_REVIEW",
+        "trigger_date": CUTOFF.isoformat(),
+        "assigned_staff_id": stf_id(5),
+        "start_date": (CUTOFF - timedelta(days=9)).isoformat(),
+        "due_date": (CUTOFF + timedelta(days=30)).isoformat(),
+        "completion_date": "",
+        "intervention_status": "IN_PROGRESS",
+        "expected_outcome": "Chronology anomaly fixture",
+        "actual_outcome": "",
+    }
+    int_rows.append(intervention_anomaly)
+
+    missing_base = risk_by_enrollment[missing_data_enrollment]
+    missing_anomaly = dict(missing_base)
+    missing_scores = json.loads(missing_anomaly["factor_scores"])
+    missing_scores["academic_performance"] = 78.0
+    missing_anomaly.update({
+        "risk_id": "RISK-2026-ANOM-000003",
+        "is_anomaly": True,
+        "model_version": "v0.8-BUGGY",
+        "factor_scores": json.dumps(missing_scores),
+        "reasons": json.dumps(["Missing assessment result was incorrectly treated as a failed score"]),
+    })
+    risk_rows.append(missing_anomaly)
+
+    anomaly_rows = [
+        {"anomaly_type": "TEMPORAL_LEAKAGE", "risk_assessment": temporal_anomaly},
+        {"anomaly_type": "WRONG_DENOMINATOR", "risk_assessment": wrong_denominator_anomaly},
+        lifecycle_anomaly,
+        {"anomaly_type": "INTERVENTION_PRECEDES_TRIGGER", "intervention": intervention_anomaly},
+        {"anomaly_type": "MISSING_DATA_AS_FAILURE", "risk_assessment": missing_anomaly},
+    ]
+    anomaly_labels = [
+        ("TEMPORAL_LEAKAGE", temporal_anomaly["student_id"], temporal_anomaly["risk_id"]),
+        ("WRONG_DENOMINATOR", wrong_denominator_anomaly["student_id"], wrong_denominator_anomaly["risk_id"]),
+        ("LIFECYCLE_INCONSISTENCY", lifecycle_anomaly_student, ""),
+        ("INTERVENTION_PRECEDES_TRIGGER", intervention_anomaly["student_id"], ""),
+        ("MISSING_DATA_AS_FAILURE", missing_anomaly["student_id"], missing_anomaly["risk_id"]),
+    ]
+    for anomaly_type, student_id, risk_id in anomaly_labels:
         gt_rows.append({
-            "gt_id": gt_id(gt_counter),
-            "student_id": "",
-            "risk_id": "",
-            "expected_risk_category": "",
-            "expected_outcome_label": "",
+            "gt_id": gt_id(gt_counter), "student_id": student_id, "risk_id": risk_id,
+            "expected_risk_category": "", "expected_outcome_label": "",
             "expected_anomaly_detected": True,
-            "evaluation_reference": atype,
-            "notes": f"Injected anomaly — detection expected",
+            "evaluation_reference": anomaly_type,
+            "notes": "Injected anomaly is labelled ground truth and excluded from model inputs",
         })
         gt_counter += 1
+
+    _write_csv(risk_rows, CSV_DIR / "risk_assessments.csv")
+    _write_csv(int_rows, CSV_DIR / "interventions.csv")
     _write_csv(gt_rows, GT_DIR / "ground_truth.csv")
-    with open(GT_DIR / "ground_truth.json", "w") as f:
+    with open(GT_DIR / "ground_truth.json", "w", encoding="utf-8") as f:
         json.dump(gt_rows, f, indent=2)
-    print(f"    {len(gt_rows)} ground truth records")
-
-    # ── 15. Inject 5 anomalies ──────────────────────────────────────────────
-    print("  Injecting 5 anomalies...")
-    anomaly_rows = []
-
-    # Anomaly 1: Temporal leakage (use future assessment data)
-    if risk_rows and active_enr_ids:
-        base_risk = risk_rows[0]
-        a1 = dict(base_risk)
-        a1["risk_id"] = "RISK-ANOMALY-TEMPORAL-001"
-        a1["is_anomaly"] = True
-        a1["model_version"] = "v0.9-BUGGY"
-        a1["assessment_timestamp"] = datetime(2026, 6, 15, 10, 0).isoformat()
-        # This record's cutoff is 2026-06-01 but we know the enrollment has post-June assessments
-        a1["cutoff_date"] = "2026-06-01"
-        a1["reasons"] = json.dumps(["ANOMALY: Risk score used assessment data after 2026-06-01"])
-        anomaly_rows.append(a1)
-
-    # Anomaly 2: Wrong denominator
-    if active_enr_ids:
-        a2_enr = active_enr_ids[1] if len(active_enr_ids) > 1 else active_enr_ids[0]
-        # Compute wrong rate (include approved_absences)
-        enr_att = att_df[att_df["enrollment_id"] == a2_enr] if not att_df.empty else pd.DataFrame()
-        total_a2 = len(enr_att)
-        approved_a2 = int((enr_att["attendance_status"] == "APPROVED_ABSENCE").sum()) if not enr_att.empty else 2
-        attended_a2 = int(enr_att["attendance_status"].isin(["PRESENT","LATE"]).sum()) if not enr_att.empty else total_a2 - 3
-        wrong_rate = attended_a2 / total_a2 if total_a2 > 0 else 0.8
-        correct_rate = attended_a2 / (total_a2 - approved_a2) if (total_a2 - approved_a2) > 0 else 0.85
-        anomaly_rows.append({
-            "anomaly_type": "WRONG_DENOMINATOR", "enrollment_id": a2_enr,
-            "wrong_rate": round(wrong_rate, 4), "correct_rate": round(correct_rate, 4),
-            "note": "Denominator includes approved_absences — incorrect calculation"
-        })
-
-    # Anomaly 3: Lifecycle inconsistency (withdrawn student, active enrollment)
-    withdrawn_students = [s["student_id"] for s in student_rows if s["current_status"] == "WITHDRAWN"]
-    if not withdrawn_students:
-        # Create an anomaly student record
-        withdrawn_students = [stu_id(N_STUDENTS + 1)]
-        student_rows.append({
-            "student_id": withdrawn_students[0], "first_name": "Anomaly", "last_name": "Withdrawn",
-            "email": "anomaly.withdrawn@student.yottaflex.edu", "enrollment_date": "2026-01-15",
-            "academic_year": ACADEMIC_YEAR, "department": "Computer Science",
-            "program": "B.Sc Computer Science", "current_status": "WITHDRAWN",
-        })
-    a3_student = withdrawn_students[0]
-    a3_enr_id = enr_id(a3_student, all_course_ids[0])
-    anomaly_rows.append({
-        "anomaly_type": "LIFECYCLE_INCONSISTENCY", "student_id": a3_student,
-        "enrollment_id": a3_enr_id, "enrollment_status": "ACTIVE",
-        "student_status": "WITHDRAWN",
-        "note": "WITHDRAWN student has ACTIVE enrollment — lifecycle violation"
-    })
-
-    # Anomaly 4: Intervention precedes trigger
-    if int_rows:
-        a4 = dict(int_rows[0])
-        a4["intervention_id"] = "INT-ANOMALY-PRE-001"
-        a4["trigger_date"] = "2026-07-10"
-        a4["start_date"] = "2026-07-01"   # 9 days BEFORE trigger_date
-        a4["note"] = "start_date < trigger_date — chronological impossibility"
-        anomaly_rows.append(a4)
-
-    # Anomaly 5: Missing data as failure
-    if risk_rows and active_enr_ids:
-        a5 = dict(risk_rows[1]) if len(risk_rows) > 1 else dict(risk_rows[0])
-        a5["risk_id"] = "RISK-ANOMALY-MISSING-001"
-        a5["is_anomaly"] = True
-        # Artificially high academic_performance score (NULL treated as 0)
-        fs = json.loads(a5["factor_scores"])
-        fs["academic_performance"] = 78.0   # inflated because NULLs counted as zeros
-        a5["factor_scores"] = json.dumps(fs)
-        a5["model_version"] = "v0.8-BUGGY"
-        a5["reasons"] = json.dumps(["ANOMALY: NULL marks treated as 0 — academic_performance inflated"])
-        anomaly_rows.append(a5)
-
-    with open(VAL_DIR / "anomaly_records.json", "w") as f:
-        json.dump(anomaly_rows, f, indent=2, default=str)
-    print(f"    5 anomalies injected into {VAL_DIR / 'anomaly_records.json'}")
+    with open(VAL_DIR / "anomaly_records.json", "w", encoding="utf-8") as f:
+        json.dump(anomaly_rows, f, indent=2)
+    print(f"    {len(anomaly_rows)} labelled anomaly records included in source exports")
 
     # ── 16. Data Quality Issue records ──────────────────────────────────────
     dq_rows = [
         {"issue_id": "DQI-000001", "issue_type": "TEMPORAL_LEAKAGE", "affected_entity": "RiskAssessment",
-         "affected_record_id": "RISK-ANOMALY-TEMPORAL-001",
+         "affected_record_id": temporal_anomaly["risk_id"],
          "expected_behavior": "Risk score uses only data with assessment_date <= cutoff_date",
-         "observed_behavior": "Risk score for RISK-ANOMALY-TEMPORAL-001 used post-cutoff assessment data",
+         "observed_behavior": f"Risk score {temporal_anomaly['risk_id']} used post-cutoff assessment data",
          "ground_truth_label": "ANOMALY_CONFIRMED", "detection_status": "DETECTED",
-         "explanation": "Temporal leakage: assessment data after 2026-06-01 used in risk model",
+         "explanation": f"Temporal leakage: assessment data after 2026-06-01 used by {temporal_anomaly['risk_id']}",
          "severity": "CRITICAL", "is_injected_anomaly": True},
-        {"issue_id": "DQI-000002", "issue_type": "WRONG_DENOMINATOR", "affected_entity": "AttendanceEvent",
-         "affected_record_id": active_enr_ids[1] if len(active_enr_ids) > 1 else active_enr_ids[0],
+        {"issue_id": "DQI-000002", "issue_type": "WRONG_DENOMINATOR", "affected_entity": "RiskAssessment",
+         "affected_record_id": wrong_denominator_anomaly["risk_id"],
          "expected_behavior": "Attendance rate excludes approved_absence from denominator",
-         "observed_behavior": "Approved absences included in denominator inflating absence percentage",
+         "observed_behavior": f"Recorded attendance factor uses {wrong_attended}/{wrong_total} rather than {wrong_attended}/{wrong_total - wrong_approved}",
          "ground_truth_label": "ANOMALY_CONFIRMED", "detection_status": "DETECTED",
-         "explanation": "Wrong denominator calculation detected",
+         "explanation": "Attendance risk incorrectly includes approved absences in its denominator",
          "severity": "HIGH", "is_injected_anomaly": True},
         {"issue_id": "DQI-000003", "issue_type": "LIFECYCLE_INCONSISTENCY", "affected_entity": "Student",
-         "affected_record_id": a3_student,
+         "affected_record_id": lifecycle_anomaly_student,
          "expected_behavior": "WITHDRAWN student should have no ACTIVE enrollments",
-         "observed_behavior": f"WITHDRAWN student {a3_student} has ACTIVE enrollment {a3_enr_id}",
+         "observed_behavior": f"WITHDRAWN student {lifecycle_anomaly_student} has ACTIVE enrollment {lifecycle_enrollment_id}",
          "ground_truth_label": "ANOMALY_CONFIRMED", "detection_status": "DETECTED",
          "explanation": "Lifecycle rule violation: withdrawn student retains active enrollment",
          "severity": "HIGH", "is_injected_anomaly": True},
         {"issue_id": "DQI-000004", "issue_type": "INTERVENTION_PRECEDES_TRIGGER", "affected_entity": "Intervention",
-         "affected_record_id": "INT-ANOMALY-PRE-001",
+         "affected_record_id": intervention_anomaly["intervention_id"],
          "expected_behavior": "start_date >= trigger_date",
-         "observed_behavior": "start_date 2026-07-01 precedes trigger_date 2026-07-10",
+         "observed_behavior": f"start_date {intervention_anomaly['start_date']} precedes trigger_date {intervention_anomaly['trigger_date']}",
          "ground_truth_label": "ANOMALY_CONFIRMED", "detection_status": "DETECTED",
          "explanation": "Chronological impossibility: intervention started before it was triggered",
          "severity": "CRITICAL", "is_injected_anomaly": True},
         {"issue_id": "DQI-000005", "issue_type": "MISSING_DATA_AS_FAILURE", "affected_entity": "RiskAssessment",
-         "affected_record_id": "RISK-ANOMALY-MISSING-001",
+         "affected_record_id": missing_anomaly["risk_id"],
          "expected_behavior": "NULL marks excluded from academic average",
-         "observed_behavior": "academic_performance score 78.0 inflated by NULL results counted as 0",
+         "observed_behavior": f"academic_performance score 78.0 on {missing_anomaly['risk_id']} despite a missing pre-cutoff result",
          "ground_truth_label": "ANOMALY_CONFIRMED", "detection_status": "DETECTED",
          "explanation": "Missing data incorrectly treated as zero score, inflating risk",
          "severity": "HIGH", "is_injected_anomaly": True},
     ]
     _write_csv(dq_rows, CSV_DIR / "data_quality_issues.csv")
 
-    # ── 17. Validation report ───────────────────────────────────────────────
-    print("  Running validation checks...")
-    val_report = {
-        "generated_at": datetime.utcnow().isoformat(),
-        "seed": seed, "scale": scale,
-        "row_counts": {
-            "students": len(student_rows),
-            "courses": len(course_rows),
-            "enrollments": len(enrollment_rows),
-            "assessments": len(assessment_rows),
-            "attendance_events": len(attendance_rows),
-            "assessment_results": len(result_rows),
-            "lms_activities": len(lms_rows),
-            "support_cases": len(case_rows),
-            "interventions": len(int_rows),
-            "risk_assessments": len(risk_rows),
-            "outcomes": len(out_rows),
-            "ground_truth": len(gt_rows),
-            "data_quality_issues": len(dq_rows),
-        },
-        "checks": [
-            {"check": "student_pk_unique", "result": "PASS", "count": len(student_rows)},
-            {"check": "course_pk_unique", "result": "PASS", "count": len(course_rows)},
-            {"check": "enrollment_pk_unique", "result": "PASS", "count": len(enrollment_rows)},
-            {"check": "no_duplicate_enrollments", "result": "PASS", "unique_pairs": len(enrollment_set)},
-            {"check": "risk_cutoff_temporal_integrity",
-             "result": "PASS", "note": "All production risk scores use data up to 2026-07-01"},
-            {"check": "injected_anomalies", "result": "PASS", "count": 5},
-            {"check": "ground_truth_no_input_features",
-             "result": "PASS", "note": "GT file contains labels only, no model input features"},
-            {"check": "attendance_denominator_correctness",
-             "result": "PASS", "note": "Approved absences excluded from denominator in all production records"},
-            {"check": "null_marks_not_zero",
-             "result": "PASS", "note": "NULL marks_obtained excluded from averages in production risk engine"},
-        ],
-        "total_checks": 9, "passed": 9, "failed": 0, "warnings": 0,
-        "validation_status": "PASS",
+    row_counts = {
+        "staff": len(staff_rows),
+        "students": len(student_rows), "courses": len(course_rows),
+        "enrollments": len(enrollment_rows), "assessments": len(assessment_rows),
+        "attendance_events": len(attendance_rows), "assessment_results": len(result_rows),
+        "lms_activities": len(lms_rows), "support_cases": len(case_rows),
+        "interventions": len(int_rows), "risk_assessments": len(risk_rows),
+        "outcomes": len(out_rows), "ground_truth": len(gt_rows),
+        "data_quality_issues": len(dq_rows),
     }
-    with open(VAL_DIR / "validation_report.json", "w") as f:
-        json.dump(val_report, f, indent=2)
 
-    # ── 18. Manifest ────────────────────────────────────────────────────────
+    for csvfile in sorted(CSV_DIR.glob("*.csv")):
+        with open(csvfile, newline="", encoding="utf-8") as source:
+            rows = list(csv.DictReader(source))
+        json_path = JSON_DIR / f"{csvfile.stem}.json"
+        with open(json_path, "w", encoding="utf-8") as destination:
+            json.dump(rows, destination, indent=2, ensure_ascii=False)
+    _write_sql_seed()
+
+    # ── 17. Manifest ────────────────────────────────────────────────────────
     print("  Writing manifest...")
     manifest = {
-        "generator_version": "1.0.0",
+        "generator_version": "1.1.0",
         "seed": seed,
         "scale": scale,
         "generation_timestamp": datetime.utcnow().isoformat(),
@@ -885,15 +1085,24 @@ def generate(scale: str, seed: int):
         "academic_start": ACADEMIC_START.isoformat(),
         "academic_end": ACADEMIC_END.isoformat(),
         "risk_cutoff_date": CUTOFF.isoformat(),
-        "entity_counts": val_report["row_counts"],
+        "entity_counts": row_counts,
         "file_checksums": {},
     }
-    for csvfile in CSV_DIR.glob("*.csv"):
-        manifest["file_checksums"][csvfile.name] = sha256(csvfile)
+    for directory, prefix in ((CSV_DIR, "csv"), (JSON_DIR, "json")):
+        for path in sorted(directory.glob("*")):
+            if path.is_file():
+                manifest["file_checksums"][f"{prefix}/{path.name}"] = sha256(path)
+    for path, prefix in (
+        (GT_DIR / "ground_truth.csv", "ground_truth"),
+        (GT_DIR / "ground_truth.json", "ground_truth"),
+        (VAL_DIR / "anomaly_records.json", "validation"),
+        (DATA_DIR / "generated" / "sql" / "seed.sql", "sql"),
+    ):
+        manifest["file_checksums"][f"{prefix}/{path.name}"] = sha256(path)
     with open(MAN_DIR / "manifest.json", "w") as f:
         json.dump(manifest, f, indent=2)
 
-    print(f"\n✅ Data generation complete!")
+    print("\nData generation complete.")
     print(f"   Students:          {len(student_rows)}")
     print(f"   Courses:           {len(course_rows)}")
     print(f"   Enrollments:       {len(enrollment_rows)}")
@@ -906,10 +1115,56 @@ def generate(scale: str, seed: int):
     print(f"   Ground truth:      {len(gt_rows)}")
     print(f"   Anomalies injected: 5")
     print(f"\n   CSV files:   {CSV_DIR}")
+    print(f"   JSON files:  {JSON_DIR}")
+    print(f"   SQL seed:    {DATA_DIR / 'generated' / 'sql' / 'seed.sql'}")
     print(f"   Ground truth:{GT_DIR}")
     print(f"   Manifest:    {MAN_DIR / 'manifest.json'}")
-    print(f"   Validation:  {VAL_DIR / 'validation_report.json'}")
     return manifest
+
+
+def _write_sql_seed():
+    sql_dir = DATA_DIR / "generated" / "sql"
+    sql_dir.mkdir(parents=True, exist_ok=True)
+    path = sql_dir / "seed.sql"
+    with open(path, "w", encoding="utf-8", newline="\n") as output:
+        output.write("-- Generated synthetic seed data; apply after creating the database schema.\n")
+        output.write("BEGIN;\n")
+        for table, filename, columns in SQL_EXPORTS:
+            source_path = GT_DIR / filename if table == "ground_truth" else CSV_DIR / filename
+            with open(source_path, newline="", encoding="utf-8") as source:
+                rows = csv.DictReader(source)
+                batch = []
+                for row in rows:
+                    values = ", ".join(_sql_literal(column, row.get(column, "")) for column in columns)
+                    batch.append(f"({values})")
+                    if len(batch) == 500:
+                        output.write(
+                            f"INSERT INTO {table} ({', '.join(columns)}) VALUES\n"
+                            + ",\n".join(batch) + ";\n"
+                        )
+                        batch.clear()
+                if batch:
+                    output.write(
+                        f"INSERT INTO {table} ({', '.join(columns)}) VALUES\n"
+                        + ",\n".join(batch) + ";\n"
+                    )
+        output.write("COMMIT;\n")
+
+
+def _sql_literal(column, value):
+    if value in (None, ""):
+        return "NULL"
+    if column in SQL_BOOLEAN_COLUMNS:
+        return "TRUE" if str(value).lower() in ("true", "1", "yes") else "FALSE"
+    if column in SQL_NUMERIC_COLUMNS:
+        return str(float(value)) if "." in str(value) else str(int(value))
+    if column in SQL_DATE_COLUMNS:
+        return f"DATE '{value}'"
+    if column in SQL_DATETIME_COLUMNS:
+        timestamp = str(value).replace("T", " ", 1)
+        return f"TIMESTAMP '{timestamp}'"
+    escaped = str(value).replace("'", "''")
+    return f"'{escaped}'"
 
 
 def _write_csv(rows, path):
@@ -926,6 +1181,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate synthetic academic data")
     parser.add_argument("--scale", choices=["starter", "full"], default="starter")
     parser.add_argument("--seed",  type=int, default=20261022)
+    parser.add_argument("--output-dir", type=Path, help="write all data under this directory")
     args = parser.parse_args()
-    generate(args.scale, args.seed)
-
+    generate(args.scale, args.seed, args.output_dir)

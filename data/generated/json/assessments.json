@@ -1,0 +1,1973 @@
+[
+  {
+    "assessment_id": "ASM-000001",
+    "course_id": "CRS-000001",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.2273",
+    "assessment_date": "2026-04-11"
+  },
+  {
+    "assessment_id": "ASM-000002",
+    "course_id": "CRS-000001",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0848",
+    "assessment_date": "2026-07-23"
+  },
+  {
+    "assessment_id": "ASM-000003",
+    "course_id": "CRS-000001",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.1593",
+    "assessment_date": "2026-08-10"
+  },
+  {
+    "assessment_id": "ASM-000004",
+    "course_id": "CRS-000001",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.191",
+    "assessment_date": "2026-08-24"
+  },
+  {
+    "assessment_id": "ASM-000005",
+    "course_id": "CRS-000001",
+    "assessment_name": "Presentation 5",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0842",
+    "assessment_date": "2026-09-20"
+  },
+  {
+    "assessment_id": "ASM-000006",
+    "course_id": "CRS-000001",
+    "assessment_name": "Project 6",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.2532",
+    "assessment_date": "2026-09-24"
+  },
+  {
+    "assessment_id": "ASM-000007",
+    "course_id": "CRS-000002",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1327",
+    "assessment_date": "2026-04-07"
+  },
+  {
+    "assessment_id": "ASM-000008",
+    "course_id": "CRS-000002",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0146",
+    "assessment_date": "2026-06-10"
+  },
+  {
+    "assessment_id": "ASM-000009",
+    "course_id": "CRS-000002",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.5066",
+    "assessment_date": "2026-06-23"
+  },
+  {
+    "assessment_id": "ASM-000010",
+    "course_id": "CRS-000002",
+    "assessment_name": "Final 4",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.2018",
+    "assessment_date": "2026-07-24"
+  },
+  {
+    "assessment_id": "ASM-000011",
+    "course_id": "CRS-000002",
+    "assessment_name": "Assignment 5",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0915",
+    "assessment_date": "2026-10-27"
+  },
+  {
+    "assessment_id": "ASM-000012",
+    "course_id": "CRS-000002",
+    "assessment_name": "Quiz 6",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.0527",
+    "assessment_date": "2026-11-11"
+  },
+  {
+    "assessment_id": "ASM-000013",
+    "course_id": "CRS-000003",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0865",
+    "assessment_date": "2026-06-08"
+  },
+  {
+    "assessment_id": "ASM-000014",
+    "course_id": "CRS-000003",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.3102",
+    "assessment_date": "2026-06-17"
+  },
+  {
+    "assessment_id": "ASM-000015",
+    "course_id": "CRS-000003",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.5217",
+    "assessment_date": "2026-07-03"
+  },
+  {
+    "assessment_id": "ASM-000016",
+    "course_id": "CRS-000003",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0815",
+    "assessment_date": "2026-07-10"
+  },
+  {
+    "assessment_id": "ASM-000017",
+    "course_id": "CRS-000004",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.0393",
+    "assessment_date": "2026-04-13"
+  },
+  {
+    "assessment_id": "ASM-000018",
+    "course_id": "CRS-000004",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2626",
+    "assessment_date": "2026-04-15"
+  },
+  {
+    "assessment_id": "ASM-000019",
+    "course_id": "CRS-000004",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.2377",
+    "assessment_date": "2026-05-22"
+  },
+  {
+    "assessment_id": "ASM-000020",
+    "course_id": "CRS-000004",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.4604",
+    "assessment_date": "2026-08-16"
+  },
+  {
+    "assessment_id": "ASM-000021",
+    "course_id": "CRS-000005",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.1568",
+    "assessment_date": "2026-03-16"
+  },
+  {
+    "assessment_id": "ASM-000022",
+    "course_id": "CRS-000005",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.2805",
+    "assessment_date": "2026-04-06"
+  },
+  {
+    "assessment_id": "ASM-000023",
+    "course_id": "CRS-000005",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.5627",
+    "assessment_date": "2026-10-08"
+  },
+  {
+    "assessment_id": "ASM-000024",
+    "course_id": "CRS-000006",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.3951",
+    "assessment_date": "2026-03-04"
+  },
+  {
+    "assessment_id": "ASM-000025",
+    "course_id": "CRS-000006",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0681",
+    "assessment_date": "2026-04-20"
+  },
+  {
+    "assessment_id": "ASM-000026",
+    "course_id": "CRS-000006",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.3364",
+    "assessment_date": "2026-04-28"
+  },
+  {
+    "assessment_id": "ASM-000027",
+    "course_id": "CRS-000006",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1341",
+    "assessment_date": "2026-06-21"
+  },
+  {
+    "assessment_id": "ASM-000028",
+    "course_id": "CRS-000006",
+    "assessment_name": "Midterm 5",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0361",
+    "assessment_date": "2026-07-28"
+  },
+  {
+    "assessment_id": "ASM-000029",
+    "course_id": "CRS-000006",
+    "assessment_name": "Quiz 6",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.0302",
+    "assessment_date": "2026-09-25"
+  },
+  {
+    "assessment_id": "ASM-000030",
+    "course_id": "CRS-000007",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0326",
+    "assessment_date": "2026-02-16"
+  },
+  {
+    "assessment_id": "ASM-000031",
+    "course_id": "CRS-000007",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.1442",
+    "assessment_date": "2026-04-24"
+  },
+  {
+    "assessment_id": "ASM-000032",
+    "course_id": "CRS-000007",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.5638",
+    "assessment_date": "2026-07-06"
+  },
+  {
+    "assessment_id": "ASM-000033",
+    "course_id": "CRS-000007",
+    "assessment_name": "Final 4",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.2593",
+    "assessment_date": "2026-10-18"
+  },
+  {
+    "assessment_id": "ASM-000034",
+    "course_id": "CRS-000008",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3172",
+    "assessment_date": "2026-05-14"
+  },
+  {
+    "assessment_id": "ASM-000035",
+    "course_id": "CRS-000008",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.2955",
+    "assessment_date": "2026-06-13"
+  },
+  {
+    "assessment_id": "ASM-000036",
+    "course_id": "CRS-000008",
+    "assessment_name": "Midterm 3",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.3872",
+    "assessment_date": "2026-09-01"
+  },
+  {
+    "assessment_id": "ASM-000037",
+    "course_id": "CRS-000009",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.1568",
+    "assessment_date": "2026-03-14"
+  },
+  {
+    "assessment_id": "ASM-000038",
+    "course_id": "CRS-000009",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.1544",
+    "assessment_date": "2026-05-21"
+  },
+  {
+    "assessment_id": "ASM-000039",
+    "course_id": "CRS-000009",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.6888",
+    "assessment_date": "2026-08-19"
+  },
+  {
+    "assessment_id": "ASM-000040",
+    "course_id": "CRS-000010",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.306",
+    "assessment_date": "2026-03-26"
+  },
+  {
+    "assessment_id": "ASM-000041",
+    "course_id": "CRS-000010",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3172",
+    "assessment_date": "2026-07-04"
+  },
+  {
+    "assessment_id": "ASM-000042",
+    "course_id": "CRS-000010",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.0477",
+    "assessment_date": "2026-08-20"
+  },
+  {
+    "assessment_id": "ASM-000043",
+    "course_id": "CRS-000010",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.3291",
+    "assessment_date": "2026-08-24"
+  },
+  {
+    "assessment_id": "ASM-000044",
+    "course_id": "CRS-000011",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.2968",
+    "assessment_date": "2026-03-10"
+  },
+  {
+    "assessment_id": "ASM-000045",
+    "course_id": "CRS-000011",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.0598",
+    "assessment_date": "2026-05-03"
+  },
+  {
+    "assessment_id": "ASM-000046",
+    "course_id": "CRS-000011",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.2058",
+    "assessment_date": "2026-05-21"
+  },
+  {
+    "assessment_id": "ASM-000047",
+    "course_id": "CRS-000011",
+    "assessment_name": "Quiz 4",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.0726",
+    "assessment_date": "2026-05-22"
+  },
+  {
+    "assessment_id": "ASM-000048",
+    "course_id": "CRS-000011",
+    "assessment_name": "Quiz 5",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.365",
+    "assessment_date": "2026-07-03"
+  },
+  {
+    "assessment_id": "ASM-000049",
+    "course_id": "CRS-000012",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0885",
+    "assessment_date": "2026-05-07"
+  },
+  {
+    "assessment_id": "ASM-000050",
+    "course_id": "CRS-000012",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2598",
+    "assessment_date": "2026-05-25"
+  },
+  {
+    "assessment_id": "ASM-000051",
+    "course_id": "CRS-000012",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.336",
+    "assessment_date": "2026-07-18"
+  },
+  {
+    "assessment_id": "ASM-000052",
+    "course_id": "CRS-000012",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.3157",
+    "assessment_date": "2026-08-22"
+  },
+  {
+    "assessment_id": "ASM-000053",
+    "course_id": "CRS-000013",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1403",
+    "assessment_date": "2026-03-16"
+  },
+  {
+    "assessment_id": "ASM-000054",
+    "course_id": "CRS-000013",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.6528",
+    "assessment_date": "2026-08-20"
+  },
+  {
+    "assessment_id": "ASM-000055",
+    "course_id": "CRS-000013",
+    "assessment_name": "Midterm 3",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.0585",
+    "assessment_date": "2026-08-25"
+  },
+  {
+    "assessment_id": "ASM-000056",
+    "course_id": "CRS-000013",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.0744",
+    "assessment_date": "2026-10-30"
+  },
+  {
+    "assessment_id": "ASM-000057",
+    "course_id": "CRS-000013",
+    "assessment_name": "Presentation 5",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0089",
+    "assessment_date": "2026-11-19"
+  },
+  {
+    "assessment_id": "ASM-000058",
+    "course_id": "CRS-000013",
+    "assessment_name": "Project 6",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0651",
+    "assessment_date": "2026-11-21"
+  },
+  {
+    "assessment_id": "ASM-000059",
+    "course_id": "CRS-000014",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0406",
+    "assessment_date": "2026-02-18"
+  },
+  {
+    "assessment_id": "ASM-000060",
+    "course_id": "CRS-000014",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1843",
+    "assessment_date": "2026-04-07"
+  },
+  {
+    "assessment_id": "ASM-000061",
+    "course_id": "CRS-000014",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3608",
+    "assessment_date": "2026-05-01"
+  },
+  {
+    "assessment_id": "ASM-000062",
+    "course_id": "CRS-000014",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.4143",
+    "assessment_date": "2026-09-28"
+  },
+  {
+    "assessment_id": "ASM-000063",
+    "course_id": "CRS-000015",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.0632",
+    "assessment_date": "2026-04-17"
+  },
+  {
+    "assessment_id": "ASM-000064",
+    "course_id": "CRS-000015",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.1295",
+    "assessment_date": "2026-05-15"
+  },
+  {
+    "assessment_id": "ASM-000065",
+    "course_id": "CRS-000015",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2863",
+    "assessment_date": "2026-05-27"
+  },
+  {
+    "assessment_id": "ASM-000066",
+    "course_id": "CRS-000015",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3687",
+    "assessment_date": "2026-07-23"
+  },
+  {
+    "assessment_id": "ASM-000067",
+    "course_id": "CRS-000015",
+    "assessment_name": "Final 5",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.1523",
+    "assessment_date": "2026-07-23"
+  },
+  {
+    "assessment_id": "ASM-000068",
+    "course_id": "CRS-000016",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1213",
+    "assessment_date": "2026-03-15"
+  },
+  {
+    "assessment_id": "ASM-000069",
+    "course_id": "CRS-000016",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.4334",
+    "assessment_date": "2026-08-15"
+  },
+  {
+    "assessment_id": "ASM-000070",
+    "course_id": "CRS-000016",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1072",
+    "assessment_date": "2026-08-22"
+  },
+  {
+    "assessment_id": "ASM-000071",
+    "course_id": "CRS-000016",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.1256",
+    "assessment_date": "2026-09-12"
+  },
+  {
+    "assessment_id": "ASM-000072",
+    "course_id": "CRS-000016",
+    "assessment_name": "Assignment 5",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2126",
+    "assessment_date": "2026-10-17"
+  },
+  {
+    "assessment_id": "ASM-000073",
+    "course_id": "CRS-000017",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.154",
+    "assessment_date": "2026-04-01"
+  },
+  {
+    "assessment_id": "ASM-000074",
+    "course_id": "CRS-000017",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.2832",
+    "assessment_date": "2026-04-06"
+  },
+  {
+    "assessment_id": "ASM-000075",
+    "course_id": "CRS-000017",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.3435",
+    "assessment_date": "2026-04-07"
+  },
+  {
+    "assessment_id": "ASM-000076",
+    "course_id": "CRS-000017",
+    "assessment_name": "Quiz 4",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.2193",
+    "assessment_date": "2026-11-10"
+  },
+  {
+    "assessment_id": "ASM-000077",
+    "course_id": "CRS-000018",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.058",
+    "assessment_date": "2026-03-02"
+  },
+  {
+    "assessment_id": "ASM-000078",
+    "course_id": "CRS-000018",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1953",
+    "assessment_date": "2026-03-14"
+  },
+  {
+    "assessment_id": "ASM-000079",
+    "course_id": "CRS-000018",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.2406",
+    "assessment_date": "2026-06-29"
+  },
+  {
+    "assessment_id": "ASM-000080",
+    "course_id": "CRS-000018",
+    "assessment_name": "Presentation 4",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.5061",
+    "assessment_date": "2026-07-27"
+  },
+  {
+    "assessment_id": "ASM-000081",
+    "course_id": "CRS-000019",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.095",
+    "assessment_date": "2026-05-10"
+  },
+  {
+    "assessment_id": "ASM-000082",
+    "course_id": "CRS-000019",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.1824",
+    "assessment_date": "2026-06-05"
+  },
+  {
+    "assessment_id": "ASM-000083",
+    "course_id": "CRS-000019",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.7226",
+    "assessment_date": "2026-08-22"
+  },
+  {
+    "assessment_id": "ASM-000084",
+    "course_id": "CRS-000020",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1382",
+    "assessment_date": "2026-05-22"
+  },
+  {
+    "assessment_id": "ASM-000085",
+    "course_id": "CRS-000020",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.2537",
+    "assessment_date": "2026-06-13"
+  },
+  {
+    "assessment_id": "ASM-000086",
+    "course_id": "CRS-000020",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.2241",
+    "assessment_date": "2026-06-27"
+  },
+  {
+    "assessment_id": "ASM-000087",
+    "course_id": "CRS-000020",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.2077",
+    "assessment_date": "2026-07-30"
+  },
+  {
+    "assessment_id": "ASM-000088",
+    "course_id": "CRS-000020",
+    "assessment_name": "Project 5",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1763",
+    "assessment_date": "2026-10-29"
+  },
+  {
+    "assessment_id": "ASM-000089",
+    "course_id": "CRS-000021",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1046",
+    "assessment_date": "2026-02-01"
+  },
+  {
+    "assessment_id": "ASM-000090",
+    "course_id": "CRS-000021",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.8708",
+    "assessment_date": "2026-08-04"
+  },
+  {
+    "assessment_id": "ASM-000091",
+    "course_id": "CRS-000021",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0246",
+    "assessment_date": "2026-10-19"
+  },
+  {
+    "assessment_id": "ASM-000092",
+    "course_id": "CRS-000022",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.3787",
+    "assessment_date": "2026-05-19"
+  },
+  {
+    "assessment_id": "ASM-000093",
+    "course_id": "CRS-000022",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0724",
+    "assessment_date": "2026-06-01"
+  },
+  {
+    "assessment_id": "ASM-000094",
+    "course_id": "CRS-000022",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.3182",
+    "assessment_date": "2026-09-17"
+  },
+  {
+    "assessment_id": "ASM-000095",
+    "course_id": "CRS-000022",
+    "assessment_name": "Presentation 4",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.2307",
+    "assessment_date": "2026-10-01"
+  },
+  {
+    "assessment_id": "ASM-000096",
+    "course_id": "CRS-000023",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0793",
+    "assessment_date": "2026-05-03"
+  },
+  {
+    "assessment_id": "ASM-000097",
+    "course_id": "CRS-000023",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.882",
+    "assessment_date": "2026-09-15"
+  },
+  {
+    "assessment_id": "ASM-000098",
+    "course_id": "CRS-000023",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0092",
+    "assessment_date": "2026-09-26"
+  },
+  {
+    "assessment_id": "ASM-000099",
+    "course_id": "CRS-000023",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0295",
+    "assessment_date": "2026-12-03"
+  },
+  {
+    "assessment_id": "ASM-000100",
+    "course_id": "CRS-000024",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.0578",
+    "assessment_date": "2026-02-05"
+  },
+  {
+    "assessment_id": "ASM-000101",
+    "course_id": "CRS-000024",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.3005",
+    "assessment_date": "2026-06-12"
+  },
+  {
+    "assessment_id": "ASM-000102",
+    "course_id": "CRS-000024",
+    "assessment_name": "Midterm 3",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.1991",
+    "assessment_date": "2026-06-14"
+  },
+  {
+    "assessment_id": "ASM-000103",
+    "course_id": "CRS-000024",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.4088",
+    "assessment_date": "2026-07-11"
+  },
+  {
+    "assessment_id": "ASM-000104",
+    "course_id": "CRS-000024",
+    "assessment_name": "Project 5",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0338",
+    "assessment_date": "2026-07-23"
+  },
+  {
+    "assessment_id": "ASM-000105",
+    "course_id": "CRS-000025",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.0136",
+    "assessment_date": "2026-03-07"
+  },
+  {
+    "assessment_id": "ASM-000106",
+    "course_id": "CRS-000025",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.4271",
+    "assessment_date": "2026-08-21"
+  },
+  {
+    "assessment_id": "ASM-000107",
+    "course_id": "CRS-000025",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.5593",
+    "assessment_date": "2026-11-24"
+  },
+  {
+    "assessment_id": "ASM-000108",
+    "course_id": "CRS-000026",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1534",
+    "assessment_date": "2026-01-25"
+  },
+  {
+    "assessment_id": "ASM-000109",
+    "course_id": "CRS-000026",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.0118",
+    "assessment_date": "2026-05-08"
+  },
+  {
+    "assessment_id": "ASM-000110",
+    "course_id": "CRS-000026",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2053",
+    "assessment_date": "2026-05-18"
+  },
+  {
+    "assessment_id": "ASM-000111",
+    "course_id": "CRS-000026",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.4105",
+    "assessment_date": "2026-06-14"
+  },
+  {
+    "assessment_id": "ASM-000112",
+    "course_id": "CRS-000026",
+    "assessment_name": "Presentation 5",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.1513",
+    "assessment_date": "2026-08-20"
+  },
+  {
+    "assessment_id": "ASM-000113",
+    "course_id": "CRS-000026",
+    "assessment_name": "Assignment 6",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0677",
+    "assessment_date": "2026-12-06"
+  },
+  {
+    "assessment_id": "ASM-000114",
+    "course_id": "CRS-000027",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.6391",
+    "assessment_date": "2026-06-23"
+  },
+  {
+    "assessment_id": "ASM-000115",
+    "course_id": "CRS-000027",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.2431",
+    "assessment_date": "2026-08-24"
+  },
+  {
+    "assessment_id": "ASM-000116",
+    "course_id": "CRS-000027",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1179",
+    "assessment_date": "2026-09-13"
+  },
+  {
+    "assessment_id": "ASM-000117",
+    "course_id": "CRS-000028",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.4379",
+    "assessment_date": "2026-06-04"
+  },
+  {
+    "assessment_id": "ASM-000118",
+    "course_id": "CRS-000028",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1705",
+    "assessment_date": "2026-08-29"
+  },
+  {
+    "assessment_id": "ASM-000119",
+    "course_id": "CRS-000028",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.3455",
+    "assessment_date": "2026-09-26"
+  },
+  {
+    "assessment_id": "ASM-000120",
+    "course_id": "CRS-000028",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.0462",
+    "assessment_date": "2026-12-10"
+  },
+  {
+    "assessment_id": "ASM-000121",
+    "course_id": "CRS-000029",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.06",
+    "assessment_date": "2026-05-23"
+  },
+  {
+    "assessment_id": "ASM-000122",
+    "course_id": "CRS-000029",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.1339",
+    "assessment_date": "2026-06-17"
+  },
+  {
+    "assessment_id": "ASM-000123",
+    "course_id": "CRS-000029",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.6102",
+    "assessment_date": "2026-09-08"
+  },
+  {
+    "assessment_id": "ASM-000124",
+    "course_id": "CRS-000029",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.196",
+    "assessment_date": "2026-10-20"
+  },
+  {
+    "assessment_id": "ASM-000125",
+    "course_id": "CRS-000030",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1192",
+    "assessment_date": "2026-02-21"
+  },
+  {
+    "assessment_id": "ASM-000126",
+    "course_id": "CRS-000030",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.4436",
+    "assessment_date": "2026-05-13"
+  },
+  {
+    "assessment_id": "ASM-000127",
+    "course_id": "CRS-000030",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.2859",
+    "assessment_date": "2026-08-13"
+  },
+  {
+    "assessment_id": "ASM-000128",
+    "course_id": "CRS-000030",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0633",
+    "assessment_date": "2026-09-25"
+  },
+  {
+    "assessment_id": "ASM-000129",
+    "course_id": "CRS-000030",
+    "assessment_name": "Quiz 5",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.0879",
+    "assessment_date": "2026-12-11"
+  },
+  {
+    "assessment_id": "ASM-000130",
+    "course_id": "CRS-000031",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0635",
+    "assessment_date": "2026-04-25"
+  },
+  {
+    "assessment_id": "ASM-000131",
+    "course_id": "CRS-000031",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1934",
+    "assessment_date": "2026-06-07"
+  },
+  {
+    "assessment_id": "ASM-000132",
+    "course_id": "CRS-000031",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0604",
+    "assessment_date": "2026-06-23"
+  },
+  {
+    "assessment_id": "ASM-000133",
+    "course_id": "CRS-000031",
+    "assessment_name": "Presentation 4",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.497",
+    "assessment_date": "2026-07-01"
+  },
+  {
+    "assessment_id": "ASM-000134",
+    "course_id": "CRS-000031",
+    "assessment_name": "Project 5",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1857",
+    "assessment_date": "2026-09-16"
+  },
+  {
+    "assessment_id": "ASM-000135",
+    "course_id": "CRS-000032",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.1075",
+    "assessment_date": "2026-06-01"
+  },
+  {
+    "assessment_id": "ASM-000136",
+    "course_id": "CRS-000032",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.1243",
+    "assessment_date": "2026-10-09"
+  },
+  {
+    "assessment_id": "ASM-000137",
+    "course_id": "CRS-000032",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.0294",
+    "assessment_date": "2026-10-15"
+  },
+  {
+    "assessment_id": "ASM-000138",
+    "course_id": "CRS-000032",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.7387",
+    "assessment_date": "2026-11-20"
+  },
+  {
+    "assessment_id": "ASM-000139",
+    "course_id": "CRS-000033",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0292",
+    "assessment_date": "2026-05-27"
+  },
+  {
+    "assessment_id": "ASM-000140",
+    "course_id": "CRS-000033",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.8604",
+    "assessment_date": "2026-05-30"
+  },
+  {
+    "assessment_id": "ASM-000141",
+    "course_id": "CRS-000033",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0014",
+    "assessment_date": "2026-06-21"
+  },
+  {
+    "assessment_id": "ASM-000142",
+    "course_id": "CRS-000033",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.1091",
+    "assessment_date": "2026-10-31"
+  },
+  {
+    "assessment_id": "ASM-000143",
+    "course_id": "CRS-000034",
+    "assessment_name": "Assignment 1",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.2389",
+    "assessment_date": "2026-06-03"
+  },
+  {
+    "assessment_id": "ASM-000144",
+    "course_id": "CRS-000034",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.5127",
+    "assessment_date": "2026-06-05"
+  },
+  {
+    "assessment_id": "ASM-000145",
+    "course_id": "CRS-000034",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.2484",
+    "assessment_date": "2026-08-25"
+  },
+  {
+    "assessment_id": "ASM-000146",
+    "course_id": "CRS-000035",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.3724",
+    "assessment_date": "2026-02-15"
+  },
+  {
+    "assessment_id": "ASM-000147",
+    "course_id": "CRS-000035",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.4281",
+    "assessment_date": "2026-07-07"
+  },
+  {
+    "assessment_id": "ASM-000148",
+    "course_id": "CRS-000035",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.1995",
+    "assessment_date": "2026-08-31"
+  },
+  {
+    "assessment_id": "ASM-000149",
+    "course_id": "CRS-000036",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.0698",
+    "assessment_date": "2026-03-23"
+  },
+  {
+    "assessment_id": "ASM-000150",
+    "course_id": "CRS-000036",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.02",
+    "assessment_date": "2026-04-17"
+  },
+  {
+    "assessment_id": "ASM-000151",
+    "course_id": "CRS-000036",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.4611",
+    "assessment_date": "2026-04-22"
+  },
+  {
+    "assessment_id": "ASM-000152",
+    "course_id": "CRS-000036",
+    "assessment_name": "Midterm 4",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0871",
+    "assessment_date": "2026-06-25"
+  },
+  {
+    "assessment_id": "ASM-000153",
+    "course_id": "CRS-000036",
+    "assessment_name": "Assignment 5",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.362",
+    "assessment_date": "2026-08-23"
+  },
+  {
+    "assessment_id": "ASM-000154",
+    "course_id": "CRS-000037",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.4501",
+    "assessment_date": "2026-04-27"
+  },
+  {
+    "assessment_id": "ASM-000155",
+    "course_id": "CRS-000037",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0114",
+    "assessment_date": "2026-06-04"
+  },
+  {
+    "assessment_id": "ASM-000156",
+    "course_id": "CRS-000037",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.3612",
+    "assessment_date": "2026-06-27"
+  },
+  {
+    "assessment_id": "ASM-000157",
+    "course_id": "CRS-000037",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0159",
+    "assessment_date": "2026-07-19"
+  },
+  {
+    "assessment_id": "ASM-000158",
+    "course_id": "CRS-000037",
+    "assessment_name": "Project 5",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1614",
+    "assessment_date": "2026-08-16"
+  },
+  {
+    "assessment_id": "ASM-000159",
+    "course_id": "CRS-000038",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1463",
+    "assessment_date": "2026-06-30"
+  },
+  {
+    "assessment_id": "ASM-000160",
+    "course_id": "CRS-000038",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.3117",
+    "assessment_date": "2026-08-02"
+  },
+  {
+    "assessment_id": "ASM-000161",
+    "course_id": "CRS-000038",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.542",
+    "assessment_date": "2026-10-11"
+  },
+  {
+    "assessment_id": "ASM-000162",
+    "course_id": "CRS-000039",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0174",
+    "assessment_date": "2026-05-18"
+  },
+  {
+    "assessment_id": "ASM-000163",
+    "course_id": "CRS-000039",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.1892",
+    "assessment_date": "2026-06-03"
+  },
+  {
+    "assessment_id": "ASM-000164",
+    "course_id": "CRS-000039",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.7934",
+    "assessment_date": "2026-12-12"
+  },
+  {
+    "assessment_id": "ASM-000165",
+    "course_id": "CRS-000040",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0912",
+    "assessment_date": "2026-04-10"
+  },
+  {
+    "assessment_id": "ASM-000166",
+    "course_id": "CRS-000040",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.554",
+    "assessment_date": "2026-05-13"
+  },
+  {
+    "assessment_id": "ASM-000167",
+    "course_id": "CRS-000040",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1337",
+    "assessment_date": "2026-07-04"
+  },
+  {
+    "assessment_id": "ASM-000168",
+    "course_id": "CRS-000040",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2211",
+    "assessment_date": "2026-10-08"
+  },
+  {
+    "assessment_id": "ASM-000169",
+    "course_id": "CRS-000041",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.6301",
+    "assessment_date": "2026-02-01"
+  },
+  {
+    "assessment_id": "ASM-000170",
+    "course_id": "CRS-000041",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0303",
+    "assessment_date": "2026-06-11"
+  },
+  {
+    "assessment_id": "ASM-000171",
+    "course_id": "CRS-000041",
+    "assessment_name": "Final 3",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.0713",
+    "assessment_date": "2026-06-11"
+  },
+  {
+    "assessment_id": "ASM-000172",
+    "course_id": "CRS-000041",
+    "assessment_name": "Assignment 4",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2683",
+    "assessment_date": "2026-07-18"
+  },
+  {
+    "assessment_id": "ASM-000173",
+    "course_id": "CRS-000042",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "100.0",
+    "weightage": "0.0225",
+    "assessment_date": "2026-04-13"
+  },
+  {
+    "assessment_id": "ASM-000174",
+    "course_id": "CRS-000042",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0308",
+    "assessment_date": "2026-08-07"
+  },
+  {
+    "assessment_id": "ASM-000175",
+    "course_id": "CRS-000042",
+    "assessment_name": "Quiz 3",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.6303",
+    "assessment_date": "2026-09-24"
+  },
+  {
+    "assessment_id": "ASM-000176",
+    "course_id": "CRS-000042",
+    "assessment_name": "Quiz 4",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.3164",
+    "assessment_date": "2026-11-14"
+  },
+  {
+    "assessment_id": "ASM-000177",
+    "course_id": "CRS-000043",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0778",
+    "assessment_date": "2026-05-02"
+  },
+  {
+    "assessment_id": "ASM-000178",
+    "course_id": "CRS-000043",
+    "assessment_name": "Final 2",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.1609",
+    "assessment_date": "2026-07-26"
+  },
+  {
+    "assessment_id": "ASM-000179",
+    "course_id": "CRS-000043",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.021",
+    "assessment_date": "2026-08-13"
+  },
+  {
+    "assessment_id": "ASM-000180",
+    "course_id": "CRS-000043",
+    "assessment_name": "Quiz 4",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.3778",
+    "assessment_date": "2026-08-29"
+  },
+  {
+    "assessment_id": "ASM-000181",
+    "course_id": "CRS-000043",
+    "assessment_name": "Presentation 5",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0013",
+    "assessment_date": "2026-09-16"
+  },
+  {
+    "assessment_id": "ASM-000182",
+    "course_id": "CRS-000043",
+    "assessment_name": "Quiz 6",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.3612",
+    "assessment_date": "2026-09-23"
+  },
+  {
+    "assessment_id": "ASM-000183",
+    "course_id": "CRS-000044",
+    "assessment_name": "Midterm 1",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.1715",
+    "assessment_date": "2026-02-13"
+  },
+  {
+    "assessment_id": "ASM-000184",
+    "course_id": "CRS-000044",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "100.0",
+    "weightage": "0.3327",
+    "assessment_date": "2026-04-09"
+  },
+  {
+    "assessment_id": "ASM-000185",
+    "course_id": "CRS-000044",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0437",
+    "assessment_date": "2026-06-15"
+  },
+  {
+    "assessment_id": "ASM-000186",
+    "course_id": "CRS-000044",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0978",
+    "assessment_date": "2026-09-03"
+  },
+  {
+    "assessment_id": "ASM-000187",
+    "course_id": "CRS-000044",
+    "assessment_name": "Assignment 5",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.03",
+    "assessment_date": "2026-09-08"
+  },
+  {
+    "assessment_id": "ASM-000188",
+    "course_id": "CRS-000044",
+    "assessment_name": "Presentation 6",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.3242",
+    "assessment_date": "2026-10-18"
+  },
+  {
+    "assessment_id": "ASM-000189",
+    "course_id": "CRS-000045",
+    "assessment_name": "Project 1",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.2206",
+    "assessment_date": "2026-05-15"
+  },
+  {
+    "assessment_id": "ASM-000190",
+    "course_id": "CRS-000045",
+    "assessment_name": "Assignment 2",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3802",
+    "assessment_date": "2026-06-23"
+  },
+  {
+    "assessment_id": "ASM-000191",
+    "course_id": "CRS-000045",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1334",
+    "assessment_date": "2026-07-25"
+  },
+  {
+    "assessment_id": "ASM-000192",
+    "course_id": "CRS-000045",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0474",
+    "assessment_date": "2026-07-26"
+  },
+  {
+    "assessment_id": "ASM-000193",
+    "course_id": "CRS-000045",
+    "assessment_name": "Midterm 5",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.2184",
+    "assessment_date": "2026-11-02"
+  },
+  {
+    "assessment_id": "ASM-000194",
+    "course_id": "CRS-000046",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.0232",
+    "assessment_date": "2026-05-22"
+  },
+  {
+    "assessment_id": "ASM-000195",
+    "course_id": "CRS-000046",
+    "assessment_name": "Midterm 2",
+    "assessment_type": "MIDTERM",
+    "maximum_marks": "50.0",
+    "weightage": "0.0427",
+    "assessment_date": "2026-06-04"
+  },
+  {
+    "assessment_id": "ASM-000196",
+    "course_id": "CRS-000046",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.3901",
+    "assessment_date": "2026-06-17"
+  },
+  {
+    "assessment_id": "ASM-000197",
+    "course_id": "CRS-000046",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.3292",
+    "assessment_date": "2026-08-14"
+  },
+  {
+    "assessment_id": "ASM-000198",
+    "course_id": "CRS-000046",
+    "assessment_name": "Quiz 5",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.0152",
+    "assessment_date": "2026-09-28"
+  },
+  {
+    "assessment_id": "ASM-000199",
+    "course_id": "CRS-000046",
+    "assessment_name": "Final 6",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.1997",
+    "assessment_date": "2026-10-11"
+  },
+  {
+    "assessment_id": "ASM-000200",
+    "course_id": "CRS-000047",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.018",
+    "assessment_date": "2026-02-22"
+  },
+  {
+    "assessment_id": "ASM-000201",
+    "course_id": "CRS-000047",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.7266",
+    "assessment_date": "2026-05-13"
+  },
+  {
+    "assessment_id": "ASM-000202",
+    "course_id": "CRS-000047",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.112",
+    "assessment_date": "2026-09-25"
+  },
+  {
+    "assessment_id": "ASM-000203",
+    "course_id": "CRS-000047",
+    "assessment_name": "Presentation 4",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0735",
+    "assessment_date": "2026-10-14"
+  },
+  {
+    "assessment_id": "ASM-000204",
+    "course_id": "CRS-000047",
+    "assessment_name": "Assignment 5",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.07",
+    "assessment_date": "2026-10-19"
+  },
+  {
+    "assessment_id": "ASM-000205",
+    "course_id": "CRS-000048",
+    "assessment_name": "Presentation 1",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.1222",
+    "assessment_date": "2026-04-05"
+  },
+  {
+    "assessment_id": "ASM-000206",
+    "course_id": "CRS-000048",
+    "assessment_name": "Presentation 2",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.1416",
+    "assessment_date": "2026-05-13"
+  },
+  {
+    "assessment_id": "ASM-000207",
+    "course_id": "CRS-000048",
+    "assessment_name": "Project 3",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0361",
+    "assessment_date": "2026-06-04"
+  },
+  {
+    "assessment_id": "ASM-000208",
+    "course_id": "CRS-000048",
+    "assessment_name": "Project 4",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "100.0",
+    "weightage": "0.0335",
+    "assessment_date": "2026-07-12"
+  },
+  {
+    "assessment_id": "ASM-000209",
+    "course_id": "CRS-000048",
+    "assessment_name": "Presentation 5",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "50.0",
+    "weightage": "0.0161",
+    "assessment_date": "2026-08-02"
+  },
+  {
+    "assessment_id": "ASM-000210",
+    "course_id": "CRS-000048",
+    "assessment_name": "Assignment 6",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.6506",
+    "assessment_date": "2026-09-30"
+  },
+  {
+    "assessment_id": "ASM-000211",
+    "course_id": "CRS-000049",
+    "assessment_name": "Quiz 1",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.5432",
+    "assessment_date": "2026-03-27"
+  },
+  {
+    "assessment_id": "ASM-000212",
+    "course_id": "CRS-000049",
+    "assessment_name": "Quiz 2",
+    "assessment_type": "QUIZ",
+    "maximum_marks": "50.0",
+    "weightage": "0.412",
+    "assessment_date": "2026-04-02"
+  },
+  {
+    "assessment_id": "ASM-000213",
+    "course_id": "CRS-000049",
+    "assessment_name": "Presentation 3",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0449",
+    "assessment_date": "2026-07-28"
+  },
+  {
+    "assessment_id": "ASM-000214",
+    "course_id": "CRS-000050",
+    "assessment_name": "Final 1",
+    "assessment_type": "FINAL",
+    "maximum_marks": "50.0",
+    "weightage": "0.151",
+    "assessment_date": "2026-03-13"
+  },
+  {
+    "assessment_id": "ASM-000215",
+    "course_id": "CRS-000050",
+    "assessment_name": "Project 2",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1106",
+    "assessment_date": "2026-06-26"
+  },
+  {
+    "assessment_id": "ASM-000216",
+    "course_id": "CRS-000050",
+    "assessment_name": "Assignment 3",
+    "assessment_type": "ASSIGNMENT",
+    "maximum_marks": "50.0",
+    "weightage": "0.1988",
+    "assessment_date": "2026-08-04"
+  },
+  {
+    "assessment_id": "ASM-000217",
+    "course_id": "CRS-000050",
+    "assessment_name": "Presentation 4",
+    "assessment_type": "PRESENTATION",
+    "maximum_marks": "100.0",
+    "weightage": "0.0602",
+    "assessment_date": "2026-10-10"
+  },
+  {
+    "assessment_id": "ASM-000218",
+    "course_id": "CRS-000050",
+    "assessment_name": "Final 5",
+    "assessment_type": "FINAL",
+    "maximum_marks": "100.0",
+    "weightage": "0.4567",
+    "assessment_date": "2026-10-25"
+  },
+  {
+    "assessment_id": "ASM-000219",
+    "course_id": "CRS-000050",
+    "assessment_name": "Project 6",
+    "assessment_type": "PROJECT",
+    "maximum_marks": "50.0",
+    "weightage": "0.0227",
+    "assessment_date": "2026-11-27"
+  }
+]

@@ -207,6 +207,28 @@ def main():
                         is_anomaly=to_bool(r.get("is_anomaly", False))))
             db.commit()
 
+        rows = []
+        ground_truth_path = GT_DIR / "ground_truth.csv"
+        if ground_truth_path.exists():
+            with open(ground_truth_path, encoding="utf-8") as source:
+                rows = list(csv.DictReader(source))
+        print(f"  Inserting {len(rows)} ground-truth labels...")
+        for r in rows:
+            if not db.query(GroundTruth).filter(GroundTruth.gt_id == r["gt_id"]).first():
+                db.add(GroundTruth(
+                    gt_id=r["gt_id"], student_id=r.get("student_id") or None,
+                    risk_id=r.get("risk_id") or None,
+                    expected_risk_category=r.get("expected_risk_category") or None,
+                    expected_outcome_label=r.get("expected_outcome_label") or None,
+                    expected_anomaly_detected=(
+                        to_bool(r["expected_anomaly_detected"])
+                        if r.get("expected_anomaly_detected") else None
+                    ),
+                    evaluation_reference=r.get("evaluation_reference") or None,
+                    notes=r.get("notes") or None,
+                ))
+        db.commit()
+
         # Interventions
         rows = read_csv("interventions.csv")
         print(f"  Inserting {len(rows)} interventions...")
@@ -282,4 +304,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

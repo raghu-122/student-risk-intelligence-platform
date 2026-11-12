@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { GraduationCap, AlertCircle } from 'lucide-react';
 
 export default function Login() {
@@ -74,4 +74,3 @@ export default function Login() {
     </div>
   );
 }
-

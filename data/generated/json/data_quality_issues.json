@@ -1,0 +1,67 @@
+[
+  {
+    "issue_id": "DQI-000001",
+    "issue_type": "TEMPORAL_LEAKAGE",
+    "affected_entity": "RiskAssessment",
+    "affected_record_id": "RISK-2026-ANOM-000001",
+    "expected_behavior": "Risk score uses only data with assessment_date <= cutoff_date",
+    "observed_behavior": "Risk score RISK-2026-ANOM-000001 used post-cutoff assessment data",
+    "ground_truth_label": "ANOMALY_CONFIRMED",
+    "detection_status": "DETECTED",
+    "explanation": "Temporal leakage: assessment data after 2026-06-01 used by RISK-2026-ANOM-000001",
+    "severity": "CRITICAL",
+    "is_injected_anomaly": "True"
+  },
+  {
+    "issue_id": "DQI-000002",
+    "issue_type": "WRONG_DENOMINATOR",
+    "affected_entity": "RiskAssessment",
+    "affected_record_id": "RISK-2026-ANOM-000002",
+    "expected_behavior": "Attendance rate excludes approved_absence from denominator",
+    "observed_behavior": "Recorded attendance factor uses 39/48 rather than 39/46",
+    "ground_truth_label": "ANOMALY_CONFIRMED",
+    "detection_status": "DETECTED",
+    "explanation": "Attendance risk incorrectly includes approved absences in its denominator",
+    "severity": "HIGH",
+    "is_injected_anomaly": "True"
+  },
+  {
+    "issue_id": "DQI-000003",
+    "issue_type": "LIFECYCLE_INCONSISTENCY",
+    "affected_entity": "Student",
+    "affected_record_id": "STU-2026-000026",
+    "expected_behavior": "WITHDRAWN student should have no ACTIVE enrollments",
+    "observed_behavior": "WITHDRAWN student STU-2026-000026 has ACTIVE enrollment ENR-STU-2026-000026-CRS-000001",
+    "ground_truth_label": "ANOMALY_CONFIRMED",
+    "detection_status": "DETECTED",
+    "explanation": "Lifecycle rule violation: withdrawn student retains active enrollment",
+    "severity": "HIGH",
+    "is_injected_anomaly": "True"
+  },
+  {
+    "issue_id": "DQI-000004",
+    "issue_type": "INTERVENTION_PRECEDES_TRIGGER",
+    "affected_entity": "Intervention",
+    "affected_record_id": "INT-2026-ANOM-000001",
+    "expected_behavior": "start_date >= trigger_date",
+    "observed_behavior": "start_date 2026-06-22 precedes trigger_date 2026-07-01",
+    "ground_truth_label": "ANOMALY_CONFIRMED",
+    "detection_status": "DETECTED",
+    "explanation": "Chronological impossibility: intervention started before it was triggered",
+    "severity": "CRITICAL",
+    "is_injected_anomaly": "True"
+  },
+  {
+    "issue_id": "DQI-000005",
+    "issue_type": "MISSING_DATA_AS_FAILURE",
+    "affected_entity": "RiskAssessment",
+    "affected_record_id": "RISK-2026-ANOM-000003",
+    "expected_behavior": "NULL marks excluded from academic average",
+    "observed_behavior": "academic_performance score 78.0 on RISK-2026-ANOM-000003 despite a missing pre-cutoff result",
+    "ground_truth_label": "ANOMALY_CONFIRMED",
+    "detection_status": "DETECTED",
+    "explanation": "Missing data incorrectly treated as zero score, inflating risk",
+    "severity": "HIGH",
+    "is_injected_anomaly": "True"
+  }
+]

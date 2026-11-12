@@ -1,0 +1,92 @@
+[
+  {
+    "staff_id": "STF-000005",
+    "first_name": "Erin",
+    "last_name": "Riley",
+    "email": "staff1@yottaflex.edu",
+    "role": "ACADEMIC_ADMINISTRATOR",
+    "department": "Mathematics",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000006",
+    "first_name": "Melissa",
+    "last_name": "Williams",
+    "email": "staff2@yottaflex.edu",
+    "role": "SUPPORT_STAFF",
+    "department": "Physics",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000007",
+    "first_name": "Madison",
+    "last_name": "Hall",
+    "email": "staff3@yottaflex.edu",
+    "role": "INSTRUCTOR",
+    "department": "Chemistry",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000008",
+    "first_name": "Aaron",
+    "last_name": "Petersen",
+    "email": "staff4@yottaflex.edu",
+    "role": "ACADEMIC_ADMINISTRATOR",
+    "department": "Biology",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000009",
+    "first_name": "David",
+    "last_name": "Gonzalez",
+    "email": "staff5@yottaflex.edu",
+    "role": "SUPPORT_STAFF",
+    "department": "Engineering",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000010",
+    "first_name": "Kyle",
+    "last_name": "Miles",
+    "email": "staff6@yottaflex.edu",
+    "role": "INSTRUCTOR",
+    "department": "Business Administration",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000011",
+    "first_name": "Diane",
+    "last_name": "Rodriguez",
+    "email": "staff7@yottaflex.edu",
+    "role": "ACADEMIC_ADMINISTRATOR",
+    "department": "Economics",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000012",
+    "first_name": "James",
+    "last_name": "Hernandez",
+    "email": "staff8@yottaflex.edu",
+    "role": "SUPPORT_STAFF",
+    "department": "Psychology",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000013",
+    "first_name": "Darrell",
+    "last_name": "Garza",
+    "email": "staff9@yottaflex.edu",
+    "role": "INSTRUCTOR",
+    "department": "Sociology",
+    "is_active": "True"
+  },
+  {
+    "staff_id": "STF-000014",
+    "first_name": "Adam",
+    "last_name": "Wilson",
+    "email": "staff10@yottaflex.edu",
+    "role": "ACADEMIC_ADMINISTRATOR",
+    "department": "Computer Science",
+    "is_active": "True"
+  }
+]

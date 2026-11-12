@@ -1,0 +1,452 @@
+[
+  {
+    "course_id": "CRS-000001",
+    "course_name": "Mathematics Cultural II",
+    "course_code": "MAT101",
+    "department": "Mathematics",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000002",
+    "course_name": "Physics Capital III",
+    "course_code": "PHY102",
+    "department": "Physics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000013"
+  },
+  {
+    "course_id": "CRS-000003",
+    "course_name": "Chemistry Onto I",
+    "course_code": "CHE103",
+    "department": "Chemistry",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000007"
+  },
+  {
+    "course_id": "CRS-000004",
+    "course_name": "Biology Record II",
+    "course_code": "BIO104",
+    "department": "Biology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000005",
+    "course_name": "Engineering Between III",
+    "course_code": "ENG105",
+    "department": "Engineering",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000011"
+  },
+  {
+    "course_id": "CRS-000006",
+    "course_name": "Business Administration Particular I",
+    "course_code": "BUS106",
+    "department": "Business Administration",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000007",
+    "course_name": "Economics Wife II",
+    "course_code": "ECO107",
+    "department": "Economics",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000008",
+    "course_name": "Psychology Business III",
+    "course_code": "PSY108",
+    "department": "Psychology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000013"
+  },
+  {
+    "course_id": "CRS-000009",
+    "course_name": "Sociology Call I",
+    "course_code": "SOC109",
+    "department": "Sociology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000008"
+  },
+  {
+    "course_id": "CRS-000010",
+    "course_name": "Computer Science Such II",
+    "course_code": "COM110",
+    "department": "Computer Science",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000011"
+  },
+  {
+    "course_id": "CRS-000011",
+    "course_name": "Mathematics Party III",
+    "course_code": "MAT111",
+    "department": "Mathematics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000012",
+    "course_name": "Physics Worker I",
+    "course_code": "PHY112",
+    "department": "Physics",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000013",
+    "course_name": "Chemistry Throw II",
+    "course_code": "CHE113",
+    "department": "Chemistry",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000014"
+  },
+  {
+    "course_id": "CRS-000014",
+    "course_name": "Biology Security III",
+    "course_code": "BIO114",
+    "department": "Biology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000011"
+  },
+  {
+    "course_id": "CRS-000015",
+    "course_name": "Engineering Your I",
+    "course_code": "ENG115",
+    "department": "Engineering",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000016",
+    "course_name": "Business Administration According II",
+    "course_code": "BUS116",
+    "department": "Business Administration",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000017",
+    "course_name": "Economics Build III",
+    "course_code": "ECO117",
+    "department": "Economics",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000007"
+  },
+  {
+    "course_id": "CRS-000018",
+    "course_name": "Psychology Treatment I",
+    "course_code": "PSY118",
+    "department": "Psychology",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000019",
+    "course_name": "Sociology Blue II",
+    "course_code": "SOC119",
+    "department": "Sociology",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000020",
+    "course_name": "Computer Science White III",
+    "course_code": "COM120",
+    "department": "Computer Science",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000008"
+  },
+  {
+    "course_id": "CRS-000021",
+    "course_name": "Mathematics Notice I",
+    "course_code": "MAT121",
+    "department": "Mathematics",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000022",
+    "course_name": "Physics According II",
+    "course_code": "PHY122",
+    "department": "Physics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000023",
+    "course_name": "Chemistry Television III",
+    "course_code": "CHE123",
+    "department": "Chemistry",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000024",
+    "course_name": "Biology Single I",
+    "course_code": "BIO124",
+    "department": "Biology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000025",
+    "course_name": "Engineering Market II",
+    "course_code": "ENG125",
+    "department": "Engineering",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000026",
+    "course_name": "Business Administration Involve III",
+    "course_code": "BUS126",
+    "department": "Business Administration",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000027",
+    "course_name": "Economics Back I",
+    "course_code": "ECO127",
+    "department": "Economics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000014"
+  },
+  {
+    "course_id": "CRS-000028",
+    "course_name": "Psychology Set II",
+    "course_code": "PSY128",
+    "department": "Psychology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000029",
+    "course_name": "Sociology System III",
+    "course_code": "SOC129",
+    "department": "Sociology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000013"
+  },
+  {
+    "course_id": "CRS-000030",
+    "course_name": "Computer Science Peace I",
+    "course_code": "COM130",
+    "department": "Computer Science",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000007"
+  },
+  {
+    "course_id": "CRS-000031",
+    "course_name": "Mathematics Cut II",
+    "course_code": "MAT131",
+    "department": "Mathematics",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000008"
+  },
+  {
+    "course_id": "CRS-000032",
+    "course_name": "Physics Father III",
+    "course_code": "PHY132",
+    "department": "Physics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000033",
+    "course_name": "Chemistry Term I",
+    "course_code": "CHE133",
+    "department": "Chemistry",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000014"
+  },
+  {
+    "course_id": "CRS-000034",
+    "course_name": "Biology Raise II",
+    "course_code": "BIO134",
+    "department": "Biology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000035",
+    "course_name": "Engineering Politics III",
+    "course_code": "ENG135",
+    "department": "Engineering",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000036",
+    "course_name": "Business Administration Sister I",
+    "course_code": "BUS136",
+    "department": "Business Administration",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000013"
+  },
+  {
+    "course_id": "CRS-000037",
+    "course_name": "Economics Event II",
+    "course_code": "ECO137",
+    "department": "Economics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000038",
+    "course_name": "Psychology Process III",
+    "course_code": "PSY138",
+    "department": "Psychology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000008"
+  },
+  {
+    "course_id": "CRS-000039",
+    "course_name": "Sociology Money I",
+    "course_code": "SOC139",
+    "department": "Sociology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000008"
+  },
+  {
+    "course_id": "CRS-000040",
+    "course_name": "Computer Science Generation II",
+    "course_code": "COM140",
+    "department": "Computer Science",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000041",
+    "course_name": "Mathematics Site III",
+    "course_code": "MAT141",
+    "department": "Mathematics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000011"
+  },
+  {
+    "course_id": "CRS-000042",
+    "course_name": "Physics Family I",
+    "course_code": "PHY142",
+    "department": "Physics",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000043",
+    "course_name": "Chemistry Red II",
+    "course_code": "CHE143",
+    "department": "Chemistry",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000044",
+    "course_name": "Biology Teach III",
+    "course_code": "BIO144",
+    "department": "Biology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000045",
+    "course_name": "Engineering Any I",
+    "course_code": "ENG145",
+    "department": "Engineering",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  },
+  {
+    "course_id": "CRS-000046",
+    "course_name": "Business Administration Production II",
+    "course_code": "BUS146",
+    "department": "Business Administration",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000011"
+  },
+  {
+    "course_id": "CRS-000047",
+    "course_name": "Economics Seven III",
+    "course_code": "ECO147",
+    "department": "Economics",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000012"
+  },
+  {
+    "course_id": "CRS-000048",
+    "course_name": "Psychology Vote I",
+    "course_code": "PSY148",
+    "department": "Psychology",
+    "credits": "2",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000005"
+  },
+  {
+    "course_id": "CRS-000049",
+    "course_name": "Sociology Top II",
+    "course_code": "SOC149",
+    "department": "Sociology",
+    "credits": "3",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000010"
+  },
+  {
+    "course_id": "CRS-000050",
+    "course_name": "Computer Science Cultural III",
+    "course_code": "COM150",
+    "department": "Computer Science",
+    "credits": "4",
+    "semester": "2026-S1",
+    "instructor_id": "STF-000009"
+  }
+]

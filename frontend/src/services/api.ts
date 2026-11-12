@@ -38,8 +38,10 @@ export const authApi = {
 export const dashboardApi = {
   getStats: () => api.get('/api/dashboard/stats'),
   getRiskDistribution: () => api.get('/api/dashboard/risk-distribution'),
-  getAtRiskStudents: (limit = 10) => api.get(`/api/dashboard/at-risk-students?limit=${limit}`),
-  getRecentInterventions: (limit = 5) => api.get(`/api/dashboard/recent-interventions?limit=${limit}`),
+  getAtRiskStudents: (limit = 10) =>
+    api.get('/api/dashboard/at-risk-students', { params: { limit } }),
+  getRecentInterventions: (limit = 5) =>
+    api.get('/api/dashboard/recent-interventions', { params: { limit } }),
 };
 
 // --- Students ---
@@ -50,6 +52,8 @@ export const studentsApi = {
   update: (id: string, data: unknown) => api.put(`/api/students/${id}`, data),
   getRiskHistory: (id: string) => api.get(`/api/students/${id}/risk-history`),
   getEnrollments: (id: string) => api.get(`/api/students/${id}/enrollments`),
+  getSupportCases: (id: string) => api.get(`/api/students/${id}/support-cases`),
+  getInterventions: (id: string) => api.get(`/api/students/${id}/interventions`),
 };
 
 // --- Courses ---
@@ -85,11 +89,14 @@ export const lmsApi = {
 // --- Risk ---
 export const riskApi = {
   list: (params?: Record<string, unknown>) => api.get('/api/risk/', { params }),
-  getRanking: (params?: Record<string, unknown>) => api.get('/api/risk/ranking', { params }),
   calculate: (studentId: string, enrollmentId: string, cutoffDate?: string) =>
-    api.post('/api/risk/calculate', { student_id: studentId, enrollment_id: enrollmentId, cutoff_date: cutoffDate }),
-  getFactors: (riskId: string) => api.get(`/api/risk/${riskId}/factors`),
-  getDistribution: () => api.get('/api/risk/distribution'),
+    api.post('/api/risk/calculate', null, {
+      params: { student_id: studentId, enrollment_id: enrollmentId, cutoff_date: cutoffDate },
+    }),
+  get: (riskId: string) => api.get(`/api/risk/${riskId}`),
+  getDistribution: () => api.get('/api/dashboard/risk-distribution'),
+  recommend: (studentId: string, enrollmentId?: string) =>
+      api.get(`/api/risk/recommendations/${studentId}`, { params: { enrollment_id: enrollmentId } }),
 };
 
 // --- Support Cases ---
@@ -97,9 +104,8 @@ export const supportCasesApi = {
   list: (params?: Record<string, unknown>) => api.get('/api/support-cases/', { params }),
   get: (id: string) => api.get(`/api/support-cases/${id}`),
   create: (data: unknown) => api.post('/api/support-cases/', data),
-  update: (id: string, data: unknown) => api.put(`/api/support-cases/${id}`, data),
-  transition: (id: string, action: string, notes?: string) =>
-    api.post(`/api/support-cases/${id}/transition`, { action, notes }),
+  transition: (id: string, toStatus: string, notes?: string) =>
+    api.post(`/api/support-cases/${id}/transition`, { to_status: toStatus, notes }),
 };
 
 // --- Interventions ---
@@ -107,34 +113,36 @@ export const interventionsApi = {
   list: (params?: Record<string, unknown>) => api.get('/api/interventions/', { params }),
   get: (id: string) => api.get(`/api/interventions/${id}`),
   create: (data: unknown) => api.post('/api/interventions/', data),
-  update: (id: string, data: unknown) => api.put(`/api/interventions/${id}`, data),
-  transition: (id: string, action: string, notes?: string) =>
-    api.post(`/api/interventions/${id}/transition`, { action, notes }),
-  recommend: (studentId: string, enrollmentId?: string) =>
-    api.post('/api/interventions/recommend', { student_id: studentId, enrollment_id: enrollmentId }),
+  transition: (id: string, toStatus: string, notes?: string, completionDate?: string) =>
+    api.post(`/api/interventions/${id}/transition`, {
+      to_status: toStatus,
+      notes,
+      completion_date: completionDate,
+    }),
 };
 
 // --- Outcomes ---
 export const outcomesApi = {
   list: (params?: Record<string, unknown>) => api.get('/api/outcomes/', { params }),
   get: (id: string) => api.get(`/api/outcomes/${id}`),
-  getDistribution: () => api.get('/api/outcomes/distribution'),
+  getDistribution: () => api.get('/api/outcomes/summary'),
+  evaluate: (data: unknown) => api.post('/api/outcomes/evaluate', data),
 };
 
 // --- Data Quality ---
 export const dataQualityApi = {
-  list: (params?: Record<string, unknown>) => api.get('/api/data-quality/', { params }),
+  list: (params?: Record<string, unknown>) => api.get('/api/data-quality/issues', { params }),
   runChecks: () => api.post('/api/data-quality/run-checks'),
   getSummary: () => api.get('/api/data-quality/summary'),
 };
 
 // --- Reports ---
 export const reportsApi = {
-  downloadStudents: () => api.get('/api/reports/students', { responseType: 'blob' }),
-  downloadRisk: () => api.get('/api/reports/risk-assessments', { responseType: 'blob' }),
-  downloadInterventions: () => api.get('/api/reports/interventions', { responseType: 'blob' }),
-  downloadOutcomes: () => api.get('/api/reports/outcomes', { responseType: 'blob' }),
-  downloadDataQuality: () => api.get('/api/reports/data-quality', { responseType: 'blob' }),
-  downloadDataManifest: () => api.get('/api/reports/data-manifest', { responseType: 'blob' }),
+  downloadStudents: () => api.get('/api/reports/students.csv', { responseType: 'blob' }),
+  downloadRisk: () => api.get('/api/reports/risk-assessments.csv', { responseType: 'blob' }),
+  downloadInterventions: () => api.get('/api/reports/interventions.csv', { responseType: 'blob' }),
+  downloadOutcomes: () => api.get('/api/reports/outcomes.csv', { responseType: 'blob' }),
+  downloadDataQuality: () => api.get('/api/reports/data-quality.csv', { responseType: 'blob' }),
+  downloadGroundTruth: () => api.get('/api/reports/ground-truth.csv', { responseType: 'blob' }),
+  downloadValidationReport: () => api.get('/api/reports/validation-report.json', { responseType: 'blob' }),
 };
-

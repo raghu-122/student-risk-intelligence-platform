@@ -1,72 +1,417 @@
 {
-  "generated_at": "2026-11-12T08:30:54.783989",
-  "seed": 20261022,
+  "generated_at": "2026-11-12T10:43:11.870617+00:00",
   "scale": "starter",
+  "seed": 20261022,
   "row_counts": {
+    "staff": 10,
     "students": 500,
     "courses": 50,
     "enrollments": 2000,
-    "assessments": 218,
-    "attendance_events": 182970,
-    "assessment_results": 8359,
-    "lms_activities": 269364,
-    "support_cases": 78,
-    "interventions": 15,
-    "risk_assessments": 1926,
-    "outcomes": 643,
-    "ground_truth": 1648,
+    "assessments": 219,
+    "attendance_events": 175489,
+    "assessment_results": 8169,
+    "lms_activities": 262178,
+    "support_cases": 75,
+    "interventions": 42,
+    "risk_assessments": 1756,
+    "outcomes": 585,
+    "ground_truth": 1590,
     "data_quality_issues": 5
   },
+  "total_checks": 78,
+  "passed": 78,
+  "failed": 0,
+  "validation_status": "PASS",
   "checks": [
     {
-      "check": "student_pk_unique",
+      "check": "required_csv_exports_present",
       "result": "PASS",
-      "count": 500
+      "detail": "missing=[]"
     },
     {
-      "check": "course_pk_unique",
+      "check": "requested_scale_volumes",
       "result": "PASS",
-      "count": 50
+      "detail": "scale=starter, volumes={'students': 500, 'courses': 50, 'enrollments': 2000}"
     },
     {
-      "check": "enrollment_pk_unique",
+      "check": "json_exports_match_csv",
       "result": "PASS",
-      "count": 2000
+      "detail": "mismatched or missing=[]"
     },
     {
-      "check": "no_duplicate_enrollments",
+      "check": "sql_seed_export_complete",
       "result": "PASS",
-      "unique_pairs": 2000
+      "detail": "missing tables=[]"
     },
     {
-      "check": "risk_cutoff_temporal_integrity",
+      "check": "manifest_export_checksums",
       "result": "PASS",
-      "note": "All production risk scores use data up to 2026-07-01"
+      "detail": "mismatches=[]"
     },
     {
-      "check": "injected_anomalies",
+      "check": "staff_primary_key",
       "result": "PASS",
-      "count": 5
+      "detail": "rows=10, unique=10, empty=0"
     },
     {
-      "check": "ground_truth_no_input_features",
+      "check": "students_primary_key",
       "result": "PASS",
-      "note": "GT file contains labels only, no model input features"
+      "detail": "rows=500, unique=500, empty=0"
     },
     {
-      "check": "attendance_denominator_correctness",
+      "check": "courses_primary_key",
       "result": "PASS",
-      "note": "Approved absences excluded from denominator in all production records"
+      "detail": "rows=50, unique=50, empty=0"
     },
     {
-      "check": "null_marks_not_zero",
+      "check": "enrollments_primary_key",
       "result": "PASS",
-      "note": "NULL marks_obtained excluded from averages in production risk engine"
+      "detail": "rows=2000, unique=2000, empty=0"
+    },
+    {
+      "check": "assessments_primary_key",
+      "result": "PASS",
+      "detail": "rows=219, unique=219, empty=0"
+    },
+    {
+      "check": "attendance_events_primary_key",
+      "result": "PASS",
+      "detail": "rows=175489, unique=175489, empty=0"
+    },
+    {
+      "check": "assessment_results_primary_key",
+      "result": "PASS",
+      "detail": "rows=8169, unique=8169, empty=0"
+    },
+    {
+      "check": "lms_activities_primary_key",
+      "result": "PASS",
+      "detail": "rows=262178, unique=262178, empty=0"
+    },
+    {
+      "check": "support_cases_primary_key",
+      "result": "PASS",
+      "detail": "rows=75, unique=75, empty=0"
+    },
+    {
+      "check": "risk_assessments_primary_key",
+      "result": "PASS",
+      "detail": "rows=1756, unique=1756, empty=0"
+    },
+    {
+      "check": "interventions_primary_key",
+      "result": "PASS",
+      "detail": "rows=42, unique=42, empty=0"
+    },
+    {
+      "check": "outcomes_primary_key",
+      "result": "PASS",
+      "detail": "rows=585, unique=585, empty=0"
+    },
+    {
+      "check": "data_quality_issues_primary_key",
+      "result": "PASS",
+      "detail": "rows=5, unique=5, empty=0"
+    },
+    {
+      "check": "enrollment_pair_unique",
+      "result": "PASS",
+      "detail": "pairs=2000"
+    },
+    {
+      "check": "assessment_enrollment_result_unique",
+      "result": "PASS",
+      "detail": "pairs=8169"
+    },
+    {
+      "check": "ground_truth_risk_one_to_one",
+      "result": "PASS",
+      "detail": "linked risk labels=1003"
+    },
+    {
+      "check": "course_instructor_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "enrollment_student_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "enrollment_course_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "assessment_course_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "attendance_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "result_assessment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "result_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "lms_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "case_student_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "case_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "case_staff_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "risk_student_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "risk_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "intervention_student_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "intervention_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "intervention_risk_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "intervention_staff_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "outcome_student_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "outcome_enrollment_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "outcome_intervention_fk",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "ground_truth_foreign_keys",
+      "result": "PASS",
+      "detail": "invalid references=0"
+    },
+    {
+      "check": "cross_entity_ownership_consistency",
+      "result": "PASS",
+      "detail": "inconsistent relationships=0"
+    },
+    {
+      "check": "enum_students.current_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_enrollments.enrollment_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_attendance_events.attendance_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_assessments.assessment_type",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_assessment_results.submission_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_lms_activities.activity_type",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_support_cases.case_type",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_support_cases.case_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_support_cases.priority",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_risk_assessments.risk_category",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_interventions.intervention_status",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_outcomes.outcome_label",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "enum_data_quality_issues.issue_type",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "student_lifecycle_representation",
+      "result": "PASS",
+      "detail": "invalid active lifecycle rows=0, transferred students/enrollments=14/52, graduated/completed=7/24"
+    },
+    {
+      "check": "student_and_enrollment_date_order",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "assessment_dates_in_academic_year",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "attendance_within_enrollment",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "assessment_results_within_enrollment",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "assessment_percentage_calculation",
+      "result": "PASS",
+      "detail": "mismatches=0"
+    },
+    {
+      "check": "assessment_weightages_sum_to_one",
+      "result": "PASS",
+      "detail": "courses=50, invalid=0"
+    },
+    {
+      "check": "lms_activity_within_enrollment",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "support_case_date_order",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "intervention_lifecycle_dates",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "outcome_period_order",
+      "result": "PASS",
+      "detail": "invalid rows=0"
+    },
+    {
+      "check": "ground_truth_feature_separation",
+      "result": "PASS",
+      "detail": "forbidden columns=[]"
+    },
+    {
+      "check": "ground_truth_has_five_anomaly_labels",
+      "result": "PASS",
+      "detail": "labels=['INTERVENTION_PRECEDES_TRIGGER', 'LIFECYCLE_INCONSISTENCY', 'MISSING_DATA_AS_FAILURE', 'TEMPORAL_LEAKAGE', 'WRONG_DENOMINATOR']"
+    },
+    {
+      "check": "risk_scores_reconcile_to_source_records",
+      "result": "PASS",
+      "detail": "mismatched normal assessments=0"
+    },
+    {
+      "check": "outcomes_reconcile_to_source_records",
+      "result": "PASS",
+      "detail": "metric mismatches={}, examples={}, label mismatches=0"
+    },
+    {
+      "check": "five_anomaly_fixtures_present",
+      "result": "PASS",
+      "detail": "fixtures=['INTERVENTION_PRECEDES_TRIGGER', 'LIFECYCLE_INCONSISTENCY', 'MISSING_DATA_AS_FAILURE', 'TEMPORAL_LEAKAGE', 'WRONG_DENOMINATOR']"
+    },
+    {
+      "check": "fixture_temporal_leakage_detectable",
+      "result": "PASS",
+      "detail": "risk_id=RISK-2026-ANOM-000001"
+    },
+    {
+      "check": "fixture_wrong_denominator_detectable",
+      "result": "PASS",
+      "detail": "risk_id=RISK-2026-ANOM-000002"
+    },
+    {
+      "check": "fixture_withdrawn_active_enrollment_detectable",
+      "result": "PASS",
+      "detail": "student_id=STU-2026-000026"
+    },
+    {
+      "check": "fixture_intervention_precedes_trigger_detectable",
+      "result": "PASS",
+      "detail": "intervention_id=INT-2026-ANOM-000001"
+    },
+    {
+      "check": "fixture_missing_data_as_failure_detectable",
+      "result": "PASS",
+      "detail": "risk_id=RISK-2026-ANOM-000003"
+    },
+    {
+      "check": "backend_detects_all_five_anomalies",
+      "result": "PASS",
+      "detail": "detected=['INTERVENTION_PRECEDES_TRIGGER', 'LIFECYCLE_INCONSISTENCY', 'MISSING_DATA_AS_FAILURE', 'TEMPORAL_LEAKAGE', 'WRONG_DENOMINATOR'], missing=[]"
     }
-  ],
-  "total_checks": 9,
-  "passed": 9,
-  "failed": 0,
-  "warnings": 0,
-  "validation_status": "PASS"
+  ]
 }

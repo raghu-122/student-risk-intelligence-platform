@@ -1,4 +1,5 @@
 """API endpoint tests."""
+from datetime import date
 import pytest
 
 
@@ -89,6 +90,133 @@ class TestDashboardAPI:
         assert resp.status_code == 200
         assert isinstance(resp.json(), list)
 
+    def test_dashboard_lists_latest_risk_once_per_student(self, client, auth_headers, db):
+        from app.models.risk_assessment import RiskAssessment
+        from tests.helpers import _make_course, _make_enrollment, _make_student
+
+        sid = "STU-DASH-001"
+        _make_student(db, sid)
+        for index in (1, 2):
+            cid = f"CRS-DASH-{index}"
+            eid = f"ENR-DASH-{index}"
+            _make_course(db, cid)
+            _make_enrollment(db, sid, cid, eid)
+            db.add(RiskAssessment(
+                risk_id=f"RISK-DASH-{index}", student_id=sid, enrollment_id=eid,
+                cutoff_date=date(2026, index, 1), risk_score=70 + index,
+                risk_category="HIGH", factor_scores={}, factor_weights={}, reasons=[],
+                data_completeness=1.0, model_version="v1.0", is_anomaly=False,
+            ))
+        db.commit()
+
+        response = client.get("/api/dashboard/at-risk-students", headers=auth_headers)
+
+        assert response.status_code == 200
+        items = [row for row in response.json() if row["student_id"] == sid]
+        assert len(items) == 1
+        assert items[0]["risk_score"] == 72
+
+    def test_recent_interventions_route(self, client, auth_headers):
+        response = client.get("/api/dashboard/recent-interventions", headers=auth_headers)
+        assert response.status_code == 200
+        assert isinstance(response.json(), list)
+
+
+class TestOutcomeEvaluationAPI:
+    def test_evaluate_outcome_creates_and_reuses_evaluation(self, client, auth_headers, db):
+        from tests.helpers import _make_course, _make_enrollment, _make_student
+
+        sid, cid, eid = "STU-OUTCOME-001", "CRS-OUTCOME-001", "ENR-OUTCOME-001"
+        _make_student(db, sid)
+        _make_course(db, cid)
+        _make_enrollment(db, sid, cid, eid)
+        payload = {
+            "student_id": sid,
+            "enrollment_id": eid,
+            "baseline_cutoff": "2026-07-01",
+            "evaluation_period_start": "2026-07-02",
+            "evaluation_period_end": "2026-12-15",
+        }
+
+        first = client.post("/api/outcomes/evaluate", json=payload, headers=auth_headers)
+        second = client.post("/api/outcomes/evaluate", json=payload, headers=auth_headers)
+
+        assert first.status_code == 201
+        assert second.status_code == 201
+        assert first.json()["outcome_id"] == second.json()["outcome_id"]
+        assert first.json()["outcome_label"] == "STABLE"
+
+    def test_evaluate_outcome_rejects_overlapping_period(self, client, auth_headers):
+        response = client.post(
+            "/api/outcomes/evaluate",
+            json={
+                "student_id": "STU-UNKNOWN",
+                "enrollment_id": "ENR-UNKNOWN",
+                "baseline_cutoff": "2026-07-01",
+                "evaluation_period_start": "2026-07-01",
+                "evaluation_period_end": "2026-12-15",
+            },
+            headers=auth_headers,
+        )
+
+        assert response.status_code == 422
+
+
+class TestLifecycleAPIs:
+    def test_reopening_support_case_clears_closed_date(self, client, auth_headers, db):
+        from datetime import datetime
+        from app.models.support_case import SupportCase
+        from tests.helpers import _make_student
+
+        sid = "STU-CASE-REOPEN"
+        _make_student(db, sid)
+        case = SupportCase(
+            case_id="CASE-REOPEN-001", student_id=sid, case_type="ACADEMIC",
+            description="Reopened case", priority="MEDIUM", case_status="CLOSED",
+            opened_at=datetime(2026, 1, 15), closed_at=datetime(2026, 2, 1),
+        )
+        db.add(case)
+        db.commit()
+
+        response = client.post(
+            f"/api/support-cases/{case.case_id}/transition",
+            json={"to_status": "IN_PROGRESS"},
+            headers=auth_headers,
+        )
+
+        assert response.status_code == 200
+        db.refresh(case)
+        assert case.case_status == "IN_PROGRESS"
+        assert case.closed_at is None
+
+    def test_intervention_completion_sets_lifecycle_dates(self, client, auth_headers, db):
+        from app.models.intervention import Intervention
+        from tests.helpers import _make_course, _make_enrollment, _make_student
+
+        sid, cid, eid = "STU-INT-001", "CRS-INT-001", "ENR-INT-001"
+        _make_student(db, sid)
+        _make_course(db, cid)
+        _make_enrollment(db, sid, cid, eid)
+        intervention = Intervention(
+            intervention_id="INT-API-COMPLETE", student_id=sid, enrollment_id=eid,
+            intervention_type="ACADEMIC_TUTORING", trigger_date=date(2026, 1, 15),
+            intervention_status="IN_PROGRESS",
+        )
+        db.add(intervention)
+        db.commit()
+
+        response = client.post(
+            f"/api/interventions/{intervention.intervention_id}/transition",
+            json={"to_status": "COMPLETED"},
+            headers=auth_headers,
+        )
+
+        assert response.status_code == 200
+        db.refresh(intervention)
+        assert intervention.intervention_status == "COMPLETED"
+        assert intervention.start_date == date(2026, 1, 15)
+        assert intervention.completion_date is not None
+
 
 class TestDataGenerationIDs:
     """Verify ID format correctness from generate_data."""
@@ -124,4 +252,3 @@ class TestDataGenerationIDs:
     def test_outcome_id_format(self):
         from scripts.generate_data import out_id
         assert out_id(1) == "OUT-2026-000001"
-

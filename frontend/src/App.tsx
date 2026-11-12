@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Sidebar from './components/layout/Sidebar';
 import TopNav from './components/layout/TopNav';
-import Login from './pages/Login';
+import Login from './pages/Login/index';
 import Dashboard from './pages/Dashboard';
 import Students from './pages/Students';
 import StudentDetail from './pages/Students/StudentDetail';
@@ -44,6 +44,7 @@ function ProtectedLayout() {
             <Route path="/data-quality" element={<DataQuality />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>

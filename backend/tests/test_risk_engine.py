@@ -2,7 +2,7 @@
 Tests for the Risk Engine — the core business logic component.
 """
 import pytest
-from datetime import date
+from datetime import date, timedelta
 
 
 from tests.helpers import _make_student, _make_course, _make_enrollment, _make_attendance
@@ -34,7 +34,7 @@ class TestAttendanceRisk:
     def test_perfect_attendance_gives_zero_risk(self, db):
         from app.services.risk_engine import _attendance_risk
         eid = "ENR-ATT-PERFECT"
-        dates = [date(2026,1,15+i*7) for i in range(10)]
+        dates = [date(2026, 1, 15) + timedelta(days=7 * i) for i in range(10)]
         _make_attendance(db, eid, [(d, "PRESENT") for d in dates])
         result = _attendance_risk(db, eid, date(2026,7,1))
         assert result["data_available"] is True
@@ -43,7 +43,7 @@ class TestAttendanceRisk:
     def test_zero_attendance_gives_max_risk(self, db):
         from app.services.risk_engine import _attendance_risk
         eid = "ENR-ATT-ZERO"
-        dates = [date(2026,2,1+i*7) for i in range(10)]
+        dates = [date(2026, 2, 1) + timedelta(days=7 * i) for i in range(10)]
         _make_attendance(db, eid, [(d, "ABSENT") for d in dates])
         result = _attendance_risk(db, eid, date(2026,7,1))
         assert result["normalized_score"] == pytest.approx(100.0, abs=0.1)
@@ -56,7 +56,7 @@ class TestAttendanceRisk:
         from app.services.risk_engine import _attendance_risk
         eid = "ENR-ATT-APPROVED"
         # 8 PRESENT + 2 APPROVED_ABSENCE = rate should be 8/8 = 100%, NOT 8/10 = 80%
-        records = [(date(2026,1,15+i*7), "PRESENT") for i in range(8)]
+        records = [(date(2026, 1, 15) + timedelta(days=7 * i), "PRESENT") for i in range(8)]
         records += [(date(2026,9,1+i*7), "APPROVED_ABSENCE") for i in range(2)]
         _make_attendance(db, eid, records)
         result = _attendance_risk(db, eid, date(2026,12,1))

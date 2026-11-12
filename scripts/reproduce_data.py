@@ -1,42 +1,70 @@
 #!/usr/bin/env python3
-"""
-Reproducibility verification: runs generate_data.py twice with the same seed
-and verifies that file checksums are identical.
-"""
-import subprocess, json, sys
+"""Verify fixed-seed generation in isolated temporary directories."""
+import argparse
+import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PYTHON = sys.executable
 
-def run_gen(seed):
+
+def run_generation(scale: str, seed: int, output_dir: Path):
     result = subprocess.run(
-        [PYTHON, str(ROOT / "scripts" / "generate_data.py"), "--scale", "starter", "--seed", str(seed)],
-        capture_output=True, text=True
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "generate_data.py"),
+            "--scale",
+            scale,
+            "--seed",
+            str(seed),
+            "--output-dir",
+            str(output_dir),
+        ],
+        capture_output=True,
+        text=True,
+        cwd=ROOT,
     )
-    if result.returncode != 0:
-        print(result.stderr); sys.exit(1)
-    man_path = ROOT / "data" / "manifests" / "manifest.json"
-    with open(man_path) as f:
-        return json.load(f)
+    if result.returncode:
+        raise RuntimeError(f"Data generation failed:\n{result.stdout}\n{result.stderr}")
+    manifest_path = output_dir / "manifests" / "manifest.json"
+    with open(manifest_path, encoding="utf-8") as source:
+        return json.load(source)
 
-print("Run 1...")
-m1 = run_gen(20261022)
-print("Run 2...")
-m2 = run_gen(20261022)
 
-mismatches = []
-for fname, chk1 in m1["file_checksums"].items():
-    chk2 = m2["file_checksums"].get(fname)
-    if chk1 != chk2:
-        mismatches.append({"file": fname, "run1": chk1, "run2": chk2})
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--scale", choices=["starter", "full"], default="starter")
+    parser.add_argument("--seed", type=int, default=20261022)
+    args = parser.parse_args()
 
-if mismatches:
-    print(f"\n❌ REPRODUCIBILITY FAILED — {len(mismatches)} file(s) differ:")
-    for m in mismatches:
-        print(f"   {m['file']}: {m['run1']} != {m['run2']}")
-    sys.exit(1)
-else:
-    print(f"\n✅ REPRODUCIBILITY VERIFIED — all {len(m1['file_checksums'])} files are identical across both runs")
-    print(f"   Seed: {m1['seed']}, Scale: {m1['scale']}, Files checked: {len(m1['file_checksums'])}")
+    with tempfile.TemporaryDirectory(prefix="student-risk-repro-") as temp:
+        root = Path(temp)
+        first = run_generation(args.scale, args.seed, root / "run-1")
+        second = run_generation(args.scale, args.seed, root / "run-2")
 
+    first_checksums = first["file_checksums"]
+    second_checksums = second["file_checksums"]
+    mismatches = {
+        filename: (first_checksums.get(filename), second_checksums.get(filename))
+        for filename in first_checksums.keys() | second_checksums.keys()
+        if first_checksums.get(filename) != second_checksums.get(filename)
+    }
+    if mismatches or first["entity_counts"] != second["entity_counts"]:
+        print(f"REPRODUCIBILITY FAILED: {len(mismatches)} file checksum mismatch(es)")
+        for filename, (first_hash, second_hash) in sorted(mismatches.items()):
+            print(f"  {filename}: {first_hash} != {second_hash}")
+        if first["entity_counts"] != second["entity_counts"]:
+            print("  Generated entity counts differ between runs")
+        return 1
+
+    print(
+        f"REPRODUCIBILITY VERIFIED: scale={args.scale}, seed={args.seed}, "
+        f"{len(first_checksums)} exported files identical"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

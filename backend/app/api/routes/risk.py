@@ -72,8 +72,11 @@ def calculate_risk(
     """Calculate and persist a risk assessment for a student enrollment."""
     if not db.query(Student).filter(Student.student_id == student_id).first():
         raise HTTPException(404, f"Student {student_id} not found")
-    if not db.query(Enrollment).filter(Enrollment.enrollment_id == enrollment_id).first():
+    enrollment = db.query(Enrollment).filter(Enrollment.enrollment_id == enrollment_id).first()
+    if not enrollment:
         raise HTTPException(404, f"Enrollment {enrollment_id} not found")
+    if enrollment.student_id != student_id:
+        raise HTTPException(422, "Enrollment does not belong to the supplied student")
 
     cutoff = cutoff_date or date.fromisoformat(RISK_CUTOFF_DATE)
     result = calculate_enrollment_risk(db, student_id, enrollment_id, cutoff)
@@ -142,4 +145,3 @@ def get_recommendations(
     return {"student_id": student_id, "risk_assessment_id": latest.risk_id,
             "risk_score": latest.risk_score, "risk_category": latest.risk_category,
             "recommendations": recs}
-

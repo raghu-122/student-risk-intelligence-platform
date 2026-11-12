@@ -40,9 +40,15 @@ class TestAnomalyDetection:
     def test_anomaly2_wrong_denominator_detected(self, db):
         """Anomaly 2: Attendance rate computed with wrong denominator."""
         from datetime import timedelta
+        from app.models.risk_assessment import RiskAssessment
         from app.services.anomaly_engine import detect_wrong_denominator
 
+        sid = "STU-AN2"
+        cid = "CRS-AN2"
         eid = "ENR-AN2"
+        _make_student(db, sid)
+        _make_course(db, cid)
+        _make_enrollment(db, sid, cid, eid)
         base = date(2026, 1, 15)
         # 7 PRESENT + 3 APPROVED_ABSENCE = 10 total
         # Correct rate: 7/7 = 100%; Wrong rate: 7/10 = 70%  → delta = 30pp > 1pp threshold
@@ -50,10 +56,31 @@ class TestAnomalyDetection:
         records += [(date(2026, 9, 1) + timedelta(weeks=i), "APPROVED_ABSENCE") for i in range(3)]
         _make_attendance(db, eid, records)
 
+        db.add(RiskAssessment(
+            risk_id="RISK-AN2-001", student_id=sid, enrollment_id=eid,
+            cutoff_date=date(2026, 12, 31), risk_score=30.0, risk_category="MEDIUM",
+            factor_scores={"attendance": 30.0}, factor_weights={}, reasons=[],
+            data_completeness=1.0, model_version="v0.9-BUGGY", is_anomaly=True,
+        ))
+        db.commit()
+
         result = detect_wrong_denominator(db, eid)
-        assert result is not None, "Wrong denominator should be detected when approved absences present"
+        assert result is not None, "The recorded incorrect attendance factor should be detected"
         assert result["issue_type"] == "WRONG_DENOMINATOR"
         assert "approved absences excluded" in result["expected_behavior"]
+
+    def test_anomaly2_valid_approved_absence_not_flagged(self, db):
+        """Approved absences alone are valid and do not establish a calculation error."""
+        from datetime import timedelta
+        from app.services.anomaly_engine import detect_wrong_denominator
+
+        eid = "ENR-AN2-VALID"
+        base = date(2026, 1, 15)
+        records = [(base + timedelta(weeks=i), "PRESENT") for i in range(7)]
+        records += [(date(2026, 9, 1) + timedelta(weeks=i), "APPROVED_ABSENCE") for i in range(3)]
+        _make_attendance(db, eid, records)
+
+        assert detect_wrong_denominator(db, eid) is None
 
     def test_anomaly3_lifecycle_inconsistency_detected(self, db):
         """Anomaly 3: Withdrawn student has active enrollment."""

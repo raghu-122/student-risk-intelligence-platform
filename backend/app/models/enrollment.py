@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Date, Float, ForeignKey
+from sqlalchemy import Column, String, Date, Float, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 from app.db.database import Base
 from app.models.mixins import TimestampMixin
@@ -6,6 +6,9 @@ from app.models.mixins import TimestampMixin
 
 class Enrollment(Base, TimestampMixin):
     __tablename__ = "enrollments"
+    __table_args__ = (
+        UniqueConstraint("student_id", "course_id", name="uq_enrollment_student_course"),
+    )
 
     enrollment_id = Column(String(80), primary_key=True)    # ENR-{student_id}-{course_id}
     student_id = Column(String(20), ForeignKey("students.student_id"), nullable=False)
@@ -25,4 +28,3 @@ class Enrollment(Base, TimestampMixin):
     interventions = relationship("Intervention", back_populates="enrollment")
     risk_assessments = relationship("RiskAssessment", back_populates="enrollment")
     outcomes = relationship("Outcome", back_populates="enrollment")
-

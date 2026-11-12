@@ -71,54 +71,66 @@ def detect_temporal_leakage(db: Session, risk_id: str) -> Optional[Dict[str, Any
 # ---------------------------------------------------------------------------
 def detect_wrong_denominator(db: Session, enrollment_id: str) -> Optional[Dict[str, Any]]:
     """
-    Correct:  rate = attended / (total - approved_absences)
-    Wrong:    rate = attended / total  (approved absences included in denominator)
-    Detects when the two differ by > 1 percentage point.
+    Compare an explicitly anomalous risk record with the correct source-derived rate.
+    Approved absences alone are valid data and must not be reported as anomalies.
     """
+    risk_rows = db.query(RiskAssessment).filter(
+        RiskAssessment.enrollment_id == enrollment_id,
+        RiskAssessment.is_anomaly.is_(True),
+    ).all()
+    if not risk_rows:
+        return None
+
     evts = db.query(AttendanceEvent).filter(
-        AttendanceEvent.enrollment_id == enrollment_id
+        AttendanceEvent.enrollment_id == enrollment_id,
     ).all()
 
     if len(evts) < 3:
         return None
 
-    total = len(evts)
-    approved = sum(1 for e in evts if e.attendance_status == AttendanceStatus.APPROVED_ABSENCE)
-    attended = sum(
-        1 for e in evts
-        if e.attendance_status in (AttendanceStatus.PRESENT, AttendanceStatus.LATE)
-    )
-    effective = total - approved
+    for risk in risk_rows:
+        cutoff = risk.cutoff_date
+        eligible = [event for event in evts if event.attendance_date <= cutoff]
+        if len(eligible) < 3:
+            continue
+        total = len(eligible)
+        approved = sum(1 for e in eligible if e.attendance_status == AttendanceStatus.APPROVED_ABSENCE)
+        attended = sum(
+            1 for e in eligible
+            if e.attendance_status in (AttendanceStatus.PRESENT, AttendanceStatus.LATE)
+        )
+        effective = total - approved
+        recorded_score = (risk.factor_scores or {}).get("attendance")
+        if effective <= 0 or recorded_score is None:
+            continue
 
-    if effective == 0:
-        return None
-
-    correct_rate = attended / effective
-    wrong_rate = attended / total
-
-    if abs(correct_rate - wrong_rate) > 0.01:
-        return {
-            "issue_type": AnomalyType.WRONG_DENOMINATOR,
-            "affected_entity": "AttendanceEvent",
-            "affected_record_id": enrollment_id,
-            "expected_behavior": (
-                f"Attendance rate = {attended}/{effective} = {correct_rate:.1%} "
-                f"(approved absences excluded from denominator)"
-            ),
-            "observed_behavior": (
-                f"Wrong rate = {attended}/{total} = {wrong_rate:.1%} "
-                f"(approved absences incorrectly included in denominator)"
-            ),
-            "ground_truth_label": "ANOMALY_CONFIRMED",
-            "detection_status": "DETECTED",
-            "explanation": (
-                f"Enrollment {enrollment_id} has {approved} approved-absence session(s). "
-                f"Correct denominator is {effective} (total {total} minus {approved} approved). "
-                f"Wrong calculation overstates absence by {(wrong_rate - correct_rate) * 100:.1f}pp."
-            ),
-            "severity": "HIGH",
-            "is_injected_anomaly": True,
-        }
+        correct_rate = attended / effective
+        wrong_rate = attended / total
+        correct_score = round((1 - correct_rate) * 100, 2)
+        wrong_score = round((1 - wrong_rate) * 100, 2)
+        if abs(correct_score - wrong_score) > 1 and abs(recorded_score - wrong_score) <= 0.05:
+            risk_id = risk.risk_id
+            return {
+                "issue_type": AnomalyType.WRONG_DENOMINATOR,
+                "affected_entity": "RiskAssessment",
+                "affected_record_id": risk_id,
+                "expected_behavior": (
+                    f"Attendance risk should be {correct_score:.2f} using "
+                    f"{attended}/{effective} sessions; approved absences excluded"
+                ),
+                "observed_behavior": (
+                    f"Risk assessment recorded {recorded_score:.2f}, matching the incorrect "
+                    f"{attended}/{total} denominator"
+                ),
+                "ground_truth_label": "ANOMALY_CONFIRMED",
+                "detection_status": "DETECTED",
+                "explanation": (
+                    f"Risk assessment {risk_id} includes {approved} approved absence(s) in its "
+                    f"denominator. The correct denominator is {effective}, not {total}."
+                ),
+                "severity": "HIGH",
+                "is_injected_anomaly": True,
+            }
     return None
 
 
@@ -288,4 +300,3 @@ def run_all_checks(db: Session, injected_ids: Dict[str, str]) -> List[Dict[str, 
             detected.append(result)
 
     return detected
-

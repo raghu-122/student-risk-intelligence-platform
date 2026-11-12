@@ -12,7 +12,7 @@ class GroundTruth(Base):
 
     gt_id = Column(String(60), primary_key=True)
     student_id = Column(String(20), ForeignKey("students.student_id"), nullable=True)
-    risk_id = Column(String(60), ForeignKey("risk_assessments.risk_id"), nullable=True)
+    risk_id = Column(String(60), ForeignKey("risk_assessments.risk_id"), nullable=True, unique=True)
     expected_risk_category = Column(String(20), nullable=True)
     expected_outcome_label = Column(String(20), nullable=True)
     expected_anomaly_detected = Column(Boolean, nullable=True)
@@ -21,4 +21,3 @@ class GroundTruth(Base):
 
     student = relationship("Student", back_populates="ground_truths")
     risk_assessment = relationship("RiskAssessment", back_populates="ground_truth")
-

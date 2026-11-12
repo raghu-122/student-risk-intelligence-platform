@@ -1,10 +1,13 @@
-from sqlalchemy import Column, String, Float, Text, ForeignKey
+from sqlalchemy import Column, String, Float, Text, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 from app.db.database import Base
 
 
 class RiskFactor(Base):
     __tablename__ = "risk_factors"
+    __table_args__ = (
+        UniqueConstraint("risk_id", "factor_name", name="uq_risk_factor_name"),
+    )
 
     factor_id = Column(String(80), primary_key=True)
     risk_id = Column(String(60), ForeignKey("risk_assessments.risk_id"), nullable=False)
@@ -16,4 +19,3 @@ class RiskFactor(Base):
     explanation = Column(Text, nullable=True)
 
     risk_assessment = relationship("RiskAssessment", back_populates="risk_factors")
-

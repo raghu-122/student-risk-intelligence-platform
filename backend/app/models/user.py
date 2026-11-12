@@ -13,7 +13,6 @@ class User(Base, TimestampMixin):
     hashed_password = Column(String(255), nullable=False)
     role = Column(String(50), nullable=False)
     is_active = Column(Boolean, default=True)
-    staff_id = Column(String(20), ForeignKey("staff.staff_id"), nullable=True)
+    staff_id = Column(String(20), ForeignKey("staff.staff_id"), nullable=True, unique=True)
 
     staff = relationship("Staff", back_populates="user")
-

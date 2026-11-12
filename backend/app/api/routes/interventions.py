@@ -1,12 +1,17 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from typing import Optional
+from typing import Literal, Optional
 from datetime import date
 from pydantic import BaseModel
 from app.db.database import get_db
 from app.api.dependencies.auth import get_current_user
 from app.models.intervention import Intervention
 from app.models.intervention_event import InterventionEvent
+from app.models.student import Student
+from app.models.enrollment import Enrollment
+from app.models.support_case import SupportCase
+from app.models.risk_assessment import RiskAssessment
+from app.models.staff import Staff
 import uuid
 
 router = APIRouter(prefix="/interventions", tags=["Interventions"])
@@ -28,7 +33,10 @@ class InterventionCreate(BaseModel):
     enrollment_id: Optional[str] = None
     case_id: Optional[str] = None
     risk_assessment_id: Optional[str] = None
-    intervention_type: str
+    intervention_type: Literal[
+        "ATTENDANCE_COUNSELLING", "ACADEMIC_TUTORING", "INSTRUCTOR_MEETING",
+        "ENGAGEMENT_SUPPORT", "ADVISOR_REVIEW", "WELFARE_ASSESSMENT", "PERSONALIZED_PLAN",
+    ]
     trigger_date: date
     assigned_staff_id: Optional[str] = None
     start_date: Optional[date] = None
@@ -88,11 +96,46 @@ def get_intervention(intervention_id: str, db: Session = Depends(get_db), _=Depe
 def create_intervention(payload: InterventionCreate, db: Session = Depends(get_db), cu=Depends(get_current_user)):
     if payload.start_date and payload.start_date < payload.trigger_date:
         raise HTTPException(400, "start_date cannot precede trigger_date — chronological violation")
+    if payload.due_date and payload.due_date < (payload.start_date or payload.trigger_date):
+        raise HTTPException(400, "due_date cannot precede the intervention start date")
+    student = db.query(Student).filter(Student.student_id == payload.student_id).first()
+    if not student:
+        raise HTTPException(404, f"Student {payload.student_id} not found")
+    if payload.enrollment_id:
+        enrollment = db.query(Enrollment).filter(
+            Enrollment.enrollment_id == payload.enrollment_id
+        ).first()
+        if not enrollment:
+            raise HTTPException(404, f"Enrollment {payload.enrollment_id} not found")
+        if enrollment.student_id != student.student_id:
+            raise HTTPException(422, "Enrollment does not belong to the supplied student")
+    if payload.case_id:
+        case = db.query(SupportCase).filter(SupportCase.case_id == payload.case_id).first()
+        if not case:
+            raise HTTPException(404, f"Support case {payload.case_id} not found")
+        if case.student_id != student.student_id:
+            raise HTTPException(422, "Support case does not belong to the supplied student")
+    if payload.risk_assessment_id:
+        risk = db.query(RiskAssessment).filter(
+            RiskAssessment.risk_id == payload.risk_assessment_id
+        ).first()
+        if not risk:
+            raise HTTPException(404, f"Risk assessment {payload.risk_assessment_id} not found")
+        if risk.student_id != student.student_id:
+            raise HTTPException(422, "Risk assessment does not belong to the supplied student")
+        if payload.enrollment_id and risk.enrollment_id != payload.enrollment_id:
+            raise HTTPException(422, "Risk assessment does not belong to the supplied enrollment")
+    if payload.assigned_staff_id and not db.query(Staff).filter(
+        Staff.staff_id == payload.assigned_staff_id
+    ).first():
+        raise HTTPException(404, f"Staff member {payload.assigned_staff_id} not found")
     if not payload.intervention_id:
         count = db.query(Intervention).count() + 1
         int_id = f"INT-2026-{count:06d}"
     else:
         int_id = payload.intervention_id
+        if db.query(Intervention).filter(Intervention.intervention_id == int_id).first():
+            raise HTTPException(409, f"Intervention {int_id} already exists")
     i = Intervention(
         intervention_id=int_id, **{k: v for k, v in payload.model_dump().items() if k != "intervention_id"},
         intervention_status="RECOMMENDED",
@@ -116,9 +159,18 @@ def transition_intervention(intervention_id: str, payload: StatusUpdate, db: Ses
     if payload.to_status not in allowed:
         raise HTTPException(400, f"Cannot transition from {i.intervention_status} to {payload.to_status}. Allowed: {allowed}")
     old = i.intervention_status
+    if payload.to_status == "COMPLETED":
+        completion_date = payload.completion_date or date.today()
+        start_date = i.start_date or i.trigger_date
+        if completion_date < start_date:
+            raise HTTPException(400, "completion_date cannot precede the intervention start date")
+        i.start_date = start_date
+        i.completion_date = completion_date
+    elif payload.completion_date:
+        raise HTTPException(422, "completion_date is only valid when completing an intervention")
+    elif payload.to_status == "IN_PROGRESS" and not i.start_date:
+        i.start_date = max(date.today(), i.trigger_date)
     i.intervention_status = payload.to_status
-    if payload.completion_date:
-        i.completion_date = payload.completion_date
     if payload.notes:
         i.actual_outcome = payload.notes
     evt = InterventionEvent(
@@ -129,4 +181,3 @@ def transition_intervention(intervention_id: str, payload: StatusUpdate, db: Ses
     )
     db.add(evt); db.commit()
     return {"intervention_id": intervention_id, "from_status": old, "to_status": payload.to_status}
-

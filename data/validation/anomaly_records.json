@@ -1,64 +1,82 @@
 [
   {
-    "risk_id": "RISK-ANOMALY-TEMPORAL-001",
-    "student_id": "STU-2026-000072",
-    "enrollment_id": "ENR-STU-2026-000072-CRS-000014",
-    "assessment_timestamp": "2026-06-15T10:00:00",
-    "cutoff_date": "2026-06-01",
-    "risk_score": 17.88,
-    "risk_category": "LOW",
-    "factor_scores": "{\"attendance\": 21.95, \"academic_performance\": 28.71, \"performance_trend\": null, \"lms_engagement\": 0.0, \"historical_support\": 0}",
-    "factor_weights": "{\"attendance\": 0.3, \"academic_performance\": 0.3, \"performance_trend\": 0.15, \"lms_engagement\": 0.15, \"historical_support\": 0.1}",
-    "reasons": "[\"ANOMALY: Risk score used assessment data after 2026-06-01\"]",
-    "data_completeness": 1.0,
-    "model_version": "v0.9-BUGGY",
-    "is_anomaly": true
+    "anomaly_type": "TEMPORAL_LEAKAGE",
+    "risk_assessment": {
+      "risk_id": "RISK-2026-ANOM-000001",
+      "student_id": "STU-2026-000026",
+      "enrollment_id": "ENR-STU-2026-000026-CRS-000001",
+      "assessment_timestamp": "2026-06-15T10:00:00",
+      "cutoff_date": "2026-06-01",
+      "risk_score": 13.17,
+      "risk_category": "LOW",
+      "factor_scores": "{\"attendance\": 15.22, \"academic_performance\": 17.57, \"performance_trend\": null, \"lms_engagement\": 0.0, \"historical_support\": 0}",
+      "factor_weights": "{\"attendance\": 0.3, \"academic_performance\": 0.3, \"performance_trend\": 0.15, \"lms_engagement\": 0.15, \"historical_support\": 0.1}",
+      "reasons": "[\"Used assessment data dated after the risk cutoff\"]",
+      "data_completeness": 0.8,
+      "model_version": "v0.9-BUGGY",
+      "is_anomaly": true
+    }
   },
   {
     "anomaly_type": "WRONG_DENOMINATOR",
-    "enrollment_id": "ENR-STU-2026-000181-CRS-000024",
-    "wrong_rate": 0.7895,
-    "correct_rate": 0.8242,
-    "note": "Denominator includes approved_absences \u2014 incorrect calculation"
+    "risk_assessment": {
+      "risk_id": "RISK-2026-ANOM-000002",
+      "student_id": "STU-2026-000026",
+      "enrollment_id": "ENR-STU-2026-000026-CRS-000001",
+      "assessment_timestamp": "2026-07-01T10:00:00",
+      "cutoff_date": "2026-07-01",
+      "risk_score": 13.17,
+      "risk_category": "LOW",
+      "factor_scores": "{\"attendance\": 18.75, \"academic_performance\": 17.57, \"performance_trend\": null, \"lms_engagement\": 0.0, \"historical_support\": 0}",
+      "factor_weights": "{\"attendance\": 0.3, \"academic_performance\": 0.3, \"performance_trend\": 0.15, \"lms_engagement\": 0.15, \"historical_support\": 0.1}",
+      "reasons": "[\"Attendance denominator incorrectly included approved absences\"]",
+      "data_completeness": 0.8,
+      "model_version": "v0.9-BUGGY",
+      "is_anomaly": true
+    }
   },
   {
     "anomaly_type": "LIFECYCLE_INCONSISTENCY",
-    "student_id": "STU-2026-000044",
-    "enrollment_id": "ENR-STU-2026-000044-CRS-000001",
+    "student_id": "STU-2026-000026",
+    "enrollment_id": "ENR-STU-2026-000026-CRS-000001",
     "enrollment_status": "ACTIVE",
-    "student_status": "WITHDRAWN",
-    "note": "WITHDRAWN student has ACTIVE enrollment \u2014 lifecycle violation"
+    "student_status": "WITHDRAWN"
   },
   {
-    "intervention_id": "INT-ANOMALY-PRE-001",
-    "student_id": "STU-2026-000095",
-    "enrollment_id": "ENR-STU-2026-000095-CRS-000026",
-    "case_id": "",
-    "risk_assessment_id": "RISK-ENR-STU-2026-000095-CRS-000026-000206",
-    "intervention_type": "ENGAGEMENT_SUPPORT",
-    "trigger_date": "2026-07-10",
-    "assigned_staff_id": "STF-000005",
-    "start_date": "2026-07-01",
-    "due_date": "2026-08-08",
-    "completion_date": "",
-    "intervention_status": "IN_PROGRESS",
-    "expected_outcome": "Improvement in academic performance or attendance",
-    "actual_outcome": "",
-    "note": "start_date < trigger_date \u2014 chronological impossibility"
+    "anomaly_type": "INTERVENTION_PRECEDES_TRIGGER",
+    "intervention": {
+      "intervention_id": "INT-2026-ANOM-000001",
+      "student_id": "STU-2026-000026",
+      "enrollment_id": "ENR-STU-2026-000026-CRS-000001",
+      "case_id": "",
+      "risk_assessment_id": "RISK-ENR-STU-2026-000026-CRS-000001-000001",
+      "intervention_type": "ADVISOR_REVIEW",
+      "trigger_date": "2026-07-01",
+      "assigned_staff_id": "STF-000005",
+      "start_date": "2026-06-22",
+      "due_date": "2026-07-31",
+      "completion_date": "",
+      "intervention_status": "IN_PROGRESS",
+      "expected_outcome": "Chronology anomaly fixture",
+      "actual_outcome": ""
+    }
   },
   {
-    "risk_id": "RISK-ANOMALY-MISSING-001",
-    "student_id": "STU-2026-000181",
-    "enrollment_id": "ENR-STU-2026-000181-CRS-000024",
-    "assessment_timestamp": "2026-07-01T10:00:00",
-    "cutoff_date": "2026-07-01",
-    "risk_score": 13.09,
-    "risk_category": "LOW",
-    "factor_scores": "{\"attendance\": 17.39, \"academic_performance\": 78.0, \"performance_trend\": null, \"lms_engagement\": 0.0, \"historical_support\": 0}",
-    "factor_weights": "{\"attendance\": 0.3, \"academic_performance\": 0.3, \"performance_trend\": 0.15, \"lms_engagement\": 0.15, \"historical_support\": 0.1}",
-    "reasons": "[\"ANOMALY: NULL marks treated as 0 \\u2014 academic_performance inflated\"]",
-    "data_completeness": 1.0,
-    "model_version": "v0.8-BUGGY",
-    "is_anomaly": true
+    "anomaly_type": "MISSING_DATA_AS_FAILURE",
+    "risk_assessment": {
+      "risk_id": "RISK-2026-ANOM-000003",
+      "student_id": "STU-2026-000075",
+      "enrollment_id": "ENR-STU-2026-000075-CRS-000014",
+      "assessment_timestamp": "2026-07-01T10:00:00",
+      "cutoff_date": "2026-07-01",
+      "risk_score": 21.97,
+      "risk_category": "LOW",
+      "factor_scores": "{\"attendance\": 11.11, \"academic_performance\": 78.0, \"performance_trend\": 92.0, \"lms_engagement\": 0.0, \"historical_support\": 15}",
+      "factor_weights": "{\"attendance\": 0.3, \"academic_performance\": 0.3, \"performance_trend\": 0.15, \"lms_engagement\": 0.15, \"historical_support\": 0.1}",
+      "reasons": "[\"Missing assessment result was incorrectly treated as a failed score\"]",
+      "data_completeness": 1.0,
+      "model_version": "v0.8-BUGGY",
+      "is_anomaly": true
+    }
   }
 ]
