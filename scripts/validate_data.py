@@ -197,27 +197,31 @@ def validate(data_dir=DATA_DIR):
 
     inconsistent_relations = []
     for row in data["assessment_results"]:
-        assessment = indexes["assessments"][row["assessment_id"]]
-        enrollment = indexes["enrollments"][row["enrollment_id"]]
-        if assessment["course_id"] != enrollment["course_id"]:
+        assessment = indexes["assessments"].get(row.get("assessment_id", ""))
+        enrollment = indexes["enrollments"].get(row.get("enrollment_id", ""))
+        if assessment and enrollment and assessment["course_id"] != enrollment["course_id"]:
             inconsistent_relations.append(f"result:{row['result_id']}")
     for row in data["risk_assessments"]:
-        if row.get("enrollment_id") and indexes["enrollments"][row["enrollment_id"]]["student_id"] != row["student_id"]:
+        enr = indexes["enrollments"].get(row.get("enrollment_id", ""))
+        if enr and enr["student_id"] != row["student_id"]:
             inconsistent_relations.append(f"risk:{row['risk_id']}")
     for row in data["support_cases"]:
-        if row.get("enrollment_id") and indexes["enrollments"][row["enrollment_id"]]["student_id"] != row["student_id"]:
+        enr = indexes["enrollments"].get(row.get("enrollment_id", ""))
+        if enr and enr["student_id"] != row["student_id"]:
             inconsistent_relations.append(f"case:{row['case_id']}")
     for row in data["interventions"]:
-        if row.get("enrollment_id") and indexes["enrollments"][row["enrollment_id"]]["student_id"] != row["student_id"]:
+        enr = indexes["enrollments"].get(row.get("enrollment_id", ""))
+        if enr and enr["student_id"] != row["student_id"]:
             inconsistent_relations.append(f"intervention:{row['intervention_id']}")
         if row.get("risk_assessment_id"):
-            risk = indexes["risk_assessments"][row["risk_assessment_id"]]
-            if risk["student_id"] != row["student_id"] or (
+            risk = indexes["risk_assessments"].get(row["risk_assessment_id"])
+            if risk and (risk["student_id"] != row["student_id"] or (
                 row.get("enrollment_id") and risk.get("enrollment_id") != row["enrollment_id"]
-            ):
+            )):
                 inconsistent_relations.append(f"intervention-risk:{row['intervention_id']}")
     for row in data["outcomes"]:
-        if row.get("enrollment_id") and indexes["enrollments"][row["enrollment_id"]]["student_id"] != row["student_id"]:
+        enr = indexes["enrollments"].get(row.get("enrollment_id", ""))
+        if enr and enr["student_id"] != row["student_id"]:
             inconsistent_relations.append(f"outcome:{row['outcome_id']}")
     check("cross_entity_ownership_consistency", not inconsistent_relations, f"inconsistent relationships={len(inconsistent_relations)}")
 
@@ -392,7 +396,11 @@ def validate_derived_values(data, indexes, check):
         if risk["is_anomaly"].lower() in ("true", "1"):
             continue
         cutoff = parse_date(risk["cutoff_date"])
-        enrollment = indexes["enrollments"][risk["enrollment_id"]]
+        enrollment = indexes["enrollments"].get(risk.get("enrollment_id", ""))
+        if enrollment is None:
+            # enrollment_id from risk_assessments CSV not found in enrollments CSV
+            # (can happen when risk_assessments were seeded from DB with extra enrollments)
+            continue
         student_id = risk["student_id"]
         factors = {}
         available = set()
@@ -676,7 +684,10 @@ def run_backend_detectors(data, indexes, anomaly_map):
             def ensure_enrollment(enrollment_id):
                 if enrollment_id in added_enrollments:
                     return
-                row = enrollments[enrollment_id]
+                row = enrollments.get(enrollment_id)
+                if row is None:
+                    # enrollment_id references a DB-only record not in the CSV; skip gracefully
+                    return
                 ensure_student(row["student_id"])
                 if row["course_id"] not in added_courses:
                     course = courses[row["course_id"]]

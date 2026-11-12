@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T10:43:11.870617+00:00",
+  "generated_at": "2026-11-12T18:44:45.547644+00:00",
   "scale": "starter",
   "seed": 20261022,
   "row_counts": {
@@ -19,9 +19,9 @@
     "data_quality_issues": 5
   },
   "total_checks": 78,
-  "passed": 78,
-  "failed": 0,
-  "validation_status": "PASS",
+  "passed": 64,
+  "failed": 14,
+  "validation_status": "FAIL",
   "checks": [
     {
       "check": "required_csv_exports_present",
@@ -30,13 +30,13 @@
     },
     {
       "check": "requested_scale_volumes",
-      "result": "PASS",
-      "detail": "scale=starter, volumes={'students': 500, 'courses': 50, 'enrollments': 2000}"
+      "result": "FAIL",
+      "detail": "scale=starter, volumes={'students': 5000, 'courses': 200, 'enrollments': 20000}"
     },
     {
       "check": "json_exports_match_csv",
-      "result": "PASS",
-      "detail": "mismatched or missing=[]"
+      "result": "FAIL",
+      "detail": "mismatched or missing=['staff.csv', 'students.csv', 'courses.csv', 'enrollments.csv', 'assessments.csv', 'attendance_events.csv', 'assessment_results.csv', 'lms_activities.csv', 'support_cases.csv']"
     },
     {
       "check": "sql_seed_export_complete",
@@ -45,53 +45,53 @@
     },
     {
       "check": "manifest_export_checksums",
-      "result": "PASS",
-      "detail": "mismatches=[]"
+      "result": "FAIL",
+      "detail": "mismatches=['csv/assessment_results.csv', 'csv/assessments.csv', 'csv/attendance_events.csv', 'csv/courses.csv', 'csv/enrollments.csv', 'csv/lms_activities.csv', 'csv/staff.csv', 'csv/students.csv', 'csv/support_cases.csv']"
     },
     {
       "check": "staff_primary_key",
       "result": "PASS",
-      "detail": "rows=10, unique=10, empty=0"
+      "detail": "rows=20, unique=20, empty=0"
     },
     {
       "check": "students_primary_key",
       "result": "PASS",
-      "detail": "rows=500, unique=500, empty=0"
+      "detail": "rows=5000, unique=5000, empty=0"
     },
     {
       "check": "courses_primary_key",
       "result": "PASS",
-      "detail": "rows=50, unique=50, empty=0"
+      "detail": "rows=200, unique=200, empty=0"
     },
     {
       "check": "enrollments_primary_key",
       "result": "PASS",
-      "detail": "rows=2000, unique=2000, empty=0"
+      "detail": "rows=20000, unique=20000, empty=0"
     },
     {
       "check": "assessments_primary_key",
       "result": "PASS",
-      "detail": "rows=219, unique=219, empty=0"
+      "detail": "rows=904, unique=904, empty=0"
     },
     {
       "check": "attendance_events_primary_key",
       "result": "PASS",
-      "detail": "rows=175489, unique=175489, empty=0"
+      "detail": "rows=1734471, unique=1734471, empty=0"
     },
     {
       "check": "assessment_results_primary_key",
       "result": "PASS",
-      "detail": "rows=8169, unique=8169, empty=0"
+      "detail": "rows=82556, unique=82556, empty=0"
     },
     {
       "check": "lms_activities_primary_key",
       "result": "PASS",
-      "detail": "rows=262178, unique=262178, empty=0"
+      "detail": "rows=2525888, unique=2525888, empty=0"
     },
     {
       "check": "support_cases_primary_key",
       "result": "PASS",
-      "detail": "rows=75, unique=75, empty=0"
+      "detail": "rows=722, unique=722, empty=0"
     },
     {
       "check": "risk_assessments_primary_key",
@@ -116,12 +116,12 @@
     {
       "check": "enrollment_pair_unique",
       "result": "PASS",
-      "detail": "pairs=2000"
+      "detail": "pairs=20000"
     },
     {
       "check": "assessment_enrollment_result_unique",
       "result": "PASS",
-      "detail": "pairs=8169"
+      "detail": "pairs=82556"
     },
     {
       "check": "ground_truth_risk_one_to_one",
@@ -190,8 +190,8 @@
     },
     {
       "check": "risk_enrollment_fk",
-      "result": "PASS",
-      "detail": "invalid references=0"
+      "result": "FAIL",
+      "detail": "invalid references=1724"
     },
     {
       "check": "intervention_student_fk",
@@ -200,8 +200,8 @@
     },
     {
       "check": "intervention_enrollment_fk",
-      "result": "PASS",
-      "detail": "invalid references=0"
+      "result": "FAIL",
+      "detail": "invalid references=41"
     },
     {
       "check": "intervention_risk_fk",
@@ -220,8 +220,8 @@
     },
     {
       "check": "outcome_enrollment_fk",
-      "result": "PASS",
-      "detail": "invalid references=0"
+      "result": "FAIL",
+      "detail": "invalid references=567"
     },
     {
       "check": "outcome_intervention_fk",
@@ -305,8 +305,8 @@
     },
     {
       "check": "student_lifecycle_representation",
-      "result": "PASS",
-      "detail": "invalid active lifecycle rows=0, transferred students/enrollments=14/52, graduated/completed=7/24"
+      "result": "FAIL",
+      "detail": "invalid active lifecycle rows=1, transferred students/enrollments=174/766, graduated/completed=113/464"
     },
     {
       "check": "student_and_enrollment_date_order",
@@ -336,7 +336,7 @@
     {
       "check": "assessment_weightages_sum_to_one",
       "result": "PASS",
-      "detail": "courses=50, invalid=0"
+      "detail": "courses=200, invalid=0"
     },
     {
       "check": "lms_activity_within_enrollment",
@@ -370,13 +370,13 @@
     },
     {
       "check": "risk_scores_reconcile_to_source_records",
-      "result": "PASS",
-      "detail": "mismatched normal assessments=0"
+      "result": "FAIL",
+      "detail": "mismatched normal assessments=32"
     },
     {
       "check": "outcomes_reconcile_to_source_records",
-      "result": "PASS",
-      "detail": "metric mismatches={}, examples={}, label mismatches=0"
+      "result": "FAIL",
+      "detail": "metric mismatches={'attendance_change': 585, 'academic_performance_change': 557, 'engagement_change': 581}, examples={'attendance_change': [{'outcome_id': 'OUT-2026-000001', 'stored': '8.59', 'recomputed': None}, {'outcome_id': 'OUT-2026-000002', 'stored': '13.81', 'recomputed': None}, {'outcome_id': 'OUT-2026-000003', 'stored': '4.92', 'recomputed': None}], 'academic_performance_change': [{'outcome_id': 'OUT-2026-000001', 'stored': '14.48', 'recomputed': None}, {'outcome_id': 'OUT-2026-000002', 'stored': '-18.07', 'recomputed': None}, {'outcome_id': 'OUT-2026-000003', 'stored': '12.77', 'recomputed': None}], 'engagement_change': [{'outcome_id': 'OUT-2026-000001', 'stored': '11.02', 'recomputed': 0.0}, {'outcome_id': 'OUT-2026-000002', 'stored': '5.52', 'recomputed': 0.0}, {'outcome_id': 'OUT-2026-000003', 'stored': '1.39', 'recomputed': 0.0}]}, label mismatches=333"
     },
     {
       "check": "five_anomaly_fixtures_present",
@@ -385,17 +385,17 @@
     },
     {
       "check": "fixture_temporal_leakage_detectable",
-      "result": "PASS",
+      "result": "FAIL",
       "detail": "risk_id=RISK-2026-ANOM-000001"
     },
     {
       "check": "fixture_wrong_denominator_detectable",
-      "result": "PASS",
+      "result": "FAIL",
       "detail": "risk_id=RISK-2026-ANOM-000002"
     },
     {
       "check": "fixture_withdrawn_active_enrollment_detectable",
-      "result": "PASS",
+      "result": "FAIL",
       "detail": "student_id=STU-2026-000026"
     },
     {
@@ -405,13 +405,13 @@
     },
     {
       "check": "fixture_missing_data_as_failure_detectable",
-      "result": "PASS",
+      "result": "FAIL",
       "detail": "risk_id=RISK-2026-ANOM-000003"
     },
     {
       "check": "backend_detects_all_five_anomalies",
-      "result": "PASS",
-      "detail": "detected=['INTERVENTION_PRECEDES_TRIGGER', 'LIFECYCLE_INCONSISTENCY', 'MISSING_DATA_AS_FAILURE', 'TEMPORAL_LEAKAGE', 'WRONG_DENOMINATOR'], missing=[]"
+      "result": "FAIL",
+      "detail": "detected=['INTERVENTION_PRECEDES_TRIGGER'], missing=['LIFECYCLE_INCONSISTENCY', 'MISSING_DATA_AS_FAILURE', 'TEMPORAL_LEAKAGE', 'WRONG_DENOMINATOR']"
     }
   ]
 }

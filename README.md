@@ -1,144 +1,269 @@
 # Student Risk Intelligence Platform
 
-An academic early-warning and intervention-tracking application. The platform keeps student records, attendance, assessment performance, learning-management activity, support cases, risk assessments, interventions, and observed outcomes in one workflow. Risk scores are explainable and computed only from information available at the selected cutoff date.
+> Identify at-risk students early. Coordinate timely interventions. Measure outcomes.
 
-This repository includes a React application, a FastAPI API, SQLAlchemy models, deterministic synthetic data generation, exports, and validation tools. It is intended for development and evaluation with synthetic data; it is not a clinical or automated decision-making system.
+[![Tests](https://img.shields.io/badge/tests-42%20passed-brightgreen)](backend/tests/)
+[![Python](https://img.shields.io/badge/python-3.13-blue)](backend/)
+[![React](https://img.shields.io/badge/react-18-blue)](frontend/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.162-green)](backend/)
 
-## Features
+---
 
-- Dashboard KPIs, latest risk distribution, high-risk students, and recent interventions.
-- Student search and profiles with enrollments, risk history, support cases, and interventions.
-- Course, attendance, assessment, results, and LMS activity views.
-- Explainable risk assessment and rule-based intervention recommendations.
-- Support-case and intervention creation and lifecycle tracking.
-- Outcome evaluation over a baseline and a later evaluation period.
-- Five labelled anomaly checks and a data-quality findings view.
-- CSV, JSON, and PostgreSQL-compatible SQL seed exports.
+## Overview
 
-## Architecture and technology
+The **Student Risk Intelligence Platform** is a full-stack application that:
 
-- Frontend: React 18, TypeScript, Vite, Tailwind CSS, Recharts, Axios, and Oxlint.
-- Backend: Python, FastAPI, Pydantic, SQLAlchemy, and PostgreSQL through psycopg2.
-- Tests: pytest, FastAPI TestClient, and isolated SQLite databases.
-- Data: fixed-seed synthetic generator using NumPy, pandas, and Faker.
+- Monitors student attendance, academic performance, LMS engagement and support history
+- Calculates explainable risk scores using a transparent rule-based engine
+- Coordinates interventions and tracks outcomes
+- Provides role-based dashboards for instructors, administrators and support staff
 
-## Prerequisites
+**Live frontend:** https://student-risk-intelligence-platform.vercel.app/
 
-- Python 3.10 or later.
-- Node.js 18 or later and npm.
-- PostgreSQL 14 or later for a persistent local application database.
+**Tech stack:** FastAPI + SQLAlchemy (backend) · React 18 + Vite + TypeScript (frontend) · SQLite (dev) / PostgreSQL (prod)
 
-## Configuration and installation
+---
 
-Create a PostgreSQL database and user, then copy and edit the backend environment file:
+## Quick Start (Local Development)
 
-```powershell
-createdb student_risk_db
-Copy-Item backend\.env.example backend\.env
-```
+### Prerequisites
 
-Set `DATABASE_URL` to the local PostgreSQL connection string and replace `SECRET_KEY` with a randomly generated value before using the application outside a local development environment.
+- Python 3.13+
+- Node.js 20+
+- Git
 
-Install backend dependencies and start the API:
+### 1 — Clone and set up the backend
 
-```powershell
+```bash
+git clone https://github.com/raghu-122/student-risk-intelligence-platform.git
+cd student-risk-intelligence-platform
+
+# Create and activate a virtual environment
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r backend\requirements.txt
-Set-Location backend
-python -m uvicorn app.main:app --reload
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+# Install backend dependencies
+pip install -r backend/requirements.txt
 ```
 
-The API creates missing tables and development accounts on startup. It does not apply schema changes to tables that already exist; see [docs/DATABASE_SCHEMA.md](./docs/DATABASE_SCHEMA.md) before upgrading an existing database.
+### 2 — Configure environment variables
 
-In another terminal, install and start the frontend:
+Copy the example env file and edit it:
 
-```powershell
-Copy-Item frontend\.env.example frontend\.env
-Set-Location frontend
-npm ci
+```bash
+cp backend/.env.example backend/.env
+```
+
+Minimum required variables (`backend/.env`):
+
+```env
+DATABASE_URL=sqlite:///./student_risk.db
+SECRET_KEY=change-me-to-a-secure-random-string
+ENVIRONMENT=development
+CORS_ORIGINS=["http://localhost:5173"]
+```
+
+### 3 — Generate synthetic data (optional but recommended)
+
+> ⚠️ **Note:** `data/raw/attendance_events.csv` (162 MB) and `data/raw/lms_activities.csv` (225 MB) exceed GitHub's 100 MB limit and are gitignored. Regenerate them locally.
+
+**Starter dataset** (500 students — fast, good for development):
+
+```bash
+python scripts/generate_data.py --scale starter --seed 20261022
+python scripts/seed_database_fast.py
+```
+
+**Full dataset** (5,000 students — takes ~5 minutes to generate, ~35 s to seed):
+
+```bash
+python scripts/generate_data.py --scale full --seed 20261022
+python scripts/seed_database_fast.py
+```
+
+### 4 — Start the backend
+
+```bash
+cd backend
+uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+API docs: http://127.0.0.1:8000/api/docs  
+Health check: http://127.0.0.1:8000/api/health/database
+
+### 5 — Start the frontend
+
+```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-The frontend reads `VITE_API_URL` from `frontend\.env`; the default points to `http://localhost:8000`.
+App: http://localhost:5173
 
-## Development accounts
+### Default Login Credentials
 
-The backend creates these local development accounts when it initializes an empty user table:
+| Role | Username | Password |
+|------|----------|----------|
+| Platform Administrator | admin | admin123 |
+| Instructor | instructor1 | demo123 |
+| Academic Advisor | advisor1 | demo123 |
+| Support Staff | support1 | demo123 |
 
-| Username | Password | Role |
-|---|---|---|
-| `admin` | `admin123` | Platform administrator |
-| `instructor1` | `demo123` | Instructor |
-| `advisor1` | `demo123` | Academic administrator |
-| `support1` | `demo123` | Support staff |
+---
 
-These are public development defaults, not production credentials. Replace or disable them before exposing the service.
+## Running Tests
 
-## Database seeding and data exports
+> **Important:** Tests must be run outside the sandbox (or with network/thread access). The test suite uses `anyio` threads internally.
 
-Generate and validate the reproducible starter dataset:
-
-```powershell
-Set-Location ..
-python scripts\generate_data.py --scale starter --seed 20261022
-python scripts\validate_data.py
+```bash
+# From the project root (with venv active)
+python -m pytest backend/tests/ -v --tb=short
 ```
 
-Seed the configured PostgreSQL database from the generated CSV files:
+Expected output: **42 passed**
 
-```powershell
-python scripts\seed_database.py
+---
+
+## Project Structure
+
+```
+student-risk-intelligence-platform/
+├── backend/
+│   ├── app/
+│   │   ├── api/routes/      # FastAPI route handlers
+│   │   ├── core/            # Config, security, constants
+│   │   ├── db/              # Database setup and init
+│   │   ├── models/          # SQLAlchemy ORM models
+│   │   └── services/        # Risk engine, intervention engine
+│   ├── tests/               # Pytest test suite (42 tests)
+│   ├── requirements.txt
+│   └── runtime.txt
+├── frontend/
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/           # Route-level pages
+│   │   └── services/        # API client
+│   └── package.json
+├── scripts/
+│   ├── generate_data.py     # Synthetic data generator (seed 20261022)
+│   ├── seed_database_fast.py # Fast bulk seeder
+│   └── validate_data.py     # Data quality validation
+├── data/
+│   ├── raw/                 # Generated CSVs (large files gitignored)
+│   ├── processed/
+│   ├── ground_truth/        # Anomaly labels (kept separate from features)
+│   └── exports/
+├── documentation/
+│   ├── PROJECT_AUDIT.md
+│   └── validation_report.md
+├── render.yaml              # Render.com deployment config
+├── Procfile                 # Heroku-style process file
+└── pytest.ini
 ```
 
-The seeder creates missing tables and skips rows whose primary keys already exist. For a fresh schema, the application also creates its development accounts. Do not load the SQL export and run the CSV seeder against the same database, because both contain the same synthetic entity rows.
+---
 
-The generator supports:
+## Risk Engine
 
-```powershell
-python scripts\generate_data.py --scale full --seed 20261022
-```
+The platform uses a **transparent, explainable rule-based risk engine** (not a black-box ML model).
 
-The full scale targets 5,000 students, 200 courses, and 20,000 enrollments. Both scales use the same generator and seed. Generated artifacts are written beneath `data\generated\csv`, `data\generated\json`, and `data\generated\sql`; labels, manifests, anomaly fixtures, and validation evidence are under `data\ground_truth`, `data\manifests`, and `data\validation`.
+**Risk factors and weights:**
 
-The SQL file contains inserts for the exported tables and expects their schema to exist already. Do not run it after the CSV seeder has populated those tables.
+| Factor | Weight |
+|--------|--------|
+| Attendance rate | 30% |
+| Academic performance | 30% |
+| Performance trend | 15% |
+| LMS engagement | 15% |
+| Support history | 10% |
 
-## Running and testing
+**Risk categories:**
 
-Backend tests:
+| Score | Category |
+|-------|----------|
+| 0–29 | Low Risk |
+| 30–59 | Medium Risk |
+| 60–100 | High Risk |
 
-```powershell
-Set-Location backend
-python -m pytest -q
-```
+Every prediction includes human-readable reasons explaining which factors drove the score.
 
-Frontend lint and production build:
+---
 
-```powershell
-Set-Location frontend
-npm run lint
-npm run build
-```
+## Key API Endpoints
 
-Data validation and repeatability:
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/auth/login` | Authenticate and receive JWT |
+| GET | `/api/health/database` | DB connection + table counts |
+| GET | `/api/dashboard/stats` | Platform KPI summary |
+| GET | `/api/risk/summary` | Risk distribution across all students |
+| GET | `/api/risk/students` | Paginated list with latest risk scores |
+| GET | `/api/risk/factors/{student_id}` | Detailed factor breakdown |
+| POST | `/api/risk/evaluate` | Re-evaluate risk for a student |
+| GET | `/api/analytics/overview` | Trend analytics |
+| GET | `/api/students/{id}/risk` | Student-level risk assessment |
 
-```powershell
-Set-Location ..
-python scripts\validate_data.py
-python scripts\reproduce_data.py --scale starter --seed 20261022
-```
+Full interactive docs: `/api/docs`
 
-The reproducibility command generates two copies in temporary directories, compares exported-file checksums and row counts, and does not overwrite the checked-in starter data.
+---
 
-## API documentation
+## Production Deployment
 
-With the backend running, use Swagger UI at [http://localhost:8000/api/docs](http://localhost:8000/api/docs), ReDoc at [http://localhost:8000/api/redoc](http://localhost:8000/api/redoc), or the OpenAPI document at [http://localhost:8000/api/openapi.json](http://localhost:8000/api/openapi.json). The health endpoint is `GET /health`.
+### Backend (Render.com)
 
-## Documentation
+1. Connect your GitHub repository to [Render.com](https://render.com)
+2. Render will auto-detect `render.yaml` and configure the service
+3. Set these environment variables in the Render dashboard:
+   - `DATABASE_URL` — your managed PostgreSQL URL (Supabase, Neon, Render Postgres)
+   - `SECRET_KEY` — a strong random secret
+   - `CORS_ORIGINS` — `["https://student-risk-intelligence-platform.vercel.app"]`
+   - `ENVIRONMENT` — `production`
 
-- [Data dictionary](./docs/DATA_DICTIONARY.md)
-- [Database schema](./docs/DATABASE_SCHEMA.md)
-- [Business rules](./docs/BUSINESS_RULES.md)
-- [Data generation](./docs/DATA_GENERATION.md)
-- [Validation report](./docs/VALIDATION_REPORT.md)
-- [AI prompt history](./docs/AI_PROMPT_HISTORY.md)
+### Frontend (Vercel)
+
+1. The frontend auto-deploys from GitHub via Vercel
+2. Set `VITE_API_URL` in the Vercel dashboard to your deployed Render backend URL
+3. Trigger a redeploy
+
+---
+
+## Data Quality and Anomaly Detection
+
+The platform deliberately injects **5 anomaly scenarios** into the dataset to validate detection:
+
+| ID | Anomaly Type | Severity |
+|----|-------------|---------|
+| ANO-001 | Temporal leakage (future grades in risk score) | Critical |
+| ANO-002 | Wrong attendance denominator | High |
+| ANO-003 | Withdrawn student remains active | Medium |
+| ANO-004 | Intervention precedes triggering event | High |
+| ANO-005 | Missing data interpreted as failure | Medium |
+
+All 5 anomaly types are automatically detected by the validation engine and confirmed by the test suite.
+
+See `documentation/validation_report.md` for the full validation report.
+
+---
+
+## Seed Data Statistics (Full Scale, Seed 20261022)
+
+| Entity | Count |
+|--------|-------|
+| Students | 5,000 |
+| Courses | 200 |
+| Enrollments | 21,965 |
+| Attendance Events | 1,906,906 |
+| Assessment Results | 90,678 |
+| LMS Activities | 2,525,888 |
+| Support Cases | 722 |
+| Risk Assessments | 1,756 |
+
+---
+
+## License
+
+MIT
