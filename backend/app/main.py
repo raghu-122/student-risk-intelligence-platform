@@ -19,19 +19,27 @@ async def lifespan(app: FastAPI):
     """ASGI lifespan: create tables, seed default users, and populate seed data if empty.
     Skips seeding in test environments to keep test suite fast.
     """
+    import logging
     import app.db.database as _db
+    _log = logging.getLogger(__name__)
     create_tables()
+    _log.info(f"[STARTUP] Environment: {settings.ENVIRONMENT}")
     if settings.ENVIRONMENT != "test":
         db = _db.SessionLocal()
         try:
             seed_default_users(db)
             from app.models.student import Student
-            if db.query(Student).count() == 0:
+            student_count = db.query(Student).count()
+            _log.info(f"[STARTUP] Student count in DB: {student_count}")
+            if student_count == 0:
+                _log.info("[STARTUP] No students found — running database seeder...")
                 from app.db.seeder import seed_database
-                seed_database(engine=_db.engine)
+                counts = seed_database(engine=_db.engine)
+                _log.info(f"[STARTUP] Seeding complete: {counts}")
+            else:
+                _log.info(f"[STARTUP] Database already seeded with {student_count} students — skipping.")
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).warning(f"Startup data check/seed notice: {e}")
+            _log.warning(f"[STARTUP] Data check/seed notice: {e}", exc_info=True)
         finally:
             db.close()
     yield  # app runs here
@@ -43,7 +51,7 @@ app = FastAPI(
         "Student Risk Intelligence & Intervention Management System. "
         "Three-tier architecture: React frontend → FastAPI backend → PostgreSQL/SQLite."
     ),
-    version="1.0.0",
+    version="1.0.1",
     docs_url="/api/docs",
     redoc_url="/api/redoc",
     openapi_url="/api/openapi.json",
@@ -65,7 +73,7 @@ def health_check():
     return {
         "status": "healthy",
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "version": "1.0.0",
+        "version": "1.0.1",
     }
 
 
